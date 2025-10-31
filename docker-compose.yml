@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  web:
+    build: .
+    container_name: golf-score-tracker
+    ports:
+      - "5000:5000"
+    volumes:
+      # Mount instance directory for database persistence
+      - ./instance:/app/instance
+      # Mount code for development (optional - comment out in production)
+      - .:/app
+    environment:
+      - FLASK_ENV=development
+      - FLASK_DEBUG=1
+    restart: unless-stopped
+
+# Optional: Add a separate database service for production
+# Uncomment below to use PostgreSQL instead of SQLite
+#
+#   db:
+#     image: postgres:13
+#     container_name: golf-db
+#     environment:
+#       - POSTGRES_USER=golfapp
+#       - POSTGRES_PASSWORD=securepassword
+#       - POSTGRES_DB=golf_db
+#     volumes:
+#       - postgres_data:/var/lib/postgresql/data
+#     ports:
+#       - "5432:5432"
+#
+# volumes:
+#   postgres_data:

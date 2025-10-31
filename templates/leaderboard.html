@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+{% block title %}Leaderboard - Golf Score Tracker{% endblock %}
+
+{% block content %}
+<div class="leaderboard-page">
+    <h1>{{ title }}</h1>
+
+    <div class="filter-section">
+        <label>View leaderboard for:</label>
+        <a href="{{ url_for('leaderboard') }}" class="filter-btn {% if not selected_course %}active{% endif %}">
+            Overall Handicap
+        </a>
+        {% for course in courses %}
+            <a href="{{ url_for('leaderboard', course_id=course.id) }}"
+               class="filter-btn {% if selected_course and selected_course.id == course.id %}active{% endif %}">
+                {{ course.name }}
+            </a>
+        {% endfor %}
+    </div>
+
+    {% if leaderboard %}
+        <table class="leaderboard-table">
+            <thead>
+                <tr>
+                    <th>Rank</th>
+                    <th>Player</th>
+                    {% if selected_course %}
+                        <th>Best Score</th>
+                        <th>Rounds</th>
+                    {% else %}
+                        <th>Handicap Index</th>
+                        <th>Avg Score</th>
+                        <th>Rounds</th>
+                    {% endif %}
+                </tr>
+            </thead>
+            <tbody>
+                {% for entry in leaderboard %}
+                <tr>
+                    <td class="rank-cell">{{ loop.index }}</td>
+                    <td class="player-cell">
+                        <strong>{{ entry.full_name or entry.username }}</strong>
+                        <span class="username-small">@{{ entry.username }}</span>
+                    </td>
+                    {% if selected_course %}
+                        <td class="score-cell">{{ entry.best_score }}</td>
+                        <td>{{ entry.rounds_played }}</td>
+                    {% else %}
+                        <td class="handicap-cell">{{ entry.handicap_index }}</td>
+                        <td>{{ entry.average_score }}</td>
+                        <td>{{ entry.rounds_played }}</td>
+                    {% endif %}
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <div class="no-data">
+            <p>No scores available for this leaderboard yet.</p>
+        </div>
+    {% endif %}
+</div>
+{% endblock %}

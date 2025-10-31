@@ -1,0 +1,18 @@
+# Golf Score Tracker Application Dependencies
+
+# Core framework
+Flask==2.3.3
+Flask-SQLAlchemy==3.0.5
+
+# Database
+SQLAlchemy==2.0.20
+
+# WSGI server for production
+gunicorn==21.2.0
+
+# Security (to be enhanced in Assignment 3)
+# bcrypt==4.0.1  # Uncomment when implementing password improvements
+# cryptography==41.0.3  # Uncomment when implementing data encryption
+
+# Development tools (optional)
+python-dotenv==1.0.0

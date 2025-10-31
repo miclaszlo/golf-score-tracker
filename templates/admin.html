@@ -1,0 +1,132 @@
+{% extends "base.html" %}
+
+{% block title %}Admin Panel - Golf Score Tracker{% endblock %}
+
+{% block content %}
+<div class="admin-panel">
+    <h1>Admin Panel</h1>
+
+    <!-- Statistics -->
+    <div class="admin-stats">
+        <div class="stat-card">
+            <h3>{{ stats.total_users }}</h3>
+            <p>Total Users</p>
+        </div>
+        <div class="stat-card">
+            <h3>{{ stats.total_courses }}</h3>
+            <p>Golf Courses</p>
+        </div>
+        <div class="stat-card">
+            <h3>{{ stats.total_rounds }}</h3>
+            <p>Rounds Played</p>
+        </div>
+        <div class="stat-card">
+            <h3>{{ stats.active_users }}</h3>
+            <p>Active Users</p>
+        </div>
+    </div>
+
+    <!-- Users Section -->
+    <div class="admin-section">
+        <h2>Users</h2>
+        <table class="admin-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Username</th>
+                    <th>Full Name</th>
+                    <th>Email</th>
+                    <th>Role</th>
+                    <th>Status</th>
+                    <th>Rounds</th>
+                    <th>Registered</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for user in users %}
+                <tr>
+                    <td>{{ user.id }}</td>
+                    <td>{{ user.username }}</td>
+                    <td>{{ user.full_name or '-' }}</td>
+                    <!-- SECURITY GAP: Email exposure -->
+                    <td>{{ user.email }}</td>
+                    <td><span class="role-badge role-{{ user.role }}">{{ user.role }}</span></td>
+                    <td>
+                        {% if user.is_active %}
+                            <span class="status-active">Active</span>
+                        {% else %}
+                            <span class="status-inactive">Inactive</span>
+                        {% endif %}
+                    </td>
+                    <td>{{ user.rounds|length }}</td>
+                    <td>{{ user.created_at.strftime('%Y-%m-%d') }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Courses Section -->
+    <div class="admin-section">
+        <h2>Golf Courses</h2>
+        <table class="admin-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Location</th>
+                    <th>Holes</th>
+                    <th>Par</th>
+                    <th>Rating</th>
+                    <th>Slope</th>
+                    <th>Rounds</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for course in courses %}
+                <tr>
+                    <td>{{ course.id }}</td>
+                    <td>{{ course.name }}</td>
+                    <td>{{ course.location or '-' }}</td>
+                    <td>{{ course.num_holes }}</td>
+                    <td>{{ course.par }}</td>
+                    <td>{{ course.course_rating }}</td>
+                    <td>{{ course.slope_rating }}</td>
+                    <td>{{ course.rounds|length }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Audit Logs Section -->
+    <div class="admin-section">
+        <h2>Recent Audit Logs</h2>
+        <table class="admin-table">
+            <thead>
+                <tr>
+                    <th>Timestamp</th>
+                    <th>User ID</th>
+                    <th>Action</th>
+                    <th>Resource</th>
+                    <th>IP Address</th>
+                    <th>Details</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for log in logs %}
+                <tr>
+                    <td>{{ log.timestamp.strftime('%Y-%m-%d %H:%M:%S') }}</td>
+                    <td>{{ log.user_id if log.user_id else 'N/A' }}</td>
+                    <td><span class="action-badge">{{ log.action }}</span></td>
+                    <td>{{ log.resource if log.resource else '-' }}</td>
+                    <!-- SECURITY GAP: IP logging without privacy -->
+                    <td>{{ log.ip_address if log.ip_address else '-' }}</td>
+                    <td class="details-cell">{{ log.details[:50] if log.details else '-' }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

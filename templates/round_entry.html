@@ -1,0 +1,154 @@
+{% extends "base.html" %}
+
+{% block title %}Enter Round - Golf Score Tracker{% endblock %}
+
+{% block content %}
+<div class="round-entry-page">
+    <h1>Enter Round Scores</h1>
+
+    {% if courses %}
+        <!-- SECURITY GAP: No CSRF protection -->
+        <form method="POST" action="{{ url_for('new_round') }}" id="roundForm">
+            <div class="form-section">
+                <h3>Round Information</h3>
+
+                <div class="form-group">
+                    <label for="course_id">Select Course *</label>
+                    <select id="course_id" name="course_id" required onchange="loadCourseHoles()">
+                        <option value="">-- Select a course --</option>
+                        {% for course in courses %}
+                            <option value="{{ course.id }}"
+                                    data-holes="{{ course.holes|tojson }}"
+                                    data-par="{{ course.par }}">
+                                {{ course.name }} (Par {{ course.par }})
+                            </option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="date_played">Date Played *</label>
+                    <input type="date" id="date_played" name="date_played" value="{{ today }}" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="notes">Notes (Optional)</label>
+                    <textarea id="notes" name="notes" rows="3" placeholder="Weather conditions, course notes, etc."></textarea>
+                </div>
+            </div>
+
+            <div class="form-section" id="scoresSection" style="display: none;">
+                <h3>Hole-by-Hole Scores</h3>
+                <p class="subtitle">Enter your score for each hole</p>
+
+                <div id="holesScorecard">
+                    <!-- Holes will be loaded dynamically -->
+                </div>
+
+                <div class="score-summary">
+                    <h4>Total: <span id="totalScore">0</span></h4>
+                    <p>Par: <span id="coursePar">0</span> | Score to Par: <span id="scoreToPar">E</span></p>
+                </div>
+            </div>
+
+            <div class="form-actions" id="submitActions" style="display: none;">
+                <button type="submit" class="btn btn-primary">Submit Round</button>
+                <a href="{{ url_for('dashboard') }}" class="btn btn-secondary">Cancel</a>
+            </div>
+        </form>
+    {% else %}
+        <div class="no-data">
+            <p>No golf courses available. Please contact an administrator to add courses.</p>
+            <a href="{{ url_for('dashboard') }}" class="btn btn-secondary">Back to Dashboard</a>
+        </div>
+    {% endif %}
+</div>
+
+<script>
+let currentCourseHoles = [];
+
+function loadCourseHoles() {
+    const select = document.getElementById('course_id');
+    const selectedOption = select.options[select.selectedIndex];
+
+    if (!selectedOption.value) {
+        document.getElementById('scoresSection').style.display = 'none';
+        document.getElementById('submitActions').style.display = 'none';
+        return;
+    }
+
+    const holesData = JSON.parse(selectedOption.getAttribute('data-holes'));
+    const coursePar = parseInt(selectedOption.getAttribute('data-par'));
+
+    currentCourseHoles = holesData;
+    document.getElementById('coursePar').textContent = coursePar;
+
+    const container = document.getElementById('holesScorecard');
+    container.innerHTML = '';
+
+    // Create scorecard grid
+    holesData.forEach(hole => {
+        const holeDiv = document.createElement('div');
+        holeDiv.className = 'score-input-row';
+        holeDiv.innerHTML = `
+            <div class="hole-info">
+                <span class="hole-number">Hole ${hole.hole_number}</span>
+                <span class="hole-par">Par ${hole.par}</span>
+            </div>
+            <div class="score-input">
+                <input type="number"
+                       name="hole_${hole.hole_number}_score"
+                       id="score_${hole.hole_number}"
+                       placeholder="Score"
+                       min="1"
+                       max="20"
+                       required
+                       onchange="calculateTotal()">
+            </div>
+        `;
+        container.appendChild(holeDiv);
+    });
+
+    document.getElementById('scoresSection').style.display = 'block';
+    document.getElementById('submitActions').style.display = 'flex';
+}
+
+function calculateTotal() {
+    let total = 0;
+    let allFilled = true;
+
+    currentCourseHoles.forEach(hole => {
+        const input = document.getElementById(`score_${hole.hole_number}`);
+        if (input && input.value) {
+            total += parseInt(input.value);
+        } else {
+            allFilled = false;
+        }
+    });
+
+    document.getElementById('totalScore').textContent = total;
+
+    if (allFilled) {
+        const coursePar = parseInt(document.getElementById('coursePar').textContent);
+        const diff = total - coursePar;
+        let scoreToPar;
+
+        if (diff === 0) {
+            scoreToPar = 'E';
+        } else if (diff > 0) {
+            scoreToPar = '+' + diff;
+        } else {
+            scoreToPar = diff;
+        }
+
+        document.getElementById('scoreToPar').textContent = scoreToPar;
+    }
+}
+
+// Set today's date as default
+document.addEventListener('DOMContentLoaded', function() {
+    const today = new Date().toISOString().split('T')[0];
+    document.getElementById('date_played').value = today;
+});
+</script>
+{% endblock %}

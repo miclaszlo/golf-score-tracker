@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block title %}Golf Courses{% endblock %}
+
+{% block content %}
+<div class="courses-page">
+    <div class="page-header">
+        <h1>Golf Courses</h1>
+        {% if session.get('role') == 'admin' %}
+            <a href="{{ url_for('add_course') }}" class="btn btn-primary">+ Add New Course</a>
+        {% endif %}
+    </div>
+
+    {% if courses %}
+        <div class="courses-grid">
+            {% for course in courses %}
+                <div class="course-card">
+                    <h3>{{ course.name }}</h3>
+                    <p class="course-location">{{ course.location or 'Location not specified' }}</p>
+
+                    <div class="course-details">
+                        <div class="detail-item">
+                            <span class="label">Holes:</span>
+                            <span class="value">{{ course.num_holes }}</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="label">Par:</span>
+                            <span class="value">{{ course.par }}</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="label">Rating:</span>
+                            <span class="value">{{ course.course_rating }}</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="label">Slope:</span>
+                            <span class="value">{{ course.slope_rating }}</span>
+                        </div>
+                    </div>
+
+                    <div class="course-actions">
+                        <a href="{{ url_for('leaderboard', course_id=course.id) }}" class="btn btn-secondary">View Leaderboard</a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <div class="no-data">
+            <p>No golf courses available yet.</p>
+            {% if session.get('role') == 'admin' %}
+                <a href="{{ url_for('add_course') }}" class="btn btn-primary">Add the first course</a>
+            {% endif %}
+        </div>
+    {% endif %}
+</div>
+{% endblock %}

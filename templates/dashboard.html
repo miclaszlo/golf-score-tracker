@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard - Golf Score Tracker{% endblock %}
+
+{% block content %}
+<div class="dashboard">
+    <h1>Dashboard</h1>
+    <p class="welcome-message">Welcome, {{ user.full_name or user.username }}!</p>
+
+    <div class="stats-grid">
+        <div class="stat-card">
+            <h3>{{ stats.total_rounds }}</h3>
+            <p>Rounds Played</p>
+        </div>
+        <div class="stat-card">
+            <h3>{% if stats.handicap_index %}{{ stats.handicap_index }}{% else %}N/A{% endif %}</h3>
+            <p>Handicap Index</p>
+        </div>
+        <div class="stat-card">
+            <h3>{% if stats.average_score %}{{ stats.average_score }}{% else %}N/A{% endif %}</h3>
+            <p>Average Score</p>
+        </div>
+        <div class="stat-card">
+            <h3>{% if stats.best_score %}{{ stats.best_score }}{% else %}N/A{% endif %}</h3>
+            <p>Best Score</p>
+        </div>
+    </div>
+
+    <div class="recent-activity">
+        <div class="section-header">
+            <h2>Recent Rounds</h2>
+            <a href="{{ url_for('new_round') }}" class="btn btn-primary">Enter New Round</a>
+        </div>
+
+        {% if recent_rounds %}
+            <table class="rounds-table">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Course</th>
+                        <th>Score</th>
+                        <th>Differential</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for round in recent_rounds %}
+                    <tr>
+                        <td>{{ round.date_played.strftime('%Y-%m-%d') }}</td>
+                        <td>{{ round.course.name }}</td>
+                        <td class="score-cell">{{ round.total_score }}</td>
+                        <td>{% if round.differential %}{{ round.differential|round(1) }}{% else %}N/A{% endif %}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <a href="{{ url_for('scores') }}" class="btn btn-secondary">View All Scores</a>
+        {% else %}
+            <p class="no-data">No rounds recorded yet. <a href="{{ url_for('new_round') }}">Enter your first round!</a></p>
+        {% endif %}
+    </div>
+
+    {% if stats.handicap_index is none and stats.total_rounds > 0 %}
+        <div class="info-box">
+            <h3>Track Your Progress</h3>
+            <p>You need at least 5 rounds to calculate your handicap index. You have {{ stats.total_rounds }} round(s).</p>
+            <p>Keep playing and entering scores to see your handicap!</p>
+        </div>
+    {% endif %}
+</div>
+{% endblock %}
