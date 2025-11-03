@@ -18,7 +18,7 @@
                         <option value="">-- Select a course --</option>
                         {% for course in courses %}
                             <option value="{{ course.id }}"
-                                    data-holes="{{ course.holes|tojson }}"
+                                    data-holes='{{ course.holes|tojson }}'
                                     data-par="{{ course.par }}">
                                 {{ course.name }} (Par {{ course.par }})
                             </option>
@@ -71,14 +71,23 @@ function loadCourseHoles() {
     const select = document.getElementById('course_id');
     const selectedOption = select.options[select.selectedIndex];
 
+    console.log('loadCourseHoles called');
+    console.log('Selected option value:', selectedOption.value);
+
     if (!selectedOption.value) {
         document.getElementById('scoresSection').style.display = 'none';
         document.getElementById('submitActions').style.display = 'none';
         return;
     }
 
-    const holesData = JSON.parse(selectedOption.getAttribute('data-holes'));
+    const holesDataString = selectedOption.getAttribute('data-holes');
+    console.log('Holes data string:', holesDataString);
+
+    const holesData = JSON.parse(holesDataString);
+    console.log('Parsed holes data:', holesData);
+
     const coursePar = parseInt(selectedOption.getAttribute('data-par'));
+    console.log('Course par:', coursePar);
 
     currentCourseHoles = holesData;
     document.getElementById('coursePar').textContent = coursePar;

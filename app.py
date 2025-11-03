@@ -216,8 +216,27 @@ def add_course():
 def new_round():
     """Enter a new round of golf"""
     if request.method == 'GET':
-        courses_list = Course.query.all()
-        return render_template('round_entry.html', courses=courses_list)
+        courses = Course.query.all()
+        # Convert courses and holes to dictionaries for JSON serialization
+        courses_data = []
+        for course in courses:
+            course_dict = {
+                'id': course.id,
+                'name': course.name,
+                'par': course.par,
+                'holes': [
+                    {
+                        'id': hole.id,
+                        'hole_number': hole.hole_number,
+                        'par': hole.par,
+                        'handicap': hole.handicap,
+                        'yardage': hole.yardage
+                    }
+                    for hole in sorted(course.holes, key=lambda h: h.hole_number)
+                ]
+            }
+            courses_data.append(course_dict)
+        return render_template('round_entry.html', courses=courses_data)
 
     # POST: Process the round entry
     user = get_current_user()

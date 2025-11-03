@@ -9,7 +9,8 @@ class Config:
     SECRET_KEY = 'golf-dev-secret-key-change-in-production'
 
     # Database configuration
-    SQLALCHEMY_DATABASE_URI = 'sqlite:///instance/golf.db'
+    # Use absolute path for database to avoid path resolution issues
+    SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(os.path.abspath(os.path.dirname(__file__)), 'instance', 'golf.db')
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
     # Session configuration (SECURITY GAP: insecure defaults)
@@ -21,7 +22,7 @@ class Config:
     # Application settings
     DEBUG = True  # SECURITY GAP: Debug mode in production
     HOST = '0.0.0.0'
-    PORT = 5000
+    PORT = 5001  # Changed from 5000 (commonly used by macOS AirPlay Receiver)
 
     # Handicap calculation settings
     MIN_ROUNDS_FOR_HANDICAP = 5

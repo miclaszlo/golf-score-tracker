@@ -1,0 +1,92 @@
+name: Trivy Security Scan
+
+on:
+  push:
+    branches: [ main, assignment1 ]
+  pull_request:
+    branches: [ main ]
+  schedule:
+    # Run daily at 3 AM UTC to catch newly disclosed vulnerabilities
+    - cron: '0 3 * * *'
+  workflow_dispatch:  # Allow manual trigger
+
+jobs:
+  trivy-scan:
+    name: Trivy Container Security Scan
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      security-events: write  # Required for uploading to Security tab
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build Docker image
+        run: |
+          docker build -t golf-score-tracker:${{ github.sha }} .
+          docker images
+
+      - name: Run Trivy vulnerability scanner
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'golf-score-tracker:${{ github.sha }}'
+          format: 'sarif'
+          output: 'trivy-results.sarif'
+          severity: 'CRITICAL,HIGH,MEDIUM'
+          scanners: 'vuln,secret,config'
+
+      - name: Upload Trivy results to GitHub Security tab
+        uses: github/codeql-action/upload-sarif@v3
+        if: always()
+        with:
+          sarif_file: 'trivy-results.sarif'
+
+      - name: Run Trivy scan (detailed table output)
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'golf-score-tracker:${{ github.sha }}'
+          format: 'table'
+          severity: 'CRITICAL,HIGH,MEDIUM'
+
+      - name: Run Trivy scan (JSON report)
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'golf-score-tracker:${{ github.sha }}'
+          format: 'json'
+          output: 'trivy-report.json'
+          severity: 'CRITICAL,HIGH,MEDIUM,LOW'
+        continue-on-error: true
+
+      - name: Upload Trivy JSON report
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: trivy-security-report-${{ github.sha }}
+          path: trivy-report.json
+          retention-days: 90
+
+      - name: Run Trivy scan (fail on critical vulnerabilities)
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'golf-score-tracker:${{ github.sha }}'
+          format: 'table'
+          exit-code: '1'
+          severity: 'CRITICAL'
+          ignore-unfixed: true
+
+      - name: Generate summary
+        if: always()
+        run: |
+          echo "## Trivy Security Scan Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Image:** golf-score-tracker:${{ github.sha }}" >> $GITHUB_STEP_SUMMARY
+          echo "**Scan Date:** $(date -u +"%Y-%m-%d %H:%M:%S UTC")" >> $GITHUB_STEP_SUMMARY
+          echo "**Branch:** ${{ github.ref_name }}" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "Full results available in:" >> $GITHUB_STEP_SUMMARY
+          echo "- Security tab (SARIF format)" >> $GITHUB_STEP_SUMMARY
+          echo "- Artifacts (JSON report)" >> $GITHUB_STEP_SUMMARY

@@ -84,7 +84,7 @@ python init_db.py
 python app.py
 ```
 
-6. Access the application at `http://localhost:5000`
+6. Access the application at `http://localhost:5001`
 
 ### Option 2: Docker Deployment
 
@@ -93,7 +93,7 @@ python app.py
 docker-compose up --build
 ```
 
-2. Access the application at `http://localhost:5000`
+2. Access the application at `http://localhost:5001`
 
 ## Default Accounts
 
