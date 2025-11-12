@@ -5,7 +5,7 @@ services:
     build: .
     container_name: golf-score-tracker
     ports:
-      - "5000:5000"
+      - "5001:5001"
     volumes:
       # Mount instance directory for database persistence
       - ./instance:/app/instance

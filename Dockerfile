@@ -27,7 +27,7 @@ COPY . .
 RUN mkdir -p instance
 
 # Expose port
-EXPOSE 5000
+EXPOSE 5001
 
 # Initialize database and run application
 CMD ["sh", "-c", "python init_db.py && python app.py"]
