@@ -1,0 +1,106 @@
+digraph DefacementDoS {
+    rankdir=TB;
+    node [shape=box, style=rounded, fontname="Arial", fontsize=10];
+
+    root [label="ROOT:\nDisrupt Service and\nDeface Website\n\nImpact: HIGH\nThreat Actor: TA-06 (Vandal/Hacktivist)",
+          style="rounded,filled", fillcolor="#FF6B6B", fontcolor=white, fontsize=12, penwidth=3];
+
+    or_main [label="OR", shape=diamond, style=filled, fillcolor="#FFD93D"];
+
+    path1 [label="Path 1:\nWebsite Defacement",
+           style="rounded,filled", fillcolor="#FFA500", fontsize=11];
+
+    path2 [label="Path 2:\nApplication-Layer DoS",
+           style="rounded,filled", fillcolor="#FFA500", fontsize=11];
+
+    path3 [label="Path 3:\nDatabase Destruction",
+           style="rounded,filled", fillcolor="#FFA500", fontsize=11];
+
+    // Path 1 - Defacement
+    and_p1 [label="AND", shape=diamond, style=filled, fillcolor="#FFA500"];
+
+    leaf1_1 [label="LEAF: Gain Admin Access\n(See Tree 1)\n---\nRequired for template access\nFeasibility: MEDIUM\nComplexity: MEDIUM",
+             style="rounded,filled", fillcolor="#90EE90", penwidth=3, color="#FFA500"];
+
+    leaf1_2 [label="LEAF: Access Base Template\n(templates/base.html)\n---\nFeasibility: HIGH\nComplexity: LOW\nDetection: HIGH",
+             style="rounded,filled,dashed", fillcolor="#90EE90", penwidth=2, color="#FF0000"];
+
+    leaf1_3 [label="LEAF: Inject Defacement\nContent + Malicious JS\n---\nExample: Redirect to attacker site\nFeasibility: HIGH\nComplexity: LOW\nDetection: IMMEDIATE",
+             style="rounded,filled,dashed", fillcolor="#90EE90", penwidth=2, color="#FF0000"];
+
+    leaf1_4 [label="LEAF: Screenshot and\nPublicize on Social Media\n---\nPurpose: Maximize visibility\nFeasibility: HIGH\nDetection: NONE",
+             style="rounded,filled", fillcolor="#90EE90", penwidth=2, color="#FF0000"];
+
+    // Path 2 - DoS
+    and_p2 [label="AND", shape=diamond, style=filled, fillcolor="#FFA500"];
+
+    sg2_1 [label="Identify Resource-\nIntensive Endpoints", style=rounded, fillcolor="#FFFACD"];
+    sg2_2 [label="Automate High-\nVolume Requests", style=rounded, fillcolor="#FFFACD"];
+
+    leaf2_1 [label="LEAF: Target Score\nSubmission (POST /round/new)\n---\nVuln: No rate limiting\nFeasibility: HIGH\nComplexity: LOW",
+             style="rounded,filled", fillcolor="#90EE90", penwidth=2, color="#FF0000"];
+
+    leaf2_2 [label="LEAF: Target Login Endpoint\n(Password Hashing Cost)\n---\nVuln: app.py:86-116\nFeasibility: HIGH\nComplexity: LOW",
+             style="rounded,filled", fillcolor="#90EE90", penwidth=2, color="#FF0000"];
+
+    leaf2_3 [label="LEAF: Write DoS Script\n(100-1000 req/sec)\n---\nTool: Python + asyncio\nFeasibility: HIGH\nComplexity: LOW\nCost: FREE\nDetection: HIGH",
+             style="rounded,filled,dashed", fillcolor="#90EE90", penwidth=2, color="#FF0000"];
+
+    leaf2_4 [label="LEAF: Exhaust Server\nResources (CPU/Memory)\n---\nSymptom: 500 errors, timeouts\nFeasibility: MEDIUM\nDetection: IMMEDIATE",
+             style="rounded,filled,dashed", fillcolor="#90EE90", penwidth=3, color="#FFA500"];
+
+    leaf2_5 [label="LEAF: Launch During\nMajor Tournament\n---\nTiming: Maximum impact\nFeasibility: HIGH\nDetection: IMMEDIATE",
+             style="rounded,filled,dashed", fillcolor="#90EE90", penwidth=2, color="#FF0000"];
+
+    // Path 3 - Database Destruction
+    and_p3 [label="AND", shape=diamond, style=filled, fillcolor="#FFA500"];
+
+    leaf3_1 [label="LEAF: Gain Admin or\nSQL Injection Access\n---\nFeasibility: MEDIUM\nComplexity: MEDIUM",
+             style="rounded,filled", fillcolor="#90EE90", penwidth=3, color="#FFA500"];
+
+    or_p3 [label="OR", shape=diamond, style=filled, fillcolor="#FFD93D", fontsize=9];
+
+    leaf3_2 [label="LEAF: Execute DROP TABLE\nCommands\n---\nSQL: DROP TABLE users; rounds;\nImpact: Complete data loss\nFeasibility: MEDIUM\nDetection: IMMEDIATE",
+             style="rounded,filled,dashed", fillcolor="#90EE90", penwidth=3, color="#FFA500"];
+
+    leaf3_3 [label="LEAF: Corrupt Data Instead\n(UPDATE passwords='hacked')\n---\nImpact: All users locked out\nRecovery: More difficult\nFeasibility: HIGH\nDetection: DELAYED",
+             style="rounded,filled", fillcolor="#90EE90", penwidth=2, color="#FF0000"];
+
+    // Impact
+    impact [label="Service Disruption Impact", style=rounded, fillcolor="#FFCCCC"];
+
+    leaf_impact [label="OUTCOME: Service Outage\nfor Days/Weeks\n---\nRecovery: Restore from backups\nReputational: User trust lost\nFinancial: Tournament revenue lost\nMedia: Negative coverage",
+                 style="rounded,filled", fillcolor="#CC0000", fontcolor=white, penwidth=3];
+
+    // Edges
+    root -> or_main;
+    or_main -> path1;
+    or_main -> path2;
+    or_main -> path3;
+
+    path1 -> and_p1;
+    and_p1 -> leaf1_1;
+    and_p1 -> leaf1_2;
+    and_p1 -> leaf1_3;
+    and_p1 -> leaf1_4;
+
+    path2 -> and_p2;
+    and_p2 -> sg2_1;
+    and_p2 -> sg2_2;
+    sg2_1 -> leaf2_1;
+    sg2_1 -> leaf2_2;
+    sg2_2 -> leaf2_3;
+    sg2_2 -> leaf2_4;
+    and_p2 -> leaf2_5;
+
+    path3 -> and_p3;
+    and_p3 -> leaf3_1;
+    and_p3 -> or_p3;
+    or_p3 -> leaf3_2;
+    or_p3 -> leaf3_3;
+
+    path1 -> impact [style=dashed, color="#CC0000"];
+    path2 -> impact [style=dashed, color="#CC0000"];
+    path3 -> impact [style=dashed, color="#CC0000"];
+    impact -> leaf_impact;
+}

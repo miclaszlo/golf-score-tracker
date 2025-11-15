@@ -1,0 +1,109 @@
+digraph InsiderFraud {
+    rankdir=TB;
+    node [shape=box, style=rounded, fontname="Arial", fontsize=10];
+
+    root [label="ROOT:\nOperate Handicap Manipulation\nFraud Service\n\nImpact: CRITICAL\nThreat Actor: TA-03 (Malicious Admin)",
+          style="rounded,filled", fillcolor="#CC0000", fontcolor=white, fontsize=12, penwidth=4];
+
+    and_main [label="AND\n(All Components Required)", shape=diamond, style=filled, fillcolor="#FFA500", fontsize=10];
+
+    // Four main components
+    comp1 [label="Component 1:\nObtain/Maintain\nAdmin Access",
+           style="rounded,filled", fillcolor="#FFA500", fontsize=11, penwidth=2];
+
+    comp2 [label="Component 2:\nRecruit Paying\nClients",
+           style="rounded,filled", fillcolor="#FFA500", fontsize=11, penwidth=2];
+
+    comp3 [label="Component 3:\nExecute Handicap\nManipulations",
+           style="rounded,filled", fillcolor="#FFA500", fontsize=11, penwidth=2];
+
+    comp4 [label="Component 4:\nCover Tracks and\nAvoid Detection",
+           style="rounded,filled", fillcolor="#FFA500", fontsize=11, penwidth=2];
+
+    // Component 1 leaves
+    or_c1 [label="OR", shape=diamond, style=filled, fillcolor="#FFD93D", fontsize=9];
+
+    leaf1_1 [label="LEAF: Legitimate Admin\nAccount (Rogue Insider)\n---\nFeasibility: MEDIUM\nDetection: HIGH",
+             style="rounded,filled", fillcolor="#90EE90", penwidth=3, color="#FFA500"];
+
+    leaf1_2 [label="LEAF: Compromise Admin\nAccount (See Tree 1)\n---\nFeasibility: MEDIUM\nComplexity: MEDIUM",
+             style="rounded,filled", fillcolor="#90EE90", penwidth=3, color="#FFA500"];
+
+    leaf1_3 [label="LEAF: Create Hidden\nBackdoor Account\n---\nFeasibility: HIGH\nComplexity: LOW\nDetection: MEDIUM",
+             style="rounded,filled", fillcolor="#90EE90", penwidth=2, color="#FF0000"];
+
+    // Component 2 leaves
+    leaf2_1 [label="LEAF: Identify High-Stakes\nTournament Players\n---\nFeasibility: MEDIUM\nComplexity: LOW",
+             style="rounded,filled", fillcolor="#90EE90", penwidth=3, color="#FFA500"];
+
+    leaf2_2 [label="LEAF: Establish Pricing\n($500-$2000 per manipulation)\n---\nPayment: Cash/Crypto\nFeasibility: HIGH",
+             style="rounded,filled", fillcolor="#90EE90", penwidth=2, color="#FF0000"];
+
+    // Component 3 leaves
+    and_c3 [label="AND", shape=diamond, style=filled, fillcolor="#FFA500", fontsize=9];
+
+    leaf3_1 [label="LEAF: Direct Database\nModification (UPDATE rounds)\n---\nAccess: instance/golf.db\nFeasibility: HIGH\nComplexity: LOW\nDetection: MEDIUM",
+             style="rounded,filled", fillcolor="#90EE90", penwidth=2, color="#FF0000"];
+
+    leaf3_2 [label="LEAF: Modify Individual\nHole Scores (Realistic)\n---\nFeasibility: HIGH\nComplexity: LOW\nDetection: LOW",
+             style="rounded,filled", fillcolor="#90EE90", penwidth=2, color="#FF0000"];
+
+    leaf3_3 [label="LEAF: Spread Changes\nOver Time (2-3 months)\n---\nStrategy: Gradual inflation\nFeasibility: HIGH\nDetection: LOW",
+             style="rounded,filled", fillcolor="#90EE90", penwidth=2, color="#FF0000"];
+
+    // Component 4 leaves
+    and_c4 [label="AND", shape=diamond, style=filled, fillcolor="#FFA500", fontsize=9];
+
+    leaf4_1 [label="LEAF: Delete/Modify\nAudit Log Entries\n---\nVuln: Modifiable logs\nFeasibility: HIGH\nComplexity: LOW\nDetection: HIGH (if external monitor)",
+             style="rounded,filled,dashed", fillcolor="#90EE90", penwidth=2, color="#FF0000"];
+
+    leaf4_2 [label="LEAF: Manipulate\nTimestamps (Backdate)\n---\nFeasibility: HIGH\nComplexity: LOW\nDetection: MEDIUM",
+             style="rounded,filled", fillcolor="#90EE90", penwidth=2, color="#FF0000"];
+
+    leaf4_3 [label="LEAF: Use Backdoor Account\nfor Operations\n---\nBenefit: Primary admin stays clean\nFeasibility: HIGH\nDetection: MEDIUM",
+             style="rounded,filled", fillcolor="#90EE90", penwidth=2, color="#FF0000"];
+
+    // Outcomes
+    outcome [label="Fraud Operation Outcomes", style=rounded, fillcolor="#FFCCCC"];
+
+    leaf_out1 [label="OUTCOME: Financial Gain\n$5K-$100K over months\n---\nRisk: Money laundering investigation",
+               style="rounded,filled", fillcolor="#CC0000", fontcolor=white, penwidth=3];
+
+    leaf_out2 [label="OUTCOME: System Integrity\nDestruction\n---\nHandicap system loses credibility\nForensics extremely difficult",
+               style="rounded,filled", fillcolor="#CC0000", fontcolor=white, penwidth=3];
+
+    // Edges
+    root -> and_main;
+    and_main -> comp1;
+    and_main -> comp2;
+    and_main -> comp3;
+    and_main -> comp4;
+
+    comp1 -> or_c1;
+    or_c1 -> leaf1_1;
+    or_c1 -> leaf1_2;
+    or_c1 -> leaf1_3;
+
+    comp2 -> leaf2_1;
+    comp2 -> leaf2_2;
+
+    comp3 -> and_c3;
+    and_c3 -> leaf3_1;
+    and_c3 -> leaf3_2;
+    and_c3 -> leaf3_3;
+
+    comp4 -> and_c4;
+    and_c4 -> leaf4_1;
+    and_c4 -> leaf4_2;
+    and_c4 -> leaf4_3;
+
+    and_main -> outcome [style=dashed, label="if all succeed", color="#CC0000"];
+    outcome -> leaf_out1;
+    outcome -> leaf_out2;
+
+    // Risk warning
+    risk_note [label="CRITICAL RISK:\nNo Segregation of Duties\nNo Multi-Party Approval\nModifiable Audit Logs\n(Highest Impact Scenario)",
+               shape=note, style=filled, fillcolor="#FFCCCC", fontcolor="#CC0000", fontsize=9];
+
+    root -> risk_note [style=dotted, color="#CC0000", dir=none];
+}

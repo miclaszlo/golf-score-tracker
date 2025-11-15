@@ -1,0 +1,122 @@
+digraph HandicapInflation {
+    rankdir=TB;
+    node [shape=box, style=rounded, fontname="Arial", fontsize=10];
+    edge [fontname="Arial", fontsize=8];
+
+    // Root
+    root [label="ROOT:\nArtificially Inflate Handicap Index\n\nImpact: HIGH\nThreat Actor: TA-02\nBusiness Function: CRITICAL",
+          shape=box, style="rounded,filled", fillcolor="#FF6B6B", fontcolor=white, fontsize=12, penwidth=3];
+
+    // Main OR gate
+    or_main [label="OR", shape=diamond, style=filled, fillcolor="#FFD93D"];
+
+    // Three main paths
+    path1 [label="Path 1:\nDirect Score Manipulation\n(HTTP Interception)",
+           shape=box, style="rounded,filled", fillcolor="#FFA500", fontsize=11, penwidth=2];
+
+    path2 [label="Path 2:\nSelective Round Reporting\n(Only Report Bad Scores)",
+           shape=box, style="rounded,filled", fillcolor="#FFA500", fontsize=11, penwidth=2];
+
+    path3 [label="Path 3:\nCourse Rating Manipulation\n(Requires Admin Access)",
+           shape=box, style="rounded,filled", fillcolor="#FFA500", fontsize=11, penwidth=2];
+
+    // Path 1 detailed breakdown
+    and_p1 [label="AND", shape=diamond, style=filled, fillcolor="#FFA500", fontsize=9];
+
+    sg1_1 [label="Subgoal 1.1:\nIntercept Score Submission", shape=box, style=rounded, fillcolor="#FFFACD"];
+    sg1_2 [label="Subgoal 1.2:\nModify Score Data", shape=box, style=rounded, fillcolor="#FFFACD"];
+    sg1_3 [label="Subgoal 1.3:\nRepeat for Multiple Rounds", shape=box, style=rounded, fillcolor="#FFFACD"];
+
+    // Subgoal 1.1 leaves
+    leaf1_1_1 [label="LEAF: Setup HTTP\nInterception Proxy\n---\nTool: Burp Suite\nFeasibility: HIGH\nComplexity: LOW\nCost: FREE\nDetection: LOW",
+               shape=box, style="rounded,filled", fillcolor="#90EE90", penwidth=2, color="#FF0000"];
+
+    leaf1_1_2 [label="LEAF: Submit Legitimate\nRound via Form\n---\nFeasibility: HIGH\nComplexity: LOW\nCost: FREE\nDetection: NONE",
+               shape=box, style="rounded,filled", fillcolor="#90EE90", penwidth=1, color="#00FF00"];
+
+    leaf1_1_3 [label="LEAF: Capture POST Request\nin Proxy\n---\nVuln: No crypto verification\nFeasibility: HIGH\nComplexity: LOW\nCost: FREE\nDetection: NONE",
+               shape=box, style="rounded,filled", fillcolor="#90EE90", penwidth=2, color="#FF0000"];
+
+    // Subgoal 1.2 leaves
+    leaf1_2_1 [label="LEAF: Inflate Individual\nHole Scores (+2 strokes)\n---\nVuln: models.py:95-96\nFeasibility: HIGH\nComplexity: LOW\nCost: FREE\nDetection: LOW",
+               shape=box, style="rounded,filled", fillcolor="#90EE90", penwidth=2, color="#FF0000"];
+
+    leaf1_2_2 [label="LEAF: Recalculate\nTotal Score\n---\nVuln: app.py:264\nFeasibility: HIGH\nComplexity: LOW\nCost: FREE\nDetection: LOW",
+               shape=box, style="rounded,filled", fillcolor="#90EE90", penwidth=2, color="#FF0000"];
+
+    leaf1_2_3 [label="LEAF: Forward Modified\nRequest to Server\n---\nFeasibility: HIGH\nComplexity: LOW\nCost: FREE\nDetection: LOW",
+               shape=box, style="rounded,filled", fillcolor="#90EE90", penwidth=2, color="#FF0000"];
+
+    // Subgoal 1.3 leaf
+    leaf1_3_1 [label="LEAF: Submit 8-10 Inflated\nRounds Over Weeks\n---\nStrategy: Realism\nImpact: +10-15 strokes\nFeasibility: HIGH\nComplexity: LOW\nCost: Time Only\nDetection: LOW-MEDIUM",
+               shape=box, style="rounded,filled", fillcolor="#90EE90", penwidth=2, color="#FF0000"];
+
+    // Path 2 leaf
+    leaf2_1 [label="LEAF: Only Report\nPoorly Played Rounds\n---\nAssumption: No verification\nFeasibility: HIGH\nComplexity: LOW\nCost: FREE\nDetection: LOW-MEDIUM",
+             shape=box, style="rounded,filled", fillcolor="#90EE90", penwidth=2, color="#FF0000"];
+
+    leaf2_2 [label="LEAF: Delete Good Rounds\n(if feature exists)\n---\nFeasibility: MEDIUM\nComplexity: LOW\nCost: FREE\nDetection: MEDIUM",
+             shape=box, style="rounded,filled", fillcolor="#90EE90", penwidth=3, color="#FFA500"];
+
+    // Path 3 breakdown
+    and_p3 [label="AND", shape=diamond, style=filled, fillcolor="#FFA500", fontsize=9];
+
+    leaf3_1 [label="LEAF: Compromise Admin\nAccount (see Tree 1)\n---\nPrerequisite\nFeasibility: MEDIUM\nComplexity: MEDIUM",
+             shape=box, style="rounded,filled", fillcolor="#90EE90", penwidth=3, color="#FFA500"];
+
+    leaf3_2 [label="LEAF: Modify Course\nRatings (+5-10 points)\n---\nImpact: Inflates handicaps\nFeasibility: MEDIUM\nComplexity: LOW\nCost: LOW\nDetection: VERY HIGH",
+             shape=box, style="rounded,filled,dashed", fillcolor="#90EE90", penwidth=2, color="#FF0000"];
+
+    leaf3_3 [label="LEAF: Revert Changes\nAfter Tournament\n---\nProblem: Audit logs\nFeasibility: MEDIUM\nComplexity: LOW\nCost: LOW\nDetection: HIGH",
+             shape=box, style="rounded,filled,dashed", fillcolor="#90EE90", penwidth=2, color="#FF0000"];
+
+    // Post-attack
+    post [label="Post-Attack Outcome", shape=box, style=rounded, fillcolor="#FFCCCC"];
+
+    leaf_post [label="LEAF: Compete in Higher\nHandicap Flight\n---\nOutcome: Win vs. weaker opponents\nFinancial: Prize money\nFeasibility: HIGH\nDetection: MEDIUM",
+               shape=box, style="rounded,filled", fillcolor="#FF6B6B", fontcolor=white, penwidth=3];
+
+    // Edges
+    root -> or_main;
+    or_main -> path1;
+    or_main -> path2;
+    or_main -> path3;
+
+    // Path 1
+    path1 -> and_p1;
+    and_p1 -> sg1_1;
+    and_p1 -> sg1_2;
+    and_p1 -> sg1_3;
+
+    sg1_1 -> leaf1_1_1;
+    sg1_1 -> leaf1_1_2;
+    sg1_1 -> leaf1_1_3;
+
+    sg1_2 -> leaf1_2_1;
+    sg1_2 -> leaf1_2_2;
+    sg1_2 -> leaf1_2_3;
+
+    sg1_3 -> leaf1_3_1;
+
+    // Path 2
+    path2 -> leaf2_1;
+    path2 -> leaf2_2;
+
+    // Path 3
+    path3 -> and_p3;
+    and_p3 -> leaf3_1;
+    and_p3 -> leaf3_2;
+    and_p3 -> leaf3_3;
+
+    // Post-attack
+    path1 -> post [style=dashed, label="success", color="#00AA00"];
+    path2 -> post [style=dashed, label="success", color="#00AA00"];
+    path3 -> post [style=dashed, label="success", color="#00AA00"];
+    post -> leaf_post;
+
+    // Risk annotation
+    risk_note [label="CRITICAL VULNERABILITY:\nNo HMAC/Digital Signatures\nNo Score Verification\n(Assignment 3 Priority)",
+               shape=note, style=filled, fillcolor="#FFCCCC", fontcolor="#CC0000", fontsize=9];
+
+    root -> risk_note [style=dotted, color="#CC0000", dir=none];
+}

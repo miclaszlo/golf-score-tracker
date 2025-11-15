@@ -1,0 +1,73 @@
+digraph RiskHeatmap {
+    rankdir=LR;
+    node [shape=box, style="rounded,filled", fontname="Arial"];
+
+    // Title
+    title [label="Attack Tree Risk Heatmap\nGolf Score Tracker",
+           shape=plaintext, fontsize=16, fontcolor="#000000"];
+
+    // Risk matrix quadrants
+    subgraph cluster_matrix {
+        label = "Risk Matrix: Likelihood × Impact";
+        style = filled;
+        fillcolor = "#F5F5F5";
+        fontsize = 12;
+
+        // High Likelihood, High Impact (CRITICAL)
+        quad_hh [label="HIGH LIKELIHOOD\nHIGH IMPACT\n━━━━━━━━━━━━━\nTree 2: Handicap Inflation\nTree 3: IDOR Data Extraction\nTree 6: Competitive Intel",
+                 fillcolor="#FF6B6B", fontcolor=white, fontsize=10, penwidth=3];
+
+        // Medium Likelihood, Critical Impact (HIGH)
+        quad_mc [label="MEDIUM LIKELIHOOD\nCRITICAL IMPACT\n━━━━━━━━━━━━━\nTree 1: Admin Compromise\nTree 4: Insider Fraud\nTree 7: SQL Injection Dump",
+                 fillcolor="#FFA500", fontcolor=white, fontsize=10, penwidth=2];
+
+        // Medium Likelihood, Medium Impact (MEDIUM)
+        quad_mm [label="MEDIUM LIKELIHOOD\nMEDIUM-HIGH IMPACT\n━━━━━━━━━━━━━\nTree 5: Defacement/DoS",
+                 fillcolor="#FFD93D", fontcolor=black, fontsize=10, penwidth=2];
+
+        // Low Likelihood, High Impact (MONITOR)
+        quad_lh [label="LOW LIKELIHOOD\nHIGH IMPACT\n━━━━━━━━━━━━━\n(No trees in this category)",
+                 fillcolor="#90EE90", fontcolor=black, fontsize=10, penwidth=1];
+
+        quad_hh -> quad_mc [style=invis];
+        quad_mc -> quad_mm [style=invis];
+        quad_mm -> quad_lh [style=invis];
+    }
+
+    // Common vulnerabilities
+    subgraph cluster_vulns {
+        label = "Common Critical Vulnerabilities";
+        style = filled;
+        fillcolor = "#FFEEEE";
+        fontsize = 12;
+
+        vuln1 [label="No Score Verification\n(HMAC/Signatures)", fillcolor="#FF6B6B", fontcolor=white, style="rounded,filled"];
+        vuln2 [label="IDOR at /api/handicap", fillcolor="#FF6B6B", fontcolor=white, style="rounded,filled"];
+        vuln3 [label="Weak Password Hashing\n(SHA256)", fillcolor="#FFA500", fontcolor=white, style="rounded,filled"];
+        vuln4 [label="No Rate Limiting", fillcolor="#FFA500", fontcolor=white, style="rounded,filled"];
+        vuln5 [label="SQL Injection", fillcolor="#FFA500", fontcolor=white, style="rounded,filled"];
+
+        vuln1 -> vuln2 [style=invis];
+        vuln2 -> vuln3 [style=invis];
+        vuln3 -> vuln4 [style=invis];
+        vuln4 -> vuln5 [style=invis];
+    }
+
+    // Assignment mitigation
+    subgraph cluster_assign {
+        label = "Mitigation Assignments";
+        style = filled;
+        fillcolor = "#E8F4F8";
+        fontsize = 12;
+
+        assign3 [label="Assignment 3:\nCryptographic APIs\n━━━━━━━━━━━━━\n• Bcrypt password hashing\n• HMAC score signatures\n• PII encryption",
+                 fillcolor="#4A90E2", fontcolor=white, style="rounded,filled"];
+
+        assign4 [label="Assignment 4:\nDAST & Vulnerability Fixes\n━━━━━━━━━━━━━\n• Fix IDOR (authorization)\n• Rate limiting\n• CSRF tokens\n• SQL injection fixes\n• Session regeneration",
+                 fillcolor="#50C878", fontcolor=white, style="rounded,filled"];
+
+        assign3 -> assign4 [style=invis];
+    }
+
+    title -> quad_hh [style=invis];
+}
