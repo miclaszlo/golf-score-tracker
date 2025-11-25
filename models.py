@@ -3,7 +3,7 @@ Database models for Golf Score Tracker Application
 """
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
-import hashlib
+import bcrypt
 
 db = SQLAlchemy()
 
@@ -14,7 +14,7 @@ class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(80), unique=True, nullable=False)
     email = db.Column(db.String(120), unique=True, nullable=False)
-    # SECURITY GAP: Using simple SHA256 instead of bcrypt
+    # Password hash using bcrypt (Assignment 3: secure hashing implemented)
     password_hash = db.Column(db.String(128), nullable=False)
     full_name = db.Column(db.String(150))
     role = db.Column(db.String(20), default='golfer')  # 'golfer' or 'admin'
@@ -25,13 +25,41 @@ class User(db.Model):
     rounds = db.relationship('Round', backref='golfer', lazy=True, cascade='all, delete-orphan')
 
     def set_password(self, password):
-        """Hash password using SHA256 (SECURITY GAP: weak hashing)"""
-        # TODO: Replace with bcrypt in Assignment 3
-        self.password_hash = hashlib.sha256(password.encode()).hexdigest()
+        """Hash password using bcrypt with automatic salt generation.
+
+        bcrypt automatically:
+        - Generates a cryptographically secure random salt
+        - Embeds the salt in the hash output
+        - Uses configurable cost factor for key stretching
+
+        Args:
+            password: Plain text password to hash
+        """
+        salt = bcrypt.gensalt(rounds=12)  # Cost factor 12 = ~300ms per hash
+        self.password_hash = bcrypt.hashpw(password.encode('utf-8'), salt).decode('utf-8')
 
     def check_password(self, password):
-        """Verify password against hash"""
-        return self.password_hash == hashlib.sha256(password.encode()).hexdigest()
+        """Verify password against bcrypt hash using constant-time comparison.
+
+        bcrypt.checkpw automatically:
+        - Extracts the salt from the stored hash
+        - Hashes the provided password with that salt
+        - Compares using constant-time comparison (prevents timing attacks)
+
+        Args:
+            password: Plain text password to verify
+
+        Returns:
+            bool: True if password matches, False otherwise
+        """
+        try:
+            return bcrypt.checkpw(
+                password.encode('utf-8'),
+                self.password_hash.encode('utf-8')
+            )
+        except (ValueError, TypeError):
+            # Invalid hash format (e.g., corrupted data)
+            return False
 
     def is_admin(self):
         """Check if user has admin role"""

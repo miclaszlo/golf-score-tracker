@@ -11,7 +11,7 @@ SQLAlchemy==2.0.20
 gunicorn==21.2.0
 
 # Security (to be enhanced in Assignment 3)
-# bcrypt==4.0.1  # Uncomment when implementing password improvements
+bcrypt==4.0.1
 # cryptography==41.0.3  # Uncomment when implementing data encryption
 
 # Development tools (optional)
