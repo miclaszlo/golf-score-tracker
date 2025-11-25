@@ -1,0 +1,166 @@
+digraph AdminCompromise {
+    // Graph settings
+    rankdir=TB;
+    node [shape=box, style=rounded];
+    edge [dir=forward];
+
+    // Define color scheme
+    node [fontname="Arial", fontsize=10];
+    edge [fontname="Arial", fontsize=8];
+
+    // Root node
+    root [label="ROOT:\nCompromise Administrative Account\n\nImpact: CRITICAL\nThreat Actor: TA-01",
+          shape=box, style="rounded,filled", fillcolor="#FF6B6B", fontcolor=white, fontsize=12, penwidth=3];
+
+    // OR gate - Multiple attack paths
+    or1 [label="OR\n(Any Path Succeeds)", shape=diamond, style=filled, fillcolor="#FFD93D", fontsize=10];
+
+    // Path 1: Brute Force
+    path1 [label="Path 1:\nBrute Force Attack", shape=box, style="rounded,filled", fillcolor="#FFA500", fontsize=11];
+
+    // Path 1 AND gate
+    and1_1 [label="AND\n(All Required)", shape=diamond, style=filled, fillcolor="#FFA500", fontsize=9];
+
+    // Subgoal 1.1
+    subgoal1_1 [label="Subgoal 1.1:\nIdentify Valid Admin Username", shape=box, style=rounded, fillcolor="#FFFACD"];
+
+    or1_1 [label="OR", shape=diamond, style=filled, fillcolor="#FFD93D", fontsize=8];
+
+    // Leaf nodes for username enumeration
+    leaf1_1_1 [label="LEAF: Username Enumeration\nvia Login Error Messages\n---\nVuln: app.py:111-113\nFeasibility: HIGH\nComplexity: LOW\nCost: FREE\nDetection: LOW",
+               shape=box, style="rounded,filled", fillcolor="#90EE90", penwidth=2, color="#FF0000"];
+
+    leaf1_1_2 [label="LEAF: Default Credential\nTesting (admin, root)\n---\nFeasibility: HIGH\nComplexity: LOW\nCost: FREE\nDetection: LOW",
+               shape=box, style="rounded,filled", fillcolor="#90EE90", penwidth=2, color="#FF0000"];
+
+    leaf1_1_3 [label="LEAF: Leaderboard\nData Scraping\n---\nFeasibility: MEDIUM\nComplexity: LOW\nCost: FREE\nDetection: LOW",
+               shape=box, style="rounded,filled", fillcolor="#90EE90", penwidth=2, color="#FFA500"];
+
+    // Subgoal 1.2
+    subgoal1_2 [label="Subgoal 1.2:\nBrute Force Password", shape=box, style=rounded, fillcolor="#FFFACD"];
+
+    and1_2 [label="AND", shape=diamond, style=filled, fillcolor="#FFA500", fontsize=8];
+
+    // Brute force leaf nodes
+    leaf1_2_1 [label="LEAF: Exploit Missing\nRate Limiting\n---\nVuln: app.py:86-116\nFeasibility: HIGH\nComplexity: LOW\nCost: FREE\nDetection: MEDIUM",
+               shape=box, style="rounded,filled", fillcolor="#90EE90", penwidth=2, color="#FF0000"];
+
+    leaf1_2_2 [label="LEAF: Use Common\nPassword Wordlist\n---\nTool: rockyou.txt\nFeasibility: HIGH\nComplexity: LOW\nCost: FREE\nDetection: MEDIUM",
+               shape=box, style="rounded,filled", fillcolor="#90EE90", penwidth=2, color="#FF0000"];
+
+    leaf1_2_3 [label="LEAF: Credential\nStuffing Attack\n---\nFeasibility: MEDIUM\nComplexity: LOW\nCost: FREE\nDetection: MEDIUM",
+               shape=box, style="rounded,filled", fillcolor="#90EE90", penwidth=2, color="#FFA500"];
+
+    // Subgoal 1.3
+    subgoal1_3 [label="Subgoal 1.3:\nBypass Weak Hashing", shape=box, style=rounded, fillcolor="#FFFACD"];
+
+    leaf1_3_1 [label="LEAF: Offline SHA256\nHash Cracking\n---\nVuln: models.py:30\nPrereq: DB Access\nFeasibility: HIGH\nComplexity: MEDIUM\nCost: MEDIUM (GPU)\nDetection: LOW",
+               shape=box, style="rounded,filled", fillcolor="#90EE90", penwidth=3, color="#FFA500"];
+
+    // Path 2: Session Fixation
+    path2 [label="Path 2:\nSession Fixation Attack", shape=box, style="rounded,filled", fillcolor="#FFA500", fontsize=11];
+
+    and2 [label="AND", shape=diamond, style=filled, fillcolor="#FFA500", fontsize=9];
+
+    leaf2_1 [label="LEAF: Obtain Valid\nSession ID\n---\nVuln: app.py:102\nFeasibility: HIGH\nComplexity: MEDIUM\nCost: FREE\nDetection: LOW",
+             shape=box, style="rounded,filled", fillcolor="#90EE90", penwidth=2, color="#FF0000"];
+
+    leaf2_2 [label="LEAF: Trick Admin into\nUsing Attacker Session\n---\nMethod: Phishing Link\nFeasibility: MEDIUM\nComplexity: MEDIUM\nCost: FREE\nDetection: LOW",
+             shape=box, style="rounded,filled", fillcolor="#90EE90", penwidth=3, color="#FFA500"];
+
+    leaf2_3 [label="LEAF: Hijack Session\nAfter Victim Login\n---\nFeasibility: HIGH\nComplexity: LOW\nCost: FREE\nDetection: MEDIUM",
+             shape=box, style="rounded,filled", fillcolor="#90EE90", penwidth=2, color="#FF0000"];
+
+    // Path 3: SQL Injection
+    path3 [label="Path 3:\nSQL Injection to\nCreate Admin Account", shape=box, style="rounded,filled", fillcolor="#FFA500", fontsize=11];
+
+    and3 [label="AND", shape=diamond, style=filled, fillcolor="#FFA500", fontsize=9];
+
+    leaf3_1 [label="LEAF: Identify SQL\nInjection Point\n---\nTarget: Course Search\nFeasibility: MEDIUM\nComplexity: MEDIUM\nCost: FREE\nDetection: MEDIUM",
+             shape=box, style="rounded,filled", fillcolor="#90EE90", penwidth=3, color="#FFA500"];
+
+    leaf3_2 [label="LEAF: UNION-based\nSQL Injection\n---\nFeasibility: MEDIUM\nComplexity: MEDIUM-HIGH\nCost: FREE\nDetection: MEDIUM",
+             shape=box, style="rounded,filled", fillcolor="#90EE90", penwidth=4, color="#FFA500"];
+
+    leaf3_3 [label="LEAF: INSERT Admin User\nvia SQL Injection\n---\nFeasibility: MEDIUM\nComplexity: HIGH\nCost: FREE\nDetection: HIGH",
+             shape=box, style="rounded,filled", fillcolor="#90EE90", penwidth=4, color="#FFA500"];
+
+    leaf3_4 [label="LEAF: Login with\nInjected Account\n---\nFeasibility: HIGH\nComplexity: LOW\nCost: FREE\nDetection: MEDIUM",
+             shape=box, style="rounded,filled", fillcolor="#90EE90", penwidth=2, color="#FF0000"];
+
+    // Post-compromise actions
+    post [label="Post-Compromise\nActions", shape=box, style=rounded, fillcolor="#FFCCCC"];
+
+    leaf_post1 [label="LEAF: Create Backdoor\nAdmin Account\n---\nFeasibility: HIGH\nComplexity: LOW\nCost: FREE\nDetection: MEDIUM",
+                shape=box, style="rounded,filled", fillcolor="#90EE90", penwidth=2, color="#FF0000"];
+
+    leaf_post2 [label="LEAF: Exfiltrate\nUser Database\n---\nFeasibility: HIGH\nComplexity: LOW\nCost: FREE\nDetection: MEDIUM",
+                shape=box, style="rounded,filled", fillcolor="#90EE90", penwidth=2, color="#FF0000"];
+
+    leaf_post3 [label="LEAF: Modify Audit Logs\nto Hide Tracks\n---\nFeasibility: HIGH\nComplexity: LOW\nCost: FREE\nDetection: HIGH",
+                shape=box, style="rounded,filled", fillcolor="#90EE90", penwidth=2, color="#FF0000"];
+
+    // Edges
+    root -> or1;
+
+    or1 -> path1;
+    or1 -> path2;
+    or1 -> path3;
+
+    // Path 1 connections
+    path1 -> and1_1;
+    and1_1 -> subgoal1_1;
+    and1_1 -> subgoal1_2;
+    and1_1 -> subgoal1_3;
+
+    subgoal1_1 -> or1_1;
+    or1_1 -> leaf1_1_1;
+    or1_1 -> leaf1_1_2;
+    or1_1 -> leaf1_1_3;
+
+    subgoal1_2 -> and1_2;
+    and1_2 -> leaf1_2_1;
+    and1_2 -> leaf1_2_2;
+    and1_2 -> leaf1_2_3;
+
+    subgoal1_3 -> leaf1_3_1;
+
+    // Path 2 connections
+    path2 -> and2;
+    and2 -> leaf2_1;
+    and2 -> leaf2_2;
+    and2 -> leaf2_3;
+
+    // Path 3 connections
+    path3 -> and3;
+    and3 -> leaf3_1;
+    and3 -> leaf3_2;
+    and3 -> leaf3_3;
+    and3 -> leaf3_4;
+
+    // Post-compromise
+    path1 -> post [style=dashed, label="if successful"];
+    path2 -> post [style=dashed, label="if successful"];
+    path3 -> post [style=dashed, label="if successful"];
+
+    post -> leaf_post1;
+    post -> leaf_post2;
+    post -> leaf_post3;
+
+    // Legend
+    subgraph cluster_legend {
+        label = "Legend";
+        style = filled;
+        fillcolor = "#F0F0F0";
+        fontsize = 10;
+
+        legend_root [label="Root Node\n(Ultimate Goal)", fillcolor="#FF6B6B", style="rounded,filled", fontcolor=white];
+        legend_or [label="OR Gate\n(Any Path)", shape=diamond, fillcolor="#FFD93D", style=filled];
+        legend_and [label="AND Gate\n(All Required)", shape=diamond, fillcolor="#FFA500", style=filled];
+        legend_leaf [label="Leaf Node\n(Specific Action)", fillcolor="#90EE90", style="rounded,filled"];
+
+        legend_root -> legend_or [style=invis];
+        legend_or -> legend_and [style=invis];
+        legend_and -> legend_leaf [style=invis];
+    }
+}

@@ -1,0 +1,110 @@
+digraph IDORDataExtraction {
+    rankdir=TB;
+    node [shape=box, style=rounded, fontname="Arial", fontsize=10];
+
+    root [label="ROOT:\nExtract All User Data\n\nImpact: HIGH (Privacy Breach)\nThreat Actor: TA-05",
+          style="rounded,filled", fillcolor="#FF6B6B", fontcolor=white, fontsize=12, penwidth=3];
+
+    or_main [label="OR", shape=diamond, style=filled, fillcolor="#FFD93D"];
+
+    path1 [label="Path 1:\nIDOR Exploitation\n(Systematic Harvesting)",
+           style="rounded,filled", fillcolor="#FFA500", fontsize=11, penwidth=2];
+
+    path2 [label="Path 2:\nSQL Injection\n(Database Dump)",
+           style="rounded,filled", fillcolor="#FFA500", fontsize=11, penwidth=2];
+
+    path3 [label="Path 3:\nCredential Stuffing\n(Account Access)",
+           style="rounded,filled", fillcolor="#FFA500", fontsize=11, penwidth=2];
+
+    // Path 1 - IDOR (detailed)
+    and_p1 [label="AND", shape=diamond, style=filled, fillcolor="#FFA500"];
+
+    sg1_1 [label="Discover IDOR\nVulnerability", style=rounded, fillcolor="#FFFACD"];
+    sg1_2 [label="Enumerate\nUser IDs", style=rounded, fillcolor="#FFFACD"];
+    sg1_3 [label="Automate\nData Harvesting", style=rounded, fillcolor="#FFFACD"];
+
+    leaf1_1 [label="LEAF: Create Account\n+ Access Own Data\n---\nFeasibility: HIGH\nComplexity: LOW\nCost: FREE\nDetection: NONE",
+             style="rounded,filled", fillcolor="#90EE90", penwidth=2, color="#FF0000"];
+
+    leaf1_2 [label="LEAF: Test IDOR by\nModifying user_id\n---\nVuln: app.py:366-380\nFeasibility: HIGH\nComplexity: LOW\nCost: FREE\nDetection: LOW",
+             style="rounded,filled", fillcolor="#90EE90", penwidth=2, color="#FF0000"];
+
+    leaf1_3 [label="LEAF: Sequential ID\nEnumeration (1 to N)\n---\nFeasibility: HIGH\nComplexity: LOW\nCost: FREE\nDetection: MEDIUM",
+             style="rounded,filled", fillcolor="#90EE90", penwidth=2, color="#FF0000"];
+
+    leaf1_4 [label="LEAF: Write Python Script\nfor Mass Collection\n---\nRate: 10-100 req/sec\nFeasibility: HIGH\nComplexity: LOW\nCost: FREE\nDetection: MEDIUM",
+             style="rounded,filled", fillcolor="#90EE90", penwidth=2, color="#FF0000"];
+
+    leaf1_5 [label="LEAF: Bypass Rate Limiting\n(NONE EXISTS)\n---\nFeasibility: HIGH\nComplexity: LOW\nDetection: LOW",
+             style="rounded,filled", fillcolor="#90EE90", penwidth=2, color="#FF0000"];
+
+    // Path 2 - SQL Injection (simplified)
+    leaf2_1 [label="LEAF: Identify SQL Injection\n+ Extract Schema\n---\nFeasibility: MEDIUM\nComplexity: MEDIUM\nCost: FREE\nDetection: MEDIUM",
+             style="rounded,filled", fillcolor="#90EE90", penwidth=3, color="#FFA500"];
+
+    leaf2_2 [label="LEAF: Dump Users Table\nwith Credentials\n---\nTool: sqlmap --dump\nFeasibility: MEDIUM\nComplexity: MEDIUM\nCost: FREE\nDetection: MEDIUM-HIGH",
+             style="rounded,filled", fillcolor="#90EE90", penwidth=3, color="#FFA500"];
+
+    leaf2_3 [label="LEAF: Crack SHA256\nPassword Hashes\n---\nVuln: models.py:30\nTool: hashcat\nFeasibility: HIGH\nComplexity: MEDIUM\nCost: MEDIUM (GPU)\nDetection: NONE (offline)",
+             style="rounded,filled", fillcolor="#90EE90", penwidth=3, color="#FFA500"];
+
+    // Path 3 - Credential Stuffing (simplified)
+    leaf3_1 [label="LEAF: Obtain Leaked\nCredential Database\n---\nFeasibility: HIGH\nComplexity: LOW\nCost: FREE\nDetection: NONE",
+             style="rounded,filled", fillcolor="#90EE90", penwidth=2, color="#FF0000"];
+
+    leaf3_2 [label="LEAF: Enumerate Usernames\n+ Test Credentials\n---\nVuln: No rate limiting\nFeasibility: HIGH\nComplexity: LOW\nCost: FREE\nDetection: MEDIUM",
+             style="rounded,filled", fillcolor="#90EE90", penwidth=2, color="#FF0000"];
+
+    // Post-harvest
+    post [label="Post-Harvest Actions", style=rounded, fillcolor="#FFCCCC"];
+
+    or_post [label="OR", shape=diamond, style=filled, fillcolor="#FFD93D", fontsize=9];
+
+    leaf_post1 [label="LEAF: Sell Data on\nDark Web Markets\n---\nPrice: $0.50-$5 per record\nFeasibility: MEDIUM\nDetection: LOW",
+                style="rounded,filled", fillcolor="#FF6B6B", fontcolor=white, penwidth=2];
+
+    leaf_post2 [label="LEAF: Targeted\nPhishing Campaigns\n---\nFeasibility: HIGH\nDetection: MEDIUM",
+                style="rounded,filled", fillcolor="#FF6B6B", fontcolor=white, penwidth=2];
+
+    leaf_post3 [label="LEAF: Competitive Intelligence\nSale (Premium)\n---\nFeasibility: MEDIUM\nDetection: LOW",
+                style="rounded,filled", fillcolor="#FF6B6B", fontcolor=white, penwidth=2];
+
+    // Edges
+    root -> or_main;
+    or_main -> path1;
+    or_main -> path2;
+    or_main -> path3;
+
+    path1 -> and_p1;
+    and_p1 -> sg1_1;
+    and_p1 -> sg1_2;
+    and_p1 -> sg1_3;
+
+    sg1_1 -> leaf1_1;
+    sg1_1 -> leaf1_2;
+    sg1_2 -> leaf1_3;
+    sg1_3 -> leaf1_4;
+    sg1_3 -> leaf1_5;
+
+    path2 -> leaf2_1;
+    path2 -> leaf2_2;
+    path2 -> leaf2_3;
+
+    path3 -> leaf3_1;
+    path3 -> leaf3_2;
+
+    path1 -> post [style=dashed, color="#00AA00"];
+    path2 -> post [style=dashed, color="#00AA00"];
+    path3 -> post [style=dashed, color="#00AA00"];
+
+    post -> or_post;
+    or_post -> leaf_post1;
+    or_post -> leaf_post2;
+    or_post -> leaf_post3;
+
+    // GDPR warning
+    gdpr_note [label="GDPR VIOLATION:\nPrivacy Breach\nRegulatory Penalties\n(HIGH Impact)",
+               shape=note, style=filled, fillcolor="#FFCCCC", fontcolor="#CC0000", fontsize=9];
+
+    root -> gdpr_note [style=dotted, color="#CC0000", dir=none];
+}
