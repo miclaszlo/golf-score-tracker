@@ -1,0 +1,64 @@
+
+ ▐▛███▜▌   Claude Code v2.0.56
+▝▜█████▛▘  Opus 4.5 · Claude Max
+  ▘▘ ▝▝    ~/Desktop/BU Academics/CSE763/golf-score-tracker
+
+> Fix the hardcoded SECRET_KEY (B105) in config.py by loading it from 
+environment variables with a secure fallback using secrets.token_hex(32)
+  ⎿  ⧉ Selected 2 lines from Assignment-4-Report-WIP.md in Visual Studio Code
+
+⏺ Read(config.py)
+  ⎿  Read 44 lines
+
+⏺ I'll fix the hardcoded SECRET_KEY by loading from environment variables
+  with a secure fallback:
+
+⏺ Update(config.py)
+  ⎿  Updated config.py with 3 additions and 2 removals                   
+        2    Configuration file for Golf Score Tracker Application
+        3    """
+        4    import os
+        5 +  import secrets
+        6    
+        7    class Config:
+        8        """Base configuration"""
+        9 -      # SECURITY GAP: Hardcoded secret key
+       10 -      SECRET_KEY = 'golf-dev-secret-key-change-in-production'
+        9 +      # Load SECRET_KEY from environment variable with secure 
+          + fallback
+       10 +      SECRET_KEY = os.environ.get('SECRET_KEY') or 
+          + secrets.token_hex(32)
+       11    
+       12        # Database configuration
+       13        # Use absolute path for database to avoid path 
+            resolution issues
+
+⏺ Now let me also fix the ProductionConfig which has a weak fallback string:
+
+⏺ Update(config.py)
+  ⎿  Updated config.py with 1 addition and 1 removal                
+       37    class ProductionConfig(Config):
+       38        """Production configuration"""
+       39        DEBUG = False
+       40 -      SECRET_KEY = os.environ.get('SECRET_KEY', 
+          - 'change-this-in-production')
+       40 +      # Inherits secure SECRET_KEY from Config base class
+       41        SESSION_COOKIE_SECURE = True
+       42    
+       43    # Default configuration
+
+⏺ Fixed the B105 vulnerability. The changes:
+
+  1. Added import secrets module
+  2. Changed SECRET_KEY in base Config class to load from environment
+  variable with secure fallback: os.environ.get('SECRET_KEY') or 
+  secrets.token_hex(32)
+  3. Removed the redundant weak fallback in ProductionConfig (now inherits
+  secure pattern from base class)
+
+  The secrets.token_hex(32) generates a cryptographically secure
+  64-character hex string (256 bits of entropy) when no environment variable
+   is set.
+
+
+

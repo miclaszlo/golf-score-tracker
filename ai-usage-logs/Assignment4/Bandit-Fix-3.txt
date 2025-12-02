@@ -1,0 +1,123 @@
+
+ ▐▛███▜▌   Claude Code v2.0.56
+▝▜█████▛▘  Opus 4.5 · Claude Max
+  ▘▘ ▝▝    ~/Desktop/BU Academics/CSE763/golf-score-tracker
+
+> Add nosec comments to the B311 false positives in init_db.py to suppress 
+warnings for non-security-sensitive random number usage in test data
+generation
+  ⎿  ⧉ Selected 3 lines from Assignment-4-Report-WIP.md in Visual Studio Code
+
+⏺ Read(init_db.py)
+  ⎿  Read 236 lines
+
+⏺ I'll add # nosec B311 comments to suppress the false positive warnings for
+   non-security-sensitive random number usage in test data generation.
+
+⏺ Update(init_db.py)
+  ⎿  Updated init_db.py with 1 addition and 1 removal           
+       143            for i in range(1, 19):
+       144                if i in [3, 7, 12, 15, 17]:  # Par 3s
+       145                    par = 3
+       146 -                  yardage = random.randint(150, 220)
+       146 +                  yardage = random.randint(150, 220)
+           +    # nosec B311 - test data generation
+       147                elif i in [2, 9, 14]:  # Par 5s
+       148                    par = 5
+       149                    yardage = random.randint(480, 550)
+
+⏺ Update(init_db.py)
+  ⎿  Updated init_db.py with 1 addition and 1 removal                    
+       146                    yardage = random.randint(150, 220)  # nosec
+              B311 - test data generation
+       147                elif i in [2, 9, 14]:  # Par 5s
+       148                    par = 5
+       149 -                  yardage = random.randint(480, 550)
+       149 +                  yardage = random.randint(480, 550)
+           +    # nosec B311 - test data generation
+       150                else:  # Par 4s
+       151                    par = 4
+       152                    yardage = random.randint(340, 430)
+
+⏺ Update(init_db.py)
+  ⎿  Updated init_db.py with 1 addition and 1 removal                    
+       149                    yardage = random.randint(480, 550)  # nosec
+              B311 - test data generation
+       150                else:  # Par 4s
+       151                    par = 4
+       152 -                  yardage = random.randint(340, 430)
+       152 +                  yardage = random.randint(340, 430)
+           +    # nosec B311 - test data generation
+       153    
+       154                hole = Hole(
+       155                    course_id=muni_course.id,
+
+⏺ Update(init_db.py)
+  ⎿  Updated init_db.py with 1 addition and 1 removal         
+       170    
+       171            for golfer in golfers:
+       172                # Create 8-12 rounds for each golfer
+       173 -              num_rounds = random.randint(8, 12)
+       173 +              num_rounds = random.randint(8, 12)
+           +    # nosec B311 - test data generation
+       174    
+       175                for i in range(num_rounds):
+       176                    course = random.choice(courses)
+
+⏺ Update(init_db.py)
+  ⎿  Updated init_db.py with 1 addition and 1 removal                 
+       173                num_rounds = random.randint(8, 12)  # nosec 
+             B311 - test data generation
+       174    
+       175                for i in range(num_rounds):
+       176 -                  course = random.choice(courses)
+       176 +                  course = random.choice(courses)
+           +    # nosec B311 - test data generation
+       177                    days_ago = random.randint(1, 180)
+       178                    date_played = (datetime.utcnow() - 
+             timedelta(days=days_ago)).date()
+       179    
+
+⏺ Update(init_db.py)
+  ⎿  Updated init_db.py with 1 addition and 1 removal                  
+       174    
+       175                for i in range(num_rounds):
+       176                    course = random.choice(courses)  # nosec 
+             B311 - test data generation
+       177 -                  days_ago = random.randint(1, 180)
+       177 +                  days_ago = random.randint(1, 180)
+           +    # nosec B311 - test data generation
+       178                    date_played = (datetime.utcnow() - 
+             timedelta(days=days_ago)).date()
+       179    
+       180                    # Generate realistic scores
+
+⏺ Update(init_db.py)
+  ⎿  Updated init_db.py with 1 addition and 1 removal                    
+       192                    # Add hole scores
+       193                    for hole in course.holes:
+       194                        # Generate score relative to par (more 
+             realistic distribution)
+       195 -                      rand = random.random()
+       195 +                      rand = random.random()
+           +    # nosec B311 - test data generation
+       196                        if rand < 0.05:  # 5% eagle
+       197                            strokes = hole.par - 2
+       198                        elif rand < 0.20:  # 15% birdie
+
+⏺ Added # nosec B311 - test data generation comments to all 7 random module
+  usages in init_db.py:
+
+  - Line 146: random.randint(150, 220) - par 3 yardage
+  - Line 149: random.randint(480, 550) - par 5 yardage
+  - Line 152: random.randint(340, 430) - par 4 yardage
+  - Line 173: random.randint(8, 12) - number of rounds per golfer
+  - Line 176: random.choice(courses) - random course selection
+  - Line 177: random.randint(1, 180) - days ago for round date
+  - Line 195: random.random() - score distribution probability
+
+  These are all legitimate false positives since they're used for demo/test
+  data generation, not security-sensitive operations.
+
+
+
