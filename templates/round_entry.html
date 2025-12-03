@@ -7,8 +7,8 @@
     <h1>Enter Round Scores</h1>
 
     {% if courses %}
-        <!-- SECURITY GAP: No CSRF protection -->
         <form method="POST" action="{{ url_for('new_round') }}" id="roundForm">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
             <div class="form-section">
                 <h3>Round Information</h3>
 

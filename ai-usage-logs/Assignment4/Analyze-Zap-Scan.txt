@@ -1,0 +1,254 @@
+
+ ▐▛███▜▌   Claude Code v2.0.56
+▝▜█████▛▘  Opus 4.5 · Claude Max
+  ▘▘ ▝▝    ~/Desktop/BU Academics/CSE763/golf-score-tracker
+
+> Analyze the OWASP ZAP scan results and explain each vulnerability found, 
+including its OWASP Top 10 category, risk level, and recommended remediation
+ steps
+  ⎿  ⧉ Selected 3 lines from Assignment-4-Report-WIP.md in Visual Studio Code
+
+⏺ I'll analyze the OWASP ZAP scan results. Let me first find and read the
+  ZAP report files.
+
+⏺ Search(pattern: "**/zap*")
+  ⎿  Found 11 files (ctrl+o to expand)
+
+⏺ Search(pattern: "**/ZAP*/**/*")
+  ⎿  Found 0 files 
+
+⏺ Bash(ls -la "/Users/michaellaszlo/Desktop/BU
+      Academics/CSE763/golf-score-tracker/2025-12-02-ZAP-Report-/")
+  ⎿  total 8                                                  
+     drwxr-xr-x@  5 michaellaszlo  staff   160 Dec  2 15:45 .
+     drwxr-xr-x@ 37 michaellaszlo  staff  1184 Dec  2 15:45 ..
+     … +3 lines (ctrl+o to expand)
+
+⏺ Read(zap_report.html)
+  ⎿  Error: File content (61639 tokens) exceeds maximum allowed tokens (25000). 
+     Please use offset and limit parameters to read specific portions of the 
+     file, or use the GrepTool to search for specific content.
+
+⏺ Search(pattern: "risk-level|alert-risk|High|Medium|Low|Informational", path:
+        "zap_report.html", output_mode: "content", head_limit: 50)
+  ⎿  Found 50 lines (ctrl+o to expand)
+
+⏺ Read(zap_report.html)
+  ⎿  Read 500 lines
+
+⏺ Let me read more details about each specific vulnerability:
+
+⏺ Read(zap_report.html)
+  ⎿  Read 600 lines
+
+⏺ Read(zap_report.html)
+  ⎿  Read 700 lines
+
+⏺ Read(zap_report.html)
+  ⎿  Read 500 lines
+
+⏺ Based on my analysis of the OWASP ZAP scan report, here is a comprehensive
+   breakdown of each vulnerability found:
+
+  ---
+  OWASP ZAP Scan Results Analysis
+
+  Scan Date: December 2, 2025
+  Target: http://127.0.0.1:5001
+  Total Alerts: 12 unique vulnerability types
+
+  ---
+  HIGH RISK VULNERABILITIES (2)
+
+  1. SQL Injection
+
+  | Attribute         | Value                            |
+  |-------------------|----------------------------------|
+  | OWASP Top 10      | A03:2021 - Injection             |
+  | CWE               | CWE-89                           |
+  | Risk Level        | High                             |
+  | Confidence        | Medium                           |
+  | Affected Endpoint | POST /login (username parameter) |
+
+  Description: ZAP confirmed SQL injection by manipulating the login form
+  with payloads like ZAP' AND '1'='1' -- and ZAP' OR '1'='1' --. The
+  application returned different responses based on the injected conditions.
+
+  Remediation:
+  - Use parameterized queries (prepared statements) with SQLAlchemy ORM
+  - Never concatenate user input directly into SQL queries
+  - Implement input validation with allowlists
+  - Apply principle of least privilege for database users
+
+  ---
+  2. SQL Injection - Authentication Bypass
+
+  | Attribute         | Value                |
+  |-------------------|----------------------|
+  | OWASP Top 10      | A03:2021 - Injection |
+  | CWE               | CWE-89               |
+  | Risk Level        | High                 |
+  | Confidence        | Medium               |
+  | Affected Endpoint | POST /login          |
+
+  Description: The login page is vulnerable to authentication bypass via SQL
+   injection. An attacker could potentially bypass authentication entirely.
+
+  Remediation:
+  - Same as SQL Injection above
+  - Ensure authentication logic uses parameterized queries
+  - Add rate limiting to prevent automated attacks
+
+  ---
+  MEDIUM RISK VULNERABILITIES (4)
+
+  3. Absence of Anti-CSRF Tokens
+
+  | Attribute          | Value                                             |
+  |--------------------|---------------------------------------------------|
+  | OWASP Top 10       | A01:2021 - Broken Access Control                  |
+  | CWE                | CWE-352                                           |
+  | Risk Level         | Medium                                            |
+  | Confidence         | Low                                               |
+  | Affected Endpoints | /login, /register, /round/new, and all POST forms |
+
+  Description: No anti-CSRF tokens found in HTML forms. Attackers could
+  trick authenticated users into performing unintended actions.
+
+  Remediation:
+  - Implement Flask-WTF for CSRF protection
+  - Add {{ csrf_token() }} to all forms
+  - Verify CSRF tokens on all state-changing requests
+  - Use SameSite=Strict cookie attribute
+
+  ---
+  4. Buffer Overflow (False Positive - Input Validation Issue)
+
+  | Attribute         | Value                                 |
+  |-------------------|---------------------------------------|
+  | OWASP Top 10      | A03:2021 - Injection                  |
+  | CWE               | CWE-120                               |
+  | Risk Level        | Medium                                |
+  | Confidence        | Medium                                |
+  | Affected Endpoint | POST /round/new (course_id parameter) |
+
+  Description: ZAP detected a 500 error when sending a very long string to
+  course_id. The actual issue is improper input validation - the code at
+  app.py:243 does int(request.form.get('course_id')) without validation.
+
+  Remediation:
+  - Validate input types before processing
+  - Use try/except blocks around type conversions
+  - Implement proper error handling that doesn't expose stack traces
+  - Disable debug mode in production (currently exposing Werkzeug debugger)
+
+  ---
+  5. Content Security Policy (CSP) Header Not Set
+
+  | Attribute    | Value                                |
+  |--------------|--------------------------------------|
+  | OWASP Top 10 | A05:2021 - Security Misconfiguration |
+  | CWE          | CWE-693                              |
+  | Risk Level   | Medium                               |
+  | Confidence   | High                                 |
+  | Affected     | All responses                        |
+
+  Description: No CSP header is set, making the application vulnerable to
+  XSS and data injection attacks.
+
+  Remediation:
+  - Add CSP header via Flask middleware:
+  response.headers['Content-Security-Policy'] = "default-src 'self'; 
+  script-src 'self'"
+  - Use Flask-Talisman for comprehensive security headers
+
+  ---
+  6. Missing Anti-clickjacking Header
+
+  | Attribute    | Value                                |
+  |--------------|--------------------------------------|
+  | OWASP Top 10 | A05:2021 - Security Misconfiguration |
+  | CWE          | CWE-1021                             |
+  | Risk Level   | Medium                               |
+  | Confidence   | Medium                               |
+  | Affected     | All responses                        |
+
+  Description: No X-Frame-Options or CSP frame-ancestors directive. The site
+   can be embedded in iframes on malicious sites for clickjacking attacks.
+
+  Remediation:
+  - Add X-Frame-Options: DENY or SAMEORIGIN header
+  - Or use CSP with frame-ancestors 'self'
+
+  ---
+  LOW RISK VULNERABILITIES (2)
+
+  7. Server Leaks Version Information
+
+  | Attribute    | Value                                |
+  |--------------|--------------------------------------|
+  | OWASP Top 10 | A05:2021 - Security Misconfiguration |
+  | CWE          | CWE-497                              |
+  | Risk Level   | Low                                  |
+  | Confidence   | High                                 |
+
+  Description: The Server header reveals Werkzeug/3.1.4 Python/3.12.12,
+  helping attackers identify known vulnerabilities for these versions.
+
+  Remediation:
+  - Remove or obfuscate the Server header
+  - Use a reverse proxy (nginx) that hides backend details
+  - In production, use gunicorn with custom server header
+
+  ---
+  8. X-Content-Type-Options Header Missing
+
+  | Attribute    | Value                                |
+  |--------------|--------------------------------------|
+  | OWASP Top 10 | A05:2021 - Security Misconfiguration |
+  | CWE          | CWE-693                              |
+  | Risk Level   | Low                                  |
+  | Confidence   | Medium                               |
+
+  Description: Missing X-Content-Type-Options: nosniff header allows
+  MIME-sniffing attacks.
+
+  Remediation:
+  - Add X-Content-Type-Options: nosniff to all responses
+
+  ---
+  INFORMATIONAL FINDINGS (4)
+
+  | Finding                                | Description
+                   |
+  |----------------------------------------|--------------------------------
+  -----------------|
+  | Authentication Request Identified      | ZAP identified login forms -
+  expected behavior  |
+  | GET for POST                           | Some endpoints may accept GET
+  for POST requests |
+  | Session Management Response Identified | Session cookies detected -
+  expected             |
+  | User Agent Fuzzer                      | Various user agents tested -
+  informational      |
+
+  ---
+  Summary Table
+
+  | Risk Level    | Count | OWASP Categories |
+  |---------------|-------|------------------|
+  | High          | 2     | A03 (Injection)  |
+  | Medium        | 4     | A01, A03, A05    |
+  | Low           | 2     | A05              |
+  | Informational | 4     | N/A              |
+
+  Priority Remediation Order
+
+  1. Immediate: SQL Injection vulnerabilities (both)
+  2. High: CSRF protection
+  3. Medium: Security headers (CSP, X-Frame-Options, X-Content-Type-Options)
+  4. Medium: Input validation and error handling
+  5. Low: Server version disclosure
+
+
+

@@ -14,6 +14,8 @@ services:
     environment:
       - FLASK_ENV=development
       - FLASK_DEBUG=1
+      # HOST must be 0.0.0.0 inside container to accept external connections
+      - HOST=0.0.0.0
     restart: unless-stopped
 
 # Optional: Add a separate database service for production

@@ -1,0 +1,190 @@
+
+ ▐▛███▜▌   Claude Code v2.0.56
+▝▜█████▛▘  Opus 4.5 · Claude Max
+  ▘▘ ▝▝    ~/Desktop/BU Academics/CSE763/golf-score-tracker
+
+> Add CSRF protection to the Flask application using Flask-WTF. Install the 
+dependency, initialize CSRFProtect in app.py, and add csrf_token() to all
+POST forms in templates (login.html, register.html, add_round.html,
+add_course.html). Make sure to update requirements.txt with Flask-WTF.
+  ⎿  ⧉ Selected 1 lines from Assignment-4-Report-WIP.md in Visual Studio Code
+
+⏺ I'll add CSRF protection to the Flask application. Let me start by reading
+   the relevant files to understand the current structure.
+
+⏺ Read(requirements.txt)
+  ⎿  Read 19 lines
+
+⏺ Read(app.py)
+  ⎿  Read 424 lines
+
+⏺ Read(templates/login.html)
+  ⎿  Read 38 lines
+
+⏺ Read(templates/register.html)
+  ⎿  Read 48 lines
+
+⏺ Read(templates/add_round.html)
+  ⎿  Error reading file
+
+⏺ Read(templates/add_course.html)
+  ⎿  Read 93 lines
+
+⏺ The template is called round_entry.html, not add_round.html. Let me read
+  it:
+
+⏺ Read(templates/round_entry.html)
+  ⎿  Read 164 lines
+
+⏺ Now I have all the information. Let me update my todo list and make the
+  changes:
+
+⏺ Update(requirements.txt)
+  ⎿  Updated requirements.txt with 1 addition
+       3    # Core framework
+       4    Flask==2.3.3
+       5    Flask-SQLAlchemy==3.0.5
+       6 +  Flask-WTF==1.2.1
+       7    
+       8    # Database
+       9    SQLAlchemy==2.0.20
+
+⏺ Update(app.py)
+  ⎿  Updated app.py with 4 additions                                     
+        5    This application has intentional security gaps for 
+            educational purposes.
+        6    """
+        7    from flask import Flask, render_template, request, redirect,
+             url_for, flash, session, jsonify
+        8 +  from flask_wtf.csrf import CSRFProtect
+        9    from models import db, User, Course, Hole, Round, Score, 
+            AuditLog
+       10    from auth import login_required, admin_required, 
+            get_current_user, log_action, validate_password_strength, 
+            validate_score
+       11    from handicap import calculate_handicap_index, 
+            get_user_statistics, get_leaderboard
+     ...
+       15    app = Flask(__name__)
+       16    app.config.from_object(config)
+       17    
+       18 +  # Initialize CSRF protection
+       19 +  csrf = CSRFProtect(app)
+       20 +  
+       21    # Initialize database
+       22    db.init_app(app)
+       23    
+
+⏺ Now let me add the CSRF tokens to all the templates:
+
+⏺ Update(templates/login.html)
+  ⎿  Updated templates/login.html with 1 addition and 1 removal          
+        8            <h2>Login</h2>
+        9            <p class="subtitle">Track your golf scores and 
+            handicap</p>
+       10    
+       11 -          <!-- SECURITY GAP: No CSRF protection -->
+       11            <form method="POST" action="{{ url_for('login') }}">
+       12 +              <input type="hidden" name="csrf_token" value="{{
+          +  csrf_token() }}">
+       13                <div class="form-group">
+       14                    <label for="username">Username</label>
+       15                    <input type="text" id="username" 
+            name="username" required autofocus>
+
+⏺ Update(templates/register.html)
+  ⎿  Updated templates/register.html with 1 addition and 1 removal       
+        8            <h2>Register</h2>
+        9            <p class="subtitle">Create your golfer account</p>
+       10    
+       11 -          <!-- SECURITY GAP: No CSRF protection -->
+       11            <form method="POST" action="{{ url_for('register') 
+            }}">
+       12 +              <input type="hidden" name="csrf_token" value="{{
+          +  csrf_token() }}">
+       13                <div class="form-group">
+       14                    <label for="full_name">Full Name</label>
+       15                    <input type="text" id="full_name" 
+            name="full_name" required autofocus>
+
+⏺ Update(templates/round_entry.html)
+  ⎿  Updated templates/round_entry.html with 1 addition and 1 removal    
+        7        <h1>Enter Round Scores</h1>
+        8    
+        9        {% if courses %}
+       10 -          <!-- SECURITY GAP: No CSRF protection -->
+       10            <form method="POST" action="{{ url_for('new_round') 
+            }}" id="roundForm">
+       11 +              <input type="hidden" name="csrf_token" value="{{
+          +  csrf_token() }}">
+       12                <div class="form-section">
+       13                    <h3>Round Information</h3>
+       14    
+
+⏺ Update(templates/add_course.html)
+  ⎿  Updated templates/add_course.html with 1 addition and 1 removal     
+        6    <div class="add-course-page">
+        7        <h1>Add New Golf Course</h1>
+        8    
+        9 -      <!-- SECURITY GAP: No CSRF protection -->
+        9        <form method="POST" action="{{ url_for('add_course') }}"
+             id="courseForm">
+       10 +          <input type="hidden" name="csrf_token" value="{{ 
+          + csrf_token() }}">
+       11            <div class="form-section">
+       12                <h3>Course Information</h3>
+       13    
+
+⏺ All done. Let me mark the tasks as completed and also remove the outdated
+  SECURITY GAP comments from app.py:
+
+⏺ Update(app.py)
+  ⎿  Updated app.py with 1 removal                                 
+       166            slope_rating = 
+             int(request.form.get('slope_rating'))
+       167            par = int(request.form.get('par'))
+       168    
+       169 -          # SECURITY GAP: No CSRF protection
+       169            # SECURITY GAP: Insufficient input validation
+       170    
+       171            new_course = Course(
+
+⏺ Update(app.py)
+  ⎿  Updated app.py with 1 removal                                 
+       247        date_played_str = request.form.get('date_played')
+       248        notes = request.form.get('notes', '')
+       249    
+       250 -      # SECURITY GAP: No CSRF protection
+       250        # SECURITY GAP: Date manipulation possible
+       251    
+       252        try:
+
+⏺ CSRF protection has been successfully added to the Flask application.
+  Here's a summary of the changes:
+
+  Files modified:
+
+  | File                          | Change
+      |
+  |-------------------------------|-----------------------------------------
+  ----|
+  | requirements.txt              | Added Flask-WTF==1.2.1
+      |
+  | app.py:8,19-20                | Added CSRFProtect import and
+  initialization |
+  | templates/login.html:12       | Added CSRF token hidden input
+      |
+  | templates/register.html:12    | Added CSRF token hidden input
+      |
+  | templates/round_entry.html:11 | Added CSRF token hidden input
+      |
+  | templates/add_course.html:10  | Added CSRF token hidden input
+      |
+
+  To apply the changes, rebuild the Docker container:
+
+  docker-compose down
+  docker-compose up --build
+
+
+

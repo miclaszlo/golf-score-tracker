@@ -5,6 +5,7 @@ CSE763 Secure Software Development Project
 This application has intentional security gaps for educational purposes.
 """
 from flask import Flask, render_template, request, redirect, url_for, flash, session, jsonify
+from flask_wtf.csrf import CSRFProtect
 from models import db, User, Course, Hole, Round, Score, AuditLog
 from auth import login_required, admin_required, get_current_user, log_action, validate_password_strength, validate_score
 from handicap import calculate_handicap_index, get_user_statistics, get_leaderboard
@@ -12,8 +13,31 @@ from config import config
 from datetime import datetime
 import os
 
+
+def safe_int(value, field_name="value"):
+    """
+    Safely convert a form input to an integer.
+
+    Args:
+        value: The value to convert (typically from request.form.get())
+        field_name: Human-readable name for error messages
+
+    Returns:
+        tuple: (int_value, error_message) - error_message is None if successful
+    """
+    if value is None or value == '':
+        return None, f"Please provide a valid {field_name}."
+    try:
+        return int(value), None
+    except (ValueError, TypeError):
+        return None, f"Invalid {field_name}: '{value}' is not a valid number."
+
+
 app = Flask(__name__)
 app.config.from_object(config)
+
+# Initialize CSRF protection
+csrf = CSRFProtect(app)
 
 # Initialize database
 db.init_app(app)
@@ -26,6 +50,27 @@ os.makedirs('instance', exist_ok=True)
 def create_tables():
     """Create database tables before first request"""
     db.create_all()
+
+
+@app.after_request
+def add_security_headers(response):
+    """Add security headers to all responses"""
+    # Content-Security-Policy: Allow self and Bootstrap CDN
+    csp = (
+        "default-src 'self'; "
+        "script-src 'self' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; "
+        "style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; "
+        "img-src 'self' data:; "
+        "font-src 'self' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; "
+        "frame-ancestors 'none'"
+    )
+    response.headers['Content-Security-Policy'] = csp
+    response.headers['X-Frame-Options'] = 'DENY'
+    response.headers['X-Content-Type-Options'] = 'nosniff'
+    response.headers['X-XSS-Protection'] = '1; mode=block'
+    response.headers['Referrer-Policy'] = 'strict-origin-when-cross-origin'
+    response.headers['Server'] = 'Golf-Tracker'
+    return response
 
 
 @app.route('/')
@@ -162,7 +207,6 @@ def add_course():
         slope_rating = int(request.form.get('slope_rating'))
         par = int(request.form.get('par'))
 
-        # SECURITY GAP: No CSRF protection
         # SECURITY GAP: Insufficient input validation
 
         new_course = Course(
@@ -240,11 +284,13 @@ def new_round():
 
     # POST: Process the round entry
     user = get_current_user()
-    course_id = int(request.form.get('course_id'))
+    course_id, error = safe_int(request.form.get('course_id'), 'course')
+    if error:
+        flash(error, 'danger')
+        return redirect(url_for('new_round'))
     date_played_str = request.form.get('date_played')
     notes = request.form.get('notes', '')
 
-    # SECURITY GAP: No CSRF protection
     # SECURITY GAP: Date manipulation possible
 
     try:
@@ -263,13 +309,12 @@ def new_round():
 
     for hole in course.holes:
         score_key = f'hole_{hole.hole_number}_score'
-        strokes = request.form.get(score_key)
+        strokes_raw = request.form.get(score_key)
 
-        if not strokes:
-            flash(f'Please enter score for hole {hole.hole_number}.', 'danger')
+        strokes, error = safe_int(strokes_raw, f'score for hole {hole.hole_number}')
+        if error:
+            flash(error, 'danger')
             return redirect(url_for('new_round'))
-
-        strokes = int(strokes)
 
         # SECURITY GAP: Weak validation
         is_valid, message = validate_score(strokes, hole.par)
@@ -386,8 +431,15 @@ def admin_panel():
 @login_required
 def api_get_handicap(user_id):
     """API endpoint to get user handicap"""
-    # SECURITY GAP: No authorization check (any user can get any user's handicap)
     # SECURITY GAP: No rate limiting
+    current_user = get_current_user()
+
+    # Authorization check: users can only view their own handicap unless admin
+    if current_user.id != user_id and not current_user.is_admin():
+        log_action('UNAUTHORIZED_HANDICAP_ACCESS',
+                   resource=f'user:{user_id}',
+                   details=f'User {current_user.id} attempted to access handicap of user {user_id}')
+        return jsonify({'error': 'Unauthorized access'}), 403
 
     handicap = calculate_handicap_index(user_id)
     stats = get_user_statistics(user_id)
