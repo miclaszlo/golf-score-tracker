@@ -1,0 +1,67 @@
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\nouppercase{\leftmark}}
+\fancyhead[R]{CS763 - Assignment 4}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+% Better section formatting in headers
+\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+\renewcommand{\sectionmark}[1]{\markboth{#1}{}}
+
+% Improve table formatting
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{adjustbox}
+\usepackage{etoolbox}
+\renewcommand{\arraystretch}{1.1}
+
+% Make tables use smaller font to fit better
+\AtBeginEnvironment{longtable}{\small}
+\AtBeginEnvironment{tabular}{\small}
+
+% Better code block styling
+\usepackage[table]{xcolor}
+\definecolor{codebg}{RGB}{245,245,245}
+\definecolor{codeframe}{RGB}{200,200,200}
+
+% Zebra striping for tables
+\definecolor{tablerowgray}{RGB}{245,245,245}
+\rowcolors{2}{white}{tablerowgray}
+
+% Make code blocks use smaller font for better fit
+\AtBeginEnvironment{verbatim}{\small}
+\AtBeginEnvironment{Verbatim}{\small}
+\AtBeginEnvironment{lstlisting}{\small}
+\AtBeginEnvironment{minted}{\small}
+
+% Prevent orphan/widow lines
+\widowpenalty=10000
+\clubpenalty=10000
+
+% Disable word hyphenation (prevents words like "al-ready" splitting across lines)
+\hyphenpenalty=10000
+\exhyphenpenalty=10000
+\tolerance=1000
+\emergencystretch=3em
+
+% Add some breathing room
+\setlength{\parskip}{0.5em plus 0.1em minus 0.1em}
+\usepackage{float}
+\floatplacement{figure}{H}
+\usepackage{fvextra}
+\fvset{
+  breaklines=true,
+  breakanywhere=true,
+  fontsize=\small,
+  baselinestretch=0.95,
+  frame=single,
+  framesep=2mm,
+  rulecolor=\color{codeframe},
+  fillcolor=\color{codebg},
+  bgcolor=codebg
+}
