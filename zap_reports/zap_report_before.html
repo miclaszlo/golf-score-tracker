@@ -1,0 +1,4839 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ZAP by Checkmarx Scanning Report</title>
+<link
+	href="zap_assets_before/normalize/normalize.css" rel="stylesheet">
+<link
+	href="zap_assets_before/themes/original/main.css" rel="stylesheet">
+<link
+	href="zap_assets_before/themes/original/colors.css" rel="stylesheet">
+</head>
+<body>
+	<header>
+		<h1>ZAP by Checkmarx Scanning Report</h1>
+		<p>
+			<span>Generated with</span> <a href="https://zaproxy.org"><img
+				src="zap_assets_before/zap32x32.png" alt="The ZAP logo" class="zap-logo">ZAP</a>
+			<span>on Tue 2 Dec 2025, at 15:45:02</span>
+		</p>
+		<p>ZAP Version: 2.16.1</p>
+		<p>
+			ZAP by <a href="https://checkmarx.com/">Checkmarx</a>
+		</p>
+	</header>
+
+	<main>
+
+		<section id="contents" class="contents">
+			<h2>Contents</h2>
+			<nav>
+				<ol>
+					<li><a
+						href="#about-this-report">About This Report</a>
+						<ol>
+							
+							<li><a
+								href="#report-parameters">Report Parameters</a></li>
+						</ol></li>
+					<data-th-block>
+					<li><a
+						href="#summaries">Summaries</a>
+						<ol>
+							<li><a
+								href="#risk-confidence-counts">Alert Counts by Risk and Confidence</a></li>
+							<li><a
+								href="#site-risk-counts">Alert Counts by Site and Risk</a></li>
+							<li><a
+								href="#alert-type-counts">Alert Counts by Alert Type</a></li>
+						</ol></li>
+					<li><a
+						href="#alerts">Alerts</a>
+						<ol>
+							
+							
+							
+							
+							
+							
+							
+							<li><a
+								href="#alerts--risk-3-confidence-2"><span>Risk</span>=<span
+									class="risk-level">High</span>, <span>Confidence</span>=<span
+									class="confidence-level">Medium</span> <span>(2)</span></a></li>
+							
+							
+							  
+							
+							
+							
+							
+							<li><a
+								href="#alerts--risk-2-confidence-3"><span>Risk</span>=<span
+									class="risk-level">Medium</span>, <span>Confidence</span>=<span
+									class="confidence-level">High</span> <span>(1)</span></a></li>
+							
+							<li><a
+								href="#alerts--risk-2-confidence-2"><span>Risk</span>=<span
+									class="risk-level">Medium</span>, <span>Confidence</span>=<span
+									class="confidence-level">Medium</span> <span>(2)</span></a></li>
+							
+							<li><a
+								href="#alerts--risk-2-confidence-1"><span>Risk</span>=<span
+									class="risk-level">Medium</span>, <span>Confidence</span>=<span
+									class="confidence-level">Low</span> <span>(1)</span></a></li>
+							  
+							
+							
+							
+							
+							<li><a
+								href="#alerts--risk-1-confidence-3"><span>Risk</span>=<span
+									class="risk-level">Low</span>, <span>Confidence</span>=<span
+									class="confidence-level">High</span> <span>(1)</span></a></li>
+							
+							<li><a
+								href="#alerts--risk-1-confidence-2"><span>Risk</span>=<span
+									class="risk-level">Low</span>, <span>Confidence</span>=<span
+									class="confidence-level">Medium</span> <span>(1)</span></a></li>
+							
+							
+							  
+							
+							
+							
+							
+							<li><a
+								href="#alerts--risk-0-confidence-3"><span>Risk</span>=<span
+									class="risk-level">Informational</span>, <span>Confidence</span>=<span
+									class="confidence-level">High</span> <span>(2)</span></a></li>
+							
+							<li><a
+								href="#alerts--risk-0-confidence-2"><span>Risk</span>=<span
+									class="risk-level">Informational</span>, <span>Confidence</span>=<span
+									class="confidence-level">Medium</span> <span>(2)</span></a></li>
+							
+							
+							  
+						</ol></li>
+					<li><a
+						href="#appendix">Appendix</a>
+						<ol>
+							<li><a
+								href="#alert-types">Alert Types</a></li>
+						</ol></li>
+					</data-th-block>
+				</ol>
+			</nav>
+		</section>
+
+		<section
+			id="about-this-report" class="about-this-report">
+			<h2>About This Report</h2>
+
+			
+
+			<section
+				id="report-parameters">
+				<h3>Report Parameters</h3>
+				<div class="report-parameters--container">
+					<h4>Contexts</h4>
+					
+					
+					<p>No contexts were selected, so all contexts were included by default.</p>
+					  
+
+					<h4>Sites</h4>
+					
+					<p>The following sites were included:</p>
+					<ul class="sites-list">
+						<li><span class="site">http://localhost:5001</span></li>
+						<li><span class="site">http://127.0.0.1:5001</span></li>
+					</ul>
+					
+					<p>(If no sites were selected, all sites were included by default.)</p>
+					<p>An included site must also be within one of the included contexts for its data to be included in the report.</p>
+
+					<h4>Risk levels</h4>
+					<p>
+						<span>Included</span>:
+						 
+						<span class="included-risk-codes"><span class="risk-level">High</span>, <span class="risk-level">Medium</span>, <span class="risk-level">Low</span>, <span class="risk-level">Informational</span></span>
+					</p>
+					<p>
+						<span>Excluded</span>:
+						 <span>None</span>
+						
+					</p>
+
+					<h4>Confidence levels</h4>
+					<p>
+						<span>Included</span>:
+						
+						
+						<span class="included-confidence-codes"><span class="confidence-level">User Confirmed</span>, <span class="confidence-level">High</span>, <span class="confidence-level">Medium</span>, <span class="confidence-level">Low</span></span>
+					</p>
+					<p>
+						<span>Excluded</span>:
+						
+						
+						<span class="included-confidence-codes"> <span class="confidence-level">User Confirmed</span>, <span class="confidence-level">High</span>, <span class="confidence-level">Medium</span>, <span class="confidence-level">Low</span>, <span class="confidence-level">False Positive</span></span>
+					</p>
+				</div>
+			</section>
+		</section>
+
+		
+		<section>
+			
+		</section>
+		
+		<section id="summaries" class="summaries">
+			<h2>Summaries</h2>
+
+			<section
+				id="risk-confidence-counts">
+				<h3>Alert Counts by Risk and Confidence</h3>
+				<table class="risk-confidence-counts-table">
+					<caption>
+						<p>This table shows the number of alerts for each level of risk and confidence included in the report.</p>
+						<p>(The percentages in brackets represent the count as a percentage of the total number of alerts included in the report, rounded to one decimal place.)</p>
+					</caption>
+					<colgroup>
+						<col>
+						<col>
+					</colgroup>
+					<colgroup>
+						<col
+							style="width: 14.0%"><col
+							style="width: 14.0%"><col
+							style="width: 14.0%"><col
+							style="width: 14.0%">
+						<col style="width: 14.0%">
+					</colgroup>
+					<thead>
+						<tr>
+							<td colspan="2" rowspan="2"></td>
+							<th scope="colgroup"
+								colspan="5">Confidence</th>
+						</tr>
+						<tr>
+							<th scope="col">User Confirmed</th>
+							<th scope="col">High</th>
+							<th scope="col">Medium</th>
+							<th scope="col">Low</th>
+							<th scope="col">Total</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<th scope="rowgroup"
+								rowspan="5">Risk</th>
+							<th scope="row">High</th>
+							<td><span>0</span><br> <span
+								class="additional-info-percentages">(0.0%)</span></td>
+							<td><span>0</span><br> <span
+								class="additional-info-percentages">(0.0%)</span></td>
+							<td><span>2</span><br> <span
+								class="additional-info-percentages">(16.7%)</span></td>
+							<td><span>0</span><br> <span
+								class="additional-info-percentages">(0.0%)</span></td>
+							<td><span>2</span><br> <span class="additional-info-percentages">(16.7%)</span></td>
+						</tr>
+						<tr>
+							
+							<th scope="row">Medium</th>
+							<td><span>0</span><br> <span
+								class="additional-info-percentages">(0.0%)</span></td>
+							<td><span>1</span><br> <span
+								class="additional-info-percentages">(8.3%)</span></td>
+							<td><span>2</span><br> <span
+								class="additional-info-percentages">(16.7%)</span></td>
+							<td><span>1</span><br> <span
+								class="additional-info-percentages">(8.3%)</span></td>
+							<td><span>4</span><br> <span class="additional-info-percentages">(33.3%)</span></td>
+						</tr>
+						<tr>
+							
+							<th scope="row">Low</th>
+							<td><span>0</span><br> <span
+								class="additional-info-percentages">(0.0%)</span></td>
+							<td><span>1</span><br> <span
+								class="additional-info-percentages">(8.3%)</span></td>
+							<td><span>1</span><br> <span
+								class="additional-info-percentages">(8.3%)</span></td>
+							<td><span>0</span><br> <span
+								class="additional-info-percentages">(0.0%)</span></td>
+							<td><span>2</span><br> <span class="additional-info-percentages">(16.7%)</span></td>
+						</tr>
+						<tr>
+							
+							<th scope="row">Informational</th>
+							<td><span>0</span><br> <span
+								class="additional-info-percentages">(0.0%)</span></td>
+							<td><span>2</span><br> <span
+								class="additional-info-percentages">(16.7%)</span></td>
+							<td><span>2</span><br> <span
+								class="additional-info-percentages">(16.7%)</span></td>
+							<td><span>0</span><br> <span
+								class="additional-info-percentages">(0.0%)</span></td>
+							<td><span>4</span><br> <span class="additional-info-percentages">(33.3%)</span></td>
+						</tr>
+						<tr>
+							<th scope="row">Total</th>
+							<td><span>0</span><br> <span
+								class="additional-info-percentages">(0.0%)</span></td>
+							<td><span>4</span><br> <span
+								class="additional-info-percentages">(33.3%)</span></td>
+							<td><span>7</span><br> <span
+								class="additional-info-percentages">(58.3%)</span></td>
+							<td><span>1</span><br> <span
+								class="additional-info-percentages">(8.3%)</span></td>
+							<td><span>12</span><br> <span
+								class="additional-info-percentages">(100%)</span></td>
+						</tr>
+					</tbody>
+				</table>
+			</section>
+
+			<section
+				id="site-risk-counts">
+				<h3>Alert Counts by Site and Risk</h3>
+				<table class="site-risk-counts-table">
+					<caption>
+						<p>This table shows, for each site for which one or more alerts were raised, the number of alerts raised at each risk level.</p>
+						<p>Alerts with a confidence level of &quot;False Positive&quot; have been excluded from these counts.</p>
+						<p>(The numbers in brackets are the number of alerts raised for the site at or above that risk level.)</p>
+					</caption>
+					<colgroup>
+						<col>
+						<col>
+					</colgroup>
+					<colgroup>
+						<col
+							style="width: 16.25%"><col
+							style="width: 16.25%"><col
+							style="width: 16.25%"><col
+							style="width: 16.25%">
+					</colgroup>
+					<thead>
+						<tr>
+							<td colspan="2" rowspan="2"></td>
+							<th scope="colgroup" colspan="4">Risk</th>
+						</tr>
+						<tr>
+							<th scope="col">
+								<span>High</span><br>  <span
+									class="additional-info-percentages">(= High)</span>  
+							</th>
+							<th scope="col">
+								<span>Medium</span><br>   <span
+									class="additional-info-percentages">(&gt;= Medium)</span> 
+							</th>
+							<th scope="col">
+								<span>Low</span><br>   <span
+									class="additional-info-percentages">(&gt;= Low)</span> 
+							</th>
+							<th scope="col">
+								<span>Informational</span><br>   <span
+									class="additional-info-percentages">(&gt;= Informational)</span> 
+							</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<th scope="rowgroup"
+								rowspan="1">Site</th>
+							<th scope="row">http://127.0.0.1:5001</th>
+							
+							<td><span>2</span><br> <span
+								class="additional-info-percentages">(2)</span></td>
+							<td><span>4</span><br> <span
+								class="additional-info-percentages">(6)</span></td>
+							<td><span>2</span><br> <span
+								class="additional-info-percentages">(8)</span></td>
+							<td><span>4</span><br> <span
+								class="additional-info-percentages">(12)</span></td>
+							
+						</tr>
+					</tbody>
+				</table>
+			</section>
+
+			<section
+				id="alert-type-counts">
+				<h3>Alert Counts by Alert Type</h3>
+				<table class="alert-type-counts-table">
+					<caption>
+						<p>This table shows the number of alerts of each alert type, together with the alert type&#39;s risk level.</p>
+						<p>(The percentages in brackets represent each count as a percentage, rounded to one decimal place, of the total number of alerts included in this report.)</p>
+					</caption>
+					<thead>
+						<tr>
+							<th scope="col">Alert type</th>
+							<th scope="col">Risk</th>
+							<th scope="col">Count</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<th scope="row"><a
+								href="#alert-type-0">SQL Injection</a></th>
+							<td class="risk-level">High</td>
+							<td><span>1</span><br> <span
+								class="additional-info-percentages">(8.3%)</span></td>
+						</tr>
+						<tr>
+							<th scope="row"><a
+								href="#alert-type-1">SQL Injection - Authentication Bypass</a></th>
+							<td class="risk-level">High</td>
+							<td><span>1</span><br> <span
+								class="additional-info-percentages">(8.3%)</span></td>
+						</tr>
+						<tr>
+							<th scope="row"><a
+								href="#alert-type-2">Absence of Anti-CSRF Tokens</a></th>
+							<td class="risk-level">Medium</td>
+							<td><span>6</span><br> <span
+								class="additional-info-percentages">(50.0%)</span></td>
+						</tr>
+						<tr>
+							<th scope="row"><a
+								href="#alert-type-3">Buffer Overflow</a></th>
+							<td class="risk-level">Medium</td>
+							<td><span>4</span><br> <span
+								class="additional-info-percentages">(33.3%)</span></td>
+						</tr>
+						<tr>
+							<th scope="row"><a
+								href="#alert-type-4">Content Security Policy (CSP) Header Not Set</a></th>
+							<td class="risk-level">Medium</td>
+							<td><span>16</span><br> <span
+								class="additional-info-percentages">(133.3%)</span></td>
+						</tr>
+						<tr>
+							<th scope="row"><a
+								href="#alert-type-5">Missing Anti-clickjacking Header</a></th>
+							<td class="risk-level">Medium</td>
+							<td><span>13</span><br> <span
+								class="additional-info-percentages">(108.3%)</span></td>
+						</tr>
+						<tr>
+							<th scope="row"><a
+								href="#alert-type-6">Server Leaks Version Information via &quot;Server&quot; HTTP Response Header Field</a></th>
+							<td class="risk-level">Low</td>
+							<td><span>21</span><br> <span
+								class="additional-info-percentages">(175.0%)</span></td>
+						</tr>
+						<tr>
+							<th scope="row"><a
+								href="#alert-type-7">X-Content-Type-Options Header Missing</a></th>
+							<td class="risk-level">Low</td>
+							<td><span>14</span><br> <span
+								class="additional-info-percentages">(116.7%)</span></td>
+						</tr>
+						<tr>
+							<th scope="row"><a
+								href="#alert-type-8">Authentication Request Identified</a></th>
+							<td class="risk-level">Informational</td>
+							<td><span>4</span><br> <span
+								class="additional-info-percentages">(33.3%)</span></td>
+						</tr>
+						<tr>
+							<th scope="row"><a
+								href="#alert-type-9">GET for POST</a></th>
+							<td class="risk-level">Informational</td>
+							<td><span>1</span><br> <span
+								class="additional-info-percentages">(8.3%)</span></td>
+						</tr>
+						<tr>
+							<th scope="row"><a
+								href="#alert-type-10">Session Management Response Identified</a></th>
+							<td class="risk-level">Informational</td>
+							<td><span>17</span><br> <span
+								class="additional-info-percentages">(141.7%)</span></td>
+						</tr>
+						<tr>
+							<th scope="row"><a
+								href="#alert-type-11">User Agent Fuzzer</a></th>
+							<td class="risk-level">Informational</td>
+							<td><span>209</span><br> <span
+								class="additional-info-percentages">(1,741.7%)</span></td>
+						</tr>
+					</tbody>
+					<tfoot>
+						<tr>
+							<th scope="row">Total</th>
+							<td></td>
+							<td>12</td>
+						</tr>
+					</tfoot>
+				</table>
+			</section>
+		</section>
+
+		<section id="alerts" class="alerts">
+			<h2>Alerts</h2>
+			<ol>
+				
+				 
+				
+				
+				
+				
+				<li id="alerts--risk-3-confidence-2">
+					<h3>
+						<span>Risk</span>=<span
+							class="risk-level">High</span>, <span>Confidence</span>=<span
+							class="confidence-level">Medium</span> <span>(2)</span>
+					</h3>
+					<ol>
+						
+						<li class="alerts--site-li">
+							<h4>
+								<span class="site">http://127.0.0.1:5001</span> <span>(2)</span>
+							</h4>
+							<ol>
+								
+								<li>
+									<h5>
+										<a
+											href="#alert-type-0">SQL Injection</a> <span>(1)</span>
+									</h5>
+									<ol>
+										<li><details>
+												<summary>
+													<span class="request-method-n-url">POST http://127.0.0.1:5001/login</span>
+												</summary>
+												
+<table class="alerts-table">
+	<tr>
+		<th scope="row">Alert tags</th>
+		<td>
+			<ul class="alert-tags-list">
+				<li>
+					 <span>POLICY_SEQUENCE = </span>
+				</li>
+				<li>
+					<span><a href="https://owasp.org/Top10/A03_2021-Injection/">OWASP_2021_A03</a></span> 
+				</li>
+				<li>
+					<span><a href="https://www.zaproxy.org/docs/desktop/addons/common-library/alerttags/#compliance">PCI_DSS</a></span> 
+				</li>
+				<li>
+					<span><a href="https://cwe.mitre.org/data/definitions/89.html">CWE-89</a></span> 
+				</li>
+				<li>
+					 <span>POLICY_QA_CICD = </span>
+				</li>
+				<li>
+					 <span>POLICY_DEV_CICD = </span>
+				</li>
+				<li>
+					<span><a href="https://owasp.org/www-project-web-security-testing-guide/v42/4-Web_Application_Security_Testing/07-Input_Validation_Testing/05-Testing_for_SQL_Injection">WSTG-v42-INPV-05</a></span> 
+				</li>
+				<li>
+					 <span>POLICY_API = </span>
+				</li>
+				<li>
+					 <span>POLICY_DEV_FULL = </span>
+				</li>
+				<li>
+					 <span>POLICY_QA_STD = </span>
+				</li>
+				<li>
+					 <span>POLICY_QA_FULL = </span>
+				</li>
+				<li>
+					 <span>POLICY_PENTEST = </span>
+				</li>
+				<li>
+					<span><a href="https://www.zaproxy.org/docs/desktop/addons/common-library/alerttags/#compliance">HIPAA</a></span> 
+				</li>
+				<li>
+					<span><a href="https://owasp.org/www-project-top-ten/2017/A1_2017-Injection.html">OWASP_2017_A01</a></span> 
+				</li>
+				<li>
+					 <span>POLICY_DEV_STD = </span>
+				</li>
+			</ul>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">Alert description</th>
+		<td> 
+<p>SQL injection may be possible.</p>
+ </td>
+	</tr>
+	<tr>
+		<th scope="row">Other info</th>
+		<td> 
+<p>The page results were successfully manipulated using the boolean conditions [ZAP&#39; AND &#39;1&#39;=&#39;1&#39; -- ] and [ZAP&#39; OR &#39;1&#39;=&#39;1&#39; -- ]</p>
+
+<p>The parameter value being modified was stripped from the HTML output for the purposes of the comparison.</p>
+
+<p>Data was NOT returned for the original parameter.</p>
+
+<p>The vulnerability was detected by successfully retrieving more data than originally returned, by manipulating the parameter.</p>
+ </td>
+	</tr>
+	<tr>
+		<th scope="row">Request</th>
+		<td><details open="open">
+				<summary>Request line and header section (476 bytes)</summary>
+				
+				<pre><code>POST http://127.0.0.1:5001/login HTTP/1.1
+host: 127.0.0.1:5001
+user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36
+pragma: no-cache
+cache-control: no-cache
+content-type: application/x-www-form-urlencoded
+referer: http://127.0.0.1:5001/login
+content-length: 54
+Cookie: session=.eJyrVoovSC3KTcxLzStRsiopKk3VUSrKz0lVslJKTMnNzFPSUSotTi2Kz0xRsjKEsPMScxHStQDpJBYm.aS9PWA.dyu_TxgBNjz6zaO80VleBGrW2p4
+
+</code></pre>
+				
+				
+			</details> <details class="request-body" open="open">
+				<summary>Request body (54 bytes)</summary>
+				
+				<pre><code>username=ZAP%27+AND+%271%27%3D%271%27+--+&amp;password=ZAP</code></pre>
+				
+				
+			</details></td>
+	</tr>
+	<tr>
+		<th scope="row">Response</th>
+		<td><details open="open">
+				<summary>Status line and header section (399 bytes)</summary>
+				
+				<pre><code>HTTP/1.1 200 OK
+Server: Werkzeug/3.1.4 Python/3.12.12
+Date: Tue, 02 Dec 2025 20:43:05 GMT
+Content-Type: text/html; charset=utf-8
+Content-Length: 2738
+Vary: Cookie
+Set-Cookie: session=.eJyrVoovSC3KTcxLzStRsiopKk3VUSrKz0lVslJKTMnNzFPSUSotTi2Kz0xRsjKEsPMScxHStQDpJBYm.aS9PWQ.suIT03yhaJmL8zHNfZ-myVYu7-c; Expires=Wed, 03 Dec 2025 20:43:05 GMT; HttpOnly; Path=/; SameSite=Lax
+Connection: close
+
+</code></pre>
+				
+				
+			</details> <details class="response-body">
+				<summary>Response body (2738 bytes)</summary>
+				
+				<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;!-- SECURITY GAP: Missing security headers (CSP, X-Frame-Options, etc.) --&gt;
+    &lt;title&gt;Login - Golf Score Tracker&lt;/title&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;/static/style.css&quot;&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;nav class=&quot;navbar&quot;&gt;
+        &lt;div class=&quot;container&quot;&gt;
+            &lt;a href=&quot;/&quot; class=&quot;brand&quot;&gt;⛳ Golf Score Tracker&lt;/a&gt;
+            &lt;div class=&quot;nav-links&quot;&gt;
+                
+                    &lt;a href=&quot;/dashboard&quot;&gt;Dashboard&lt;/a&gt;
+                    &lt;a href=&quot;/courses&quot;&gt;Courses&lt;/a&gt;
+                    &lt;a href=&quot;/round/new&quot;&gt;New Round&lt;/a&gt;
+                    &lt;a href=&quot;/scores&quot;&gt;My Scores&lt;/a&gt;
+                    &lt;a href=&quot;/leaderboard&quot;&gt;Leaderboard&lt;/a&gt;
+                    
+                        &lt;a href=&quot;/admin&quot;&gt;Admin&lt;/a&gt;
+                    
+                    &lt;span class=&quot;user-info&quot;&gt;admin&lt;/span&gt;
+                    &lt;a href=&quot;/logout&quot; class=&quot;btn-logout&quot;&gt;Logout&lt;/a&gt;
+                
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/nav&gt;
+
+    &lt;div class=&quot;container main-content&quot;&gt;
+        
+            
+                &lt;div class=&quot;flash-messages&quot;&gt;
+                    
+                        &lt;div class=&quot;alert alert-danger&quot;&gt;
+                            Invalid username or password.
+                        &lt;/div&gt;
+                    
+                &lt;/div&gt;
+            
+        
+
+        
+&lt;div class=&quot;auth-container&quot;&gt;
+    &lt;div class=&quot;auth-box&quot;&gt;
+        &lt;h2&gt;Login&lt;/h2&gt;
+        &lt;p class=&quot;subtitle&quot;&gt;Track your golf scores and handicap&lt;/p&gt;
+
+        &lt;!-- SECURITY GAP: No CSRF protection --&gt;
+        &lt;form method=&quot;POST&quot; action=&quot;/login&quot;&gt;
+            &lt;div class=&quot;form-group&quot;&gt;
+                &lt;label for=&quot;username&quot;&gt;Username&lt;/label&gt;
+                &lt;input type=&quot;text&quot; id=&quot;username&quot; name=&quot;username&quot; required autofocus&gt;
+            &lt;/div&gt;
+
+            &lt;div class=&quot;form-group&quot;&gt;
+                &lt;label for=&quot;password&quot;&gt;Password&lt;/label&gt;
+                &lt;input type=&quot;password&quot; id=&quot;password&quot; name=&quot;password&quot; required&gt;
+            &lt;/div&gt;
+
+            &lt;button type=&quot;submit&quot; class=&quot;btn btn-primary&quot;&gt;Login&lt;/button&gt;
+        &lt;/form&gt;
+
+        &lt;div class=&quot;auth-links&quot;&gt;
+            &lt;p&gt;Don&#39;t have an account? &lt;a href=&quot;/register&quot;&gt;Register here&lt;/a&gt;&lt;/p&gt;
+        &lt;/div&gt;
+
+        &lt;div class=&quot;demo-credentials&quot;&gt;
+            &lt;h4&gt;Demo Accounts:&lt;/h4&gt;
+            &lt;p&gt;&lt;strong&gt;Admin:&lt;/strong&gt; username: admin | password: admin123&lt;/p&gt;
+            &lt;p&gt;&lt;strong&gt;Golfer:&lt;/strong&gt; username: golfer | password: golfer123&lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+    &lt;/div&gt;
+
+    &lt;footer&gt;
+        &lt;div class=&quot;container&quot;&gt;
+            &lt;p&gt;&amp;copy; 2025 Golf Score Tracker | CSE763 Project | For Educational Purposes Only&lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/footer&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+				
+				
+			</details></td>
+	</tr>
+	<tr>
+		<th scope="row">Parameter</th>
+		<td><pre><code>username</code></pre></td>
+	</tr>
+	<tr>
+		<th scope="row">Attack</th>
+		<td><pre><code>ZAP&#39; OR &#39;1&#39;=&#39;1&#39; -- </code></pre></td>
+	</tr>
+	
+	<tr>
+		<th scope="row">Solution</th>
+		<td> 
+<p>Do not trust client side input, even if there is client side validation in place.</p>
+
+<p>In general, type check all data on the server side.</p>
+
+<p>If the application uses JDBC, use PreparedStatement or CallableStatement, with parameters passed by &#39;?&#39;</p>
+
+<p>If the application uses ASP, use ADO Command Objects with strong type checking and parameterized queries.</p>
+
+<p>If database Stored Procedures can be used, use them.</p>
+
+<p>Do *not* concatenate strings into queries in the stored procedure, or use &#39;exec&#39;, &#39;exec immediate&#39;, or equivalent functionality!</p>
+
+<p>Do not create dynamic SQL queries using simple string concatenation.</p>
+
+<p>Escape all data received from the client.</p>
+
+<p>Apply an &#39;allow list&#39; of allowed characters, or a &#39;deny list&#39; of disallowed characters in user input.</p>
+
+<p>Apply the principle of least privilege by using the least privileged database user possible.</p>
+
+<p>In particular, avoid using the &#39;sa&#39; or &#39;db-owner&#39; database users. This does not eliminate SQL injection, but minimizes its impact.</p>
+
+<p>Grant the minimum database access that is necessary for the application.</p>
+ </td>
+	</tr>
+</table>
+
+											</details></li>
+									</ol>
+								</li>
+								
+								<li>
+									<h5>
+										<a
+											href="#alert-type-1">SQL Injection - Authentication Bypass</a> <span>(1)</span>
+									</h5>
+									<ol>
+										<li><details>
+												<summary>
+													<span class="request-method-n-url">POST http://127.0.0.1:5001/login</span>
+												</summary>
+												
+<table class="alerts-table">
+	<tr>
+		<th scope="row">Alert tags</th>
+		<td>
+			<ul class="alert-tags-list">
+				<li>
+					 <span>POLICY_SEQUENCE = </span>
+				</li>
+				<li>
+					<span><a href="https://owasp.org/Top10/A03_2021-Injection/">OWASP_2021_A03</a></span> 
+				</li>
+				<li>
+					<span><a href="https://www.zaproxy.org/docs/desktop/addons/common-library/alerttags/#compliance">PCI_DSS</a></span> 
+				</li>
+				<li>
+					<span><a href="https://cwe.mitre.org/data/definitions/89.html">CWE-89</a></span> 
+				</li>
+				<li>
+					 <span>POLICY_QA_CICD = </span>
+				</li>
+				<li>
+					 <span>POLICY_DEV_CICD = </span>
+				</li>
+				<li>
+					<span><a href="https://owasp.org/www-project-web-security-testing-guide/v42/4-Web_Application_Security_Testing/07-Input_Validation_Testing/05-Testing_for_SQL_Injection">WSTG-v42-INPV-05</a></span> 
+				</li>
+				<li>
+					 <span>POLICY_API = </span>
+				</li>
+				<li>
+					 <span>POLICY_DEV_FULL = </span>
+				</li>
+				<li>
+					 <span>POLICY_QA_STD = </span>
+				</li>
+				<li>
+					 <span>POLICY_QA_FULL = </span>
+				</li>
+				<li>
+					 <span>POLICY_PENTEST = </span>
+				</li>
+				<li>
+					<span><a href="https://www.zaproxy.org/docs/desktop/addons/common-library/alerttags/#compliance">HIPAA</a></span> 
+				</li>
+				<li>
+					<span><a href="https://owasp.org/www-project-top-ten/2017/A1_2017-Injection.html">OWASP_2017_A01</a></span> 
+				</li>
+				<li>
+					 <span>POLICY_DEV_STD = </span>
+				</li>
+			</ul>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">Alert description</th>
+		<td> 
+<p>SQL injection may be possible on a login page, potentially allowing the application&#39;s authentication mechanism to be bypassed</p>
+ </td>
+	</tr>
+	
+	<tr>
+		<th scope="row">Request</th>
+		<td><details open="open">
+				<summary>Request line and header section (478 bytes)</summary>
+				
+				<pre><code>POST http://127.0.0.1:5001/login HTTP/1.1
+host: 127.0.0.1:5001
+user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36
+pragma: no-cache
+cache-control: no-cache
+content-type: application/x-www-form-urlencoded
+referer: http://127.0.0.1:5001/login
+content-length: 25
+Cookie: session=.eJyrVoovSC3KTcxLzStRsiopKk3VUSrKz0lVslJKz89JSy1S0lEqLU4tis9MUbIygrDzEnOR5GsBHC4XEw.aS9OMQ.Jz0xy9RvgNoA8uNbs81lMMXOLhM
+
+</code></pre>
+				
+				
+			</details> <details class="request-body" open="open">
+				<summary>Request body (25 bytes)</summary>
+				
+				<pre><code>username=ZAP&amp;password=ZAP</code></pre>
+				
+				
+			</details></td>
+	</tr>
+	<tr>
+		<th scope="row">Response</th>
+		<td><details open="open">
+				<summary>Status line and header section (401 bytes)</summary>
+				
+				<pre><code>HTTP/1.1 200 OK
+Server: Werkzeug/3.1.4 Python/3.12.12
+Date: Tue, 02 Dec 2025 20:38:09 GMT
+Content-Type: text/html; charset=utf-8
+Content-Length: 2667
+Vary: Cookie
+Set-Cookie: session=.eJyrVoovSC3KTcxLzStRsiopKk3VUSrKz0lVslJKz89JSy1S0lEqLU4tis9MUbIygrDzEnOR5GsBHC4XEw.aS9OMQ.Jz0xy9RvgNoA8uNbs81lMMXOLhM; Expires=Wed, 03 Dec 2025 20:38:09 GMT; HttpOnly; Path=/; SameSite=Lax
+Connection: close
+
+</code></pre>
+				
+				
+			</details> <details class="response-body">
+				<summary>Response body (2667 bytes)</summary>
+				
+				<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;!-- SECURITY GAP: Missing security headers (CSP, X-Frame-Options, etc.) --&gt;
+    &lt;title&gt;Login - Golf Score Tracker&lt;/title&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;/static/style.css&quot;&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;nav class=&quot;navbar&quot;&gt;
+        &lt;div class=&quot;container&quot;&gt;
+            &lt;a href=&quot;/&quot; class=&quot;brand&quot;&gt;⛳ Golf Score Tracker&lt;/a&gt;
+            &lt;div class=&quot;nav-links&quot;&gt;
+                
+                    &lt;a href=&quot;/dashboard&quot;&gt;Dashboard&lt;/a&gt;
+                    &lt;a href=&quot;/courses&quot;&gt;Courses&lt;/a&gt;
+                    &lt;a href=&quot;/round/new&quot;&gt;New Round&lt;/a&gt;
+                    &lt;a href=&quot;/scores&quot;&gt;My Scores&lt;/a&gt;
+                    &lt;a href=&quot;/leaderboard&quot;&gt;Leaderboard&lt;/a&gt;
+                    
+                    &lt;span class=&quot;user-info&quot;&gt;golfer&lt;/span&gt;
+                    &lt;a href=&quot;/logout&quot; class=&quot;btn-logout&quot;&gt;Logout&lt;/a&gt;
+                
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/nav&gt;
+
+    &lt;div class=&quot;container main-content&quot;&gt;
+        
+            
+                &lt;div class=&quot;flash-messages&quot;&gt;
+                    
+                        &lt;div class=&quot;alert alert-danger&quot;&gt;
+                            Invalid username or password.
+                        &lt;/div&gt;
+                    
+                &lt;/div&gt;
+            
+        
+
+        
+&lt;div class=&quot;auth-container&quot;&gt;
+    &lt;div class=&quot;auth-box&quot;&gt;
+        &lt;h2&gt;Login&lt;/h2&gt;
+        &lt;p class=&quot;subtitle&quot;&gt;Track your golf scores and handicap&lt;/p&gt;
+
+        &lt;!-- SECURITY GAP: No CSRF protection --&gt;
+        &lt;form method=&quot;POST&quot; action=&quot;/login&quot;&gt;
+            &lt;div class=&quot;form-group&quot;&gt;
+                &lt;label for=&quot;username&quot;&gt;Username&lt;/label&gt;
+                &lt;input type=&quot;text&quot; id=&quot;username&quot; name=&quot;username&quot; required autofocus&gt;
+            &lt;/div&gt;
+
+            &lt;div class=&quot;form-group&quot;&gt;
+                &lt;label for=&quot;password&quot;&gt;Password&lt;/label&gt;
+                &lt;input type=&quot;password&quot; id=&quot;password&quot; name=&quot;password&quot; required&gt;
+            &lt;/div&gt;
+
+            &lt;button type=&quot;submit&quot; class=&quot;btn btn-primary&quot;&gt;Login&lt;/button&gt;
+        &lt;/form&gt;
+
+        &lt;div class=&quot;auth-links&quot;&gt;
+            &lt;p&gt;Don&#39;t have an account? &lt;a href=&quot;/register&quot;&gt;Register here&lt;/a&gt;&lt;/p&gt;
+        &lt;/div&gt;
+
+        &lt;div class=&quot;demo-credentials&quot;&gt;
+            &lt;h4&gt;Demo Accounts:&lt;/h4&gt;
+            &lt;p&gt;&lt;strong&gt;Admin:&lt;/strong&gt; username: admin | password: admin123&lt;/p&gt;
+            &lt;p&gt;&lt;strong&gt;Golfer:&lt;/strong&gt; username: golfer | password: golfer123&lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+    &lt;/div&gt;
+
+    &lt;footer&gt;
+        &lt;div class=&quot;container&quot;&gt;
+            &lt;p&gt;&amp;copy; 2025 Golf Score Tracker | CSE763 Project | For Educational Purposes Only&lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/footer&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+				
+				
+			</details></td>
+	</tr>
+	<tr>
+		<th scope="row">Parameter</th>
+		<td><pre><code>username</code></pre></td>
+	</tr>
+	<tr>
+		<th scope="row">Attack</th>
+		<td><pre><code>ZAP&#39; OR &#39;1&#39;=&#39;1&#39; -- </code></pre></td>
+	</tr>
+	
+	<tr>
+		<th scope="row">Solution</th>
+		<td> 
+<p>Do not trust client side input, even if there is client side validation in place.</p>
+
+<p>In general, type check all data on the server side.</p>
+
+<p>If the application uses JDBC, use PreparedStatement or CallableStatement, with parameters passed by &#39;?&#39;</p>
+
+<p>If the application uses ASP, use ADO Command Objects with strong type checking and parameterized queries.</p>
+
+<p>If database Stored Procedures can be used, use them.</p>
+
+<p>Do *not* concatenate strings into queries in the stored procedure, or use &#39;exec&#39;, &#39;exec immediate&#39;, or equivalent functionality!</p>
+
+<p>Do not create dynamic SQL queries using simple string concatenation.</p>
+
+<p>Escape all data received from the client.</p>
+
+<p>Apply an &#39;allow list&#39; of allowed characters, or a &#39;deny list&#39; of disallowed characters in user input.</p>
+
+<p>Apply the principle of least privilege by using the least privileged database user possible.</p>
+
+<p>In particular, avoid using the &#39;sa&#39; or &#39;db-owner&#39; database users. This does not eliminate SQL injection, but minimizes its impact.</p>
+
+<p>Grant the minimum database access that is necessary for the application.</p>
+ </td>
+	</tr>
+</table>
+
+											</details></li>
+									</ol>
+								</li>
+								
+							</ol>
+						</li>
+						
+					</ol>
+				</li>
+				
+				
+				  
+				 
+				
+				
+				<li id="alerts--risk-2-confidence-3">
+					<h3>
+						<span>Risk</span>=<span
+							class="risk-level">Medium</span>, <span>Confidence</span>=<span
+							class="confidence-level">High</span> <span>(1)</span>
+					</h3>
+					<ol>
+						
+						<li class="alerts--site-li">
+							<h4>
+								<span class="site">http://127.0.0.1:5001</span> <span>(1)</span>
+							</h4>
+							<ol>
+								
+								<li>
+									<h5>
+										<a
+											href="#alert-type-4">Content Security Policy (CSP) Header Not Set</a> <span>(1)</span>
+									</h5>
+									<ol>
+										<li><details>
+												<summary>
+													<span class="request-method-n-url">GET http://127.0.0.1:5001/sitemap.xml</span>
+												</summary>
+												
+<table class="alerts-table">
+	<tr>
+		<th scope="row">Alert tags</th>
+		<td>
+			<ul class="alert-tags-list">
+				<li>
+					<span><a href="https://owasp.org/Top10/A05_2021-Security_Misconfiguration/">OWASP_2021_A05</a></span> 
+				</li>
+				<li>
+					 <span>POLICY_QA_STD = </span>
+				</li>
+				<li>
+					 <span>POLICY_PENTEST = </span>
+				</li>
+				<li>
+					<span><a href="https://www.zaproxy.org/docs/desktop/addons/common-library/alerttags/#systemic">SYSTEMIC</a></span> 
+				</li>
+				<li>
+					<span><a href="https://cwe.mitre.org/data/definitions/693.html">CWE-693</a></span> 
+				</li>
+				<li>
+					<span><a href="https://owasp.org/www-project-top-ten/2017/A6_2017-Security_Misconfiguration.html">OWASP_2017_A06</a></span> 
+				</li>
+			</ul>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">Alert description</th>
+		<td> 
+<p>Content Security Policy (CSP) is an added layer of security that helps to detect and mitigate certain types of attacks, including Cross Site Scripting (XSS) and data injection attacks. These attacks are used for everything from data theft to site defacement or distribution of malware. CSP provides a set of standard HTTP headers that allow website owners to declare approved sources of content that browsers should be allowed to load on that page — covered types are JavaScript, CSS, HTML frames, fonts, images and embeddable objects such as Java applets, ActiveX, audio and video files.</p>
+ </td>
+	</tr>
+	
+	<tr>
+		<th scope="row">Request</th>
+		<td><details open="open">
+				<summary>Request line and header section (240 bytes)</summary>
+				
+				<pre><code>GET http://127.0.0.1:5001/sitemap.xml HTTP/1.1
+host: 127.0.0.1:5001
+user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36
+pragma: no-cache
+cache-control: no-cache
+
+</code></pre>
+				
+				
+			</details> <details class="request-body" open="open">
+				<summary>Request body (0 bytes)</summary>
+				
+				<pre><code></code></pre>
+				
+				
+			</details></td>
+	</tr>
+	<tr>
+		<th scope="row">Response</th>
+		<td><details open="open">
+				<summary>Status line and header section (197 bytes)</summary>
+				
+				<pre><code>HTTP/1.1 404 NOT FOUND
+Server: Werkzeug/3.1.4 Python/3.12.12
+Date: Tue, 02 Dec 2025 20:05:01 GMT
+Content-Type: text/html; charset=utf-8
+Content-Length: 1291
+Vary: Cookie
+Connection: close
+
+</code></pre>
+				
+				
+			</details> <details class="response-body" open="open">
+				<summary>Response body (1291 bytes)</summary>
+				
+				<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;!-- SECURITY GAP: Missing security headers (CSP, X-Frame-Options, etc.) --&gt;
+    &lt;title&gt;404 - Page Not Found&lt;/title&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;/static/style.css&quot;&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;nav class=&quot;navbar&quot;&gt;
+        &lt;div class=&quot;container&quot;&gt;
+            &lt;a href=&quot;/&quot; class=&quot;brand&quot;&gt;⛳ Golf Score Tracker&lt;/a&gt;
+            &lt;div class=&quot;nav-links&quot;&gt;
+                
+                    &lt;a href=&quot;/login&quot;&gt;Login&lt;/a&gt;
+                    &lt;a href=&quot;/register&quot;&gt;Register&lt;/a&gt;
+                
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/nav&gt;
+
+    &lt;div class=&quot;container main-content&quot;&gt;
+        
+            
+        
+
+        
+&lt;div class=&quot;auth-container&quot;&gt;
+    &lt;div class=&quot;auth-box&quot; style=&quot;text-align: center;&quot;&gt;
+        &lt;h1 style=&quot;font-size: 4rem; color: var(--danger-color);&quot;&gt;404&lt;/h1&gt;
+        &lt;h2&gt;Page Not Found&lt;/h2&gt;
+        &lt;p class=&quot;subtitle&quot;&gt;The page you&#39;re looking for doesn&#39;t exist.&lt;/p&gt;
+        &lt;a href=&quot;/&quot; class=&quot;btn btn-primary&quot;&gt;Go Home&lt;/a&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+    &lt;/div&gt;
+
+    &lt;footer&gt;
+        &lt;div class=&quot;container&quot;&gt;
+            &lt;p&gt;&amp;copy; 2025 Golf Score Tracker | CSE763 Project | For Educational Purposes Only&lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/footer&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+				
+				
+			</details></td>
+	</tr>
+	
+	
+	
+	<tr>
+		<th scope="row">Solution</th>
+		<td> 
+<p>Ensure that your web server, application server, load balancer, etc. is configured to set the Content-Security-Policy header.</p>
+ </td>
+	</tr>
+</table>
+
+											</details></li>
+									</ol>
+								</li>
+								
+							</ol>
+						</li>
+						
+					</ol>
+				</li>
+				
+				<li id="alerts--risk-2-confidence-2">
+					<h3>
+						<span>Risk</span>=<span
+							class="risk-level">Medium</span>, <span>Confidence</span>=<span
+							class="confidence-level">Medium</span> <span>(2)</span>
+					</h3>
+					<ol>
+						
+						<li class="alerts--site-li">
+							<h4>
+								<span class="site">http://127.0.0.1:5001</span> <span>(2)</span>
+							</h4>
+							<ol>
+								
+								<li>
+									<h5>
+										<a
+											href="#alert-type-3">Buffer Overflow</a> <span>(1)</span>
+									</h5>
+									<ol>
+										<li><details>
+												<summary>
+													<span class="request-method-n-url">POST http://127.0.0.1:5001/round/new</span>
+												</summary>
+												
+<table class="alerts-table">
+	<tr>
+		<th scope="row">Alert tags</th>
+		<td>
+			<ul class="alert-tags-list">
+				<li>
+					<span><a href="https://owasp.org/Top10/A03_2021-Injection/">OWASP_2021_A03</a></span> 
+				</li>
+				<li>
+					<span><a href="https://www.zaproxy.org/docs/desktop/addons/common-library/alerttags/#compliance">PCI_DSS</a></span> 
+				</li>
+				<li>
+					 <span>POLICY_API = </span>
+				</li>
+				<li>
+					 <span>POLICY_PENTEST = </span>
+				</li>
+				<li>
+					<span><a href="https://owasp.org/www-project-top-ten/2017/A1_2017-Injection.html">OWASP_2017_A01</a></span> 
+				</li>
+				<li>
+					<span><a href="https://cwe.mitre.org/data/definitions/120.html">CWE-120</a></span> 
+				</li>
+			</ul>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">Alert description</th>
+		<td> 
+<p>Buffer overflow errors are characterized by the overwriting of memory spaces of the background web process, which should have never been modified intentionally or unintentionally. Overwriting values of the IP (Instruction Pointer), BP (Base Pointer) and other registers causes exceptions, segmentation faults, and other process errors to occur. Usually these errors end execution of the application in an unexpected way.</p>
+ </td>
+	</tr>
+	<tr>
+		<th scope="row">Other info</th>
+		<td> 
+<p>Potential Buffer Overflow. The script closed the connection and threw a 500 Internal Server Error.</p>
+ </td>
+	</tr>
+	<tr>
+		<th scope="row">Request</th>
+		<td><details open="open">
+				<summary>Request line and header section (488 bytes)</summary>
+				
+				<pre><code>POST http://127.0.0.1:5001/round/new HTTP/1.1
+host: 127.0.0.1:5001
+user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36
+pragma: no-cache
+cache-control: no-cache
+content-type: application/x-www-form-urlencoded
+referer: http://127.0.0.1:5001/round/new
+content-length: 2140
+Cookie: session=.eJyrVoovSC3KTcxLzStRsiopKk3VUSrKz0lVslJKz89JSy1S0lEqLU4tis9MUbIygrDzEnOR5GsBHC4XEw.aS9PNA.KN1e31U6v20tEOSZBFQhBS6SvOc
+
+</code></pre>
+				
+				
+			</details> <details class="request-body">
+				<summary>Request body (2140 bytes)</summary>
+				
+				<pre><code>course_id=xFEkKRIMbHUCAoIoCYDWMCQAVcmIkkbYnoMZjKYPYwjXubngLSemGVhNThCGpvwMddGYliQSKxQSqRmxuBImytJUZhiTibJDFPPXMomaGAqgvSCtUvDSGPUKJEgIRYmcAjplUDXYHDsTuqnDAeAjDnaeDoQbejcTyXIwsQKpFPWswOSGtgHLNJeUsVgTtqhKDSVMquwKdgBEXiLBweUADYESyJYqHEKSodVGXvMPuqGATvZNGvINmNgmkaZKnTyQwhDAdTiJRcwqPZNRwwhQfIRhjdNtYfchTtPqHVrqakGqaAeAXjsMVFSWrXwEcJQXQfqEpHIUxDxHxmLOlaCdFeBtveeVpFBPZHkoXZVvAGqYyDTHFLwSovfxMysWrYPuBHtRdDtwcgKRvbfTmagmSOKYghFxqdheGufGuhCvxbYvcLwYwgeXnTuTNhkuOWothpbVAfwThpcEOPOSkvHMyPmpvXygLqqqXAKSnSlsyXGuPcstqiICZnCjvHUmYvaKBDPBdQcybpSjQcEYMACfMsVNsIUBARxkMOsyTtZevPWsfVxlWWxlsNodDvMKccAykKjxsbcfaloonUuUtyDPSeZjDaIiBlCZvehftxpnAvRcEcxQFFZQgmUsayJyITCGQMbtyqiniChBgSNRwQQLJcQjGVEncAQDuGkbgiGuiBWLBBuSKDWUjlJKxIEKKHLxTvvFRJJYoKusdXlqWKhOqHPuiAojZmMuGmpfXSelMVdZpYLVhvLGerSYQCCZYTRINSajNduvqpantPXAhXcXECmQryADBpKaPWePkChaOJfHflnVLsZOGKdQlbMDpvarcIIrbXXQXyaXEBgxwNiwBcxxhGHFqVKYiWUmaZOkgjOcvFUSWeEFgpjVtqKIZHRTklHqQUTfOuBLvCgvvNEhZCxkucbUghbVSehOjKlogaZHxKNAtXCJYJsuJuOwGEXtGrPAwWkyWAUtSWSqCNuaWUYUexFparZeBonZLbLhDbucXtyiBJJdUPHsJYDcmdivKacsLZEeOBuUyKnJxaxbadytcTlCdkmInsxmcpdCmpCKbdkSBBHuSKeRgVqrpNwjtmBHENmgSLfMSQxIgRcKWYVtZsIpTXUTPpwaPRiYUOnCnAWxLxmyZUGeNwVKyIZcfSIlhciOORuEbYbQcBuIgvJPFrQueOEfXXSQwxKwSKqLeWHrkPdiSvdceIAjNbbIlBFeQNAHKEXRRXPOOradRCIUNugJgMxSoZlsYEymlqclskhWmwvPBZbQOZanFewFTXNSXQmAiDNfDwVHJppoawUYjGTDSMQrJaydWNXiYOllKtFJekjZBxEeVPBlNidhtnalFiakkcIqKGKgXxuZrHSbcrHSmmpbYlDjoSAFsZeOCFJPuTMDmfYtKPvYMjVURhkIWRhuEwcWSdUclBiEDOQsZQkxCZtdYRKMUieuLnvlkhluHblUJiUOcTKTJHCoPxADKKmoLGtadTrisjmuZATSEMNdmxaUOZbjAoiGZLPaqPkCxFZOXwQGbvYjsKUYroXxeYWAIADDnDgtmiyIcHXYkTiklDwiojJtiDcWklHhTGKKfZBpBsbulEIPNSOUjLetEWpplcEeDeVuNogmMiRHIlsaAXDobKtNiKVdESTADhMaRPoaMxgdipoybTtFwJbXANEZmtHwgFsXGpTxvoeVhJREdVgdrMQqBaOiYMDFTMjecAagTXCSGXXRplYynrDZcCBZJwhUlcWQIeGGHBoqVpIIUGlfBXoVMUMrcZEOhBCHAJCGhQCQrRahpVmqjkFtBjZTQjBybuqpOpdtfbFNQjLVhQOFuNyVcmCyongSjNXYZuqgUDQqcZHNZdIFottEYLZngitpDihjagajWleMLRiUcVJJkOgAgmLuEIrYVbEWCZGyXbOTBlpmioeUcMdSdmolvjsbKVxCZVDdSBwNpXqxQshdjlIZYuwKrTjUitGWPIIhoqsLUxHALtBrseIaqAIZUnmZGTSFOAbIWeMhfTVsMOTICHEGCcguPADuhfwSUTTEboblbfHBwDmFYecnPZDqoVfhaChkfePrkSfrnlfHhciJiKEUHuilMjRKOGTDmPSM&amp;date_played=2025-12-02&amp;notes=</code></pre>
+				
+				
+			</details></td>
+	</tr>
+	<tr>
+		<th scope="row">Response</th>
+		<td><details open="open">
+				<summary>Status line and header section (196 bytes)</summary>
+				
+				<pre><code>HTTP/1.1 500 INTERNAL SERVER ERROR
+Server: Werkzeug/3.1.4 Python/3.12.12
+Date: Tue, 02 Dec 2025 20:42:28 GMT
+Content-Type: text/html; charset=utf-8
+Content-Length: 16901
+Connection: close
+
+</code></pre>
+				
+				
+			</details> <details class="response-body">
+				<summary>Response body (16901 bytes)</summary>
+				
+				<pre><code>&lt;!doctype html&gt;
+&lt;html lang=en&gt;
+  &lt;head&gt;
+    &lt;title&gt;ValueError: invalid literal for int() with base 10: &amp;#39;xFEkKRIMbHUCAoIoCYDWMCQAVcmIkkbYnoMZjKYPYwjXubngLSemGVhNThCGpvwMddGYliQSKxQSqRmxuBImytJUZhiTibJDFPPXMomaGAqgvSCtUvDSGPUKJEgIRYmcAjplUDXYHDsTuqnDAeAjDnaeDoQbejcTyXIwsQKpFPWswOSGtgHLNJeUsVgTtqhKDSVMquw
+ // Werkzeug Debugger&lt;/title&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;?__debugger__=yes&amp;amp;cmd=resource&amp;amp;f=style.css&quot;&gt;
+    &lt;link rel=&quot;shortcut icon&quot;
+        href=&quot;?__debugger__=yes&amp;amp;cmd=resource&amp;amp;f=console.png&quot;&gt;
+    &lt;script src=&quot;?__debugger__=yes&amp;amp;cmd=resource&amp;amp;f=debugger.js&quot;&gt;&lt;/script&gt;
+    &lt;script&gt;
+      var CONSOLE_MODE = false,
+          EVALEX = true,
+          EVALEX_TRUSTED = false,
+          SECRET = &quot;sAi3RSQ0hV4tckqv6FJa&quot;;
+    &lt;/script&gt;
+  &lt;/head&gt;
+  &lt;body style=&quot;background-color: #fff&quot;&gt;
+    &lt;div class=&quot;debugger&quot;&gt;
+&lt;h1&gt;ValueError&lt;/h1&gt;
+&lt;div class=&quot;detail&quot;&gt;
+  &lt;p class=&quot;errormsg&quot;&gt;ValueError: invalid literal for int() with base 10: &amp;#39;xFEkKRIMbHUCAoIoCYDWMCQAVcmIkkbYnoMZjKYPYwjXubngLSemGVhNThCGpvwMddGYliQSKxQSqRmxuBImytJUZhiTibJDFPPXMomaGAqgvSCtUvDSGPUKJEgIRYmcAjplUDXYHDsTuqnDAeAjDnaeDoQbejcTyXIwsQKpFPWswOSGtgHLNJeUsVgTtqhKDSVMquw
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;h2 class=&quot;traceback&quot;&gt;Traceback &lt;em&gt;(most recent call last)&lt;/em&gt;&lt;/h2&gt;
+&lt;div class=&quot;traceback&quot;&gt;
+  &lt;h3&gt;&lt;/h3&gt;
+  &lt;ul&gt;&lt;li&gt;&lt;div class=&quot;frame&quot; id=&quot;frame-140324179175904&quot;&gt;
+  &lt;h4&gt;File &lt;cite class=&quot;filename&quot;&gt;&quot;/usr/local/lib/python3.12/site-packages/flask/app.py&quot;&lt;/cite&gt;,
+      line &lt;em class=&quot;line&quot;&gt;2213&lt;/em&gt;,
+      in &lt;code class=&quot;function&quot;&gt;__call__&lt;/code&gt;&lt;/h4&gt;
+  &lt;div class=&quot;source library&quot;&gt;&lt;pre class=&quot;line before&quot;&gt;&lt;span class=&quot;ws&quot;&gt;    &lt;/span&gt;def __call__(self, environ: dict, start_response: t.Callable) -&amp;gt; t.Any:&lt;/pre&gt;
+&lt;pre class=&quot;line before&quot;&gt;&lt;span class=&quot;ws&quot;&gt;        &lt;/span&gt;&amp;#34;&amp;#34;&amp;#34;The WSGI server calls the Flask application object as the&lt;/pre&gt;
+&lt;pre class=&quot;line before&quot;&gt;&lt;span class=&quot;ws&quot;&gt;        &lt;/span&gt;WSGI application. This calls :meth:`wsgi_app`, which can be&lt;/pre&gt;
+&lt;pre class=&quot;line before&quot;&gt;&lt;span class=&quot;ws&quot;&gt;        &lt;/span&gt;wrapped to apply middleware.&lt;/pre&gt;
+&lt;pre class=&quot;line before&quot;&gt;&lt;span class=&quot;ws&quot;&gt;        &lt;/span&gt;&amp;#34;&amp;#34;&amp;#34;&lt;/pre&gt;
+&lt;pre class=&quot;line current&quot;&gt;&lt;span class=&quot;ws&quot;&gt;        &lt;/span&gt;return self.wsgi_app(environ, start_response)
+&lt;span class=&quot;ws&quot;&gt;        &lt;/span&gt;       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;li&gt;&lt;div class=&quot;frame&quot; id=&quot;frame-140324179178784&quot;&gt;
+  &lt;h4&gt;File &lt;cite class=&quot;filename&quot;&gt;&quot;/usr/local/lib/python3.12/site-packages/flask/app.py&quot;&lt;/cite&gt;,
+      line &lt;em class=&quot;line&quot;&gt;2193&lt;/em&gt;,
+      in &lt;code class=&quot;function&quot;&gt;wsgi_app&lt;/code&gt;&lt;/h4&gt;
+  &lt;div class=&quot;source library&quot;&gt;&lt;pre class=&quot;line before&quot;&gt;&lt;span class=&quot;ws&quot;&gt;            &lt;/span&gt;try:&lt;/pre&gt;
+&lt;pre class=&quot;line before&quot;&gt;&lt;span class=&quot;ws&quot;&gt;                &lt;/span&gt;ctx.push()&lt;/pre&gt;
+&lt;pre class=&quot;line before&quot;&gt;&lt;span class=&quot;ws&quot;&gt;                &lt;/span&gt;response = self.full_dispatch_request()&lt;/pre&gt;
+&lt;pre class=&quot;line before&quot;&gt;&lt;span class=&quot;ws&quot;&gt;            &lt;/span&gt;except Exception as e:&lt;/pre&gt;
+&lt;pre class=&quot;line before&quot;&gt;&lt;span class=&quot;ws&quot;&gt;                &lt;/span&gt;error = e&lt;/pre&gt;
+&lt;pre class=&quot;line current&quot;&gt;&lt;span class=&quot;ws&quot;&gt;                &lt;/span&gt;response = self.handle_exception(e)
+&lt;span class=&quot;ws&quot;&gt;                &lt;/span&gt;           ^^^^^^^^^^^^^^^^^^^^^^^^&lt;/pre&gt;
+&lt;pre class=&quot;line after&quot;&gt;&lt;span class=&quot;ws&quot;&gt;            &lt;/span&gt;except:  # noqa: B001&lt;/pre&gt;
+&lt;pre class=&quot;line after&quot;&gt;&lt;span class=&quot;ws&quot;&gt;                &lt;/span&gt;error = sys.exc_info()[1]&lt;/pre&gt;
+&lt;pre class=&quot;line after&quot;&gt;&lt;span class=&quot;ws&quot;&gt;                &lt;/span&gt;raise&lt;/pre&gt;
+&lt;pre class=&quot;line after&quot;&gt;&lt;span class=&quot;ws&quot;&gt;            &lt;/span&gt;return response(environ, start_response)&lt;/pre&gt;
+&lt;pre class=&quot;line after&quot;&gt;&lt;span class=&quot;ws&quot;&gt;        &lt;/span&gt;finally:&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;li&gt;&lt;div class=&quot;frame&quot; id=&quot;frame-140324179178496&quot;&gt;
+  &lt;h4&gt;File &lt;cite class=&quot;filename&quot;&gt;&quot;/usr/local/lib/python3.12/site-packages/flask/app.py&quot;&lt;/cite&gt;,
+      line &lt;em class=&quot;line&quot;&gt;2190&lt;/em&gt;,
+      in &lt;code class=&quot;function&quot;&gt;wsgi_app&lt;/code&gt;&lt;/h4&gt;
+  &lt;div class=&quot;source library&quot;&gt;&lt;pre class=&quot;line before&quot;&gt;&lt;span class=&quot;ws&quot;&gt;        &lt;/span&gt;ctx = self.request_context(environ)&lt;/pre&gt;
+&lt;pre class=&quot;line before&quot;&gt;&lt;span class=&quot;ws&quot;&gt;        &lt;/span&gt;error: BaseException | None = None&lt;/pre&gt;
+&lt;pre class=&quot;line before&quot;&gt;&lt;span class=&quot;ws&quot;&gt;        &lt;/span&gt;try:&lt;/pre&gt;
+&lt;pre class=&quot;line before&quot;&gt;&lt;span class=&quot;ws&quot;&gt;            &lt;/span&gt;try:&lt;/pre&gt;
+&lt;pre class=&quot;line before&quot;&gt;&lt;span class=&quot;ws&quot;&gt;                &lt;/span&gt;ctx.push()&lt;/pre&gt;
+&lt;pre class=&quot;line current&quot;&gt;&lt;span class=&quot;ws&quot;&gt;                &lt;/span&gt;response = self.full_dispatch_request()
+&lt;span class=&quot;ws&quot;&gt;                &lt;/span&gt;           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^&lt;/pre&gt;
+&lt;pre class=&quot;line after&quot;&gt;&lt;span class=&quot;ws&quot;&gt;            &lt;/span&gt;except Exception as e:&lt;/pre&gt;
+&lt;pre class=&quot;line after&quot;&gt;&lt;span class=&quot;ws&quot;&gt;                &lt;/span&gt;error = e&lt;/pre&gt;
+&lt;pre class=&quot;line after&quot;&gt;&lt;span class=&quot;ws&quot;&gt;                &lt;/span&gt;response = self.handle_exception(e)&lt;/pre&gt;
+&lt;pre class=&quot;line after&quot;&gt;&lt;span class=&quot;ws&quot;&gt;            &lt;/span&gt;except:  # noqa: B001&lt;/pre&gt;
+&lt;pre class=&quot;line after&quot;&gt;&lt;span class=&quot;ws&quot;&gt;                &lt;/span&gt;error = sys.exc_info()[1]&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;li&gt;&lt;div class=&quot;frame&quot; id=&quot;frame-140324179179216&quot;&gt;
+  &lt;h4&gt;File &lt;cite class=&quot;filename&quot;&gt;&quot;/usr/local/lib/python3.12/site-packages/flask/app.py&quot;&lt;/cite&gt;,
+      line &lt;em class=&quot;line&quot;&gt;1486&lt;/em&gt;,
+      in &lt;code class=&quot;function&quot;&gt;full_dispatch_request&lt;/code&gt;&lt;/h4&gt;
+  &lt;div class=&quot;source library&quot;&gt;&lt;pre class=&quot;line before&quot;&gt;&lt;span class=&quot;ws&quot;&gt;            &lt;/span&gt;request_started.send(self, _async_wrapper=self.ensure_sync)&lt;/pre&gt;
+&lt;pre class=&quot;line before&quot;&gt;&lt;span class=&quot;ws&quot;&gt;            &lt;/span&gt;rv = self.preprocess_request()&lt;/pre&gt;
+&lt;pre class=&quot;line before&quot;&gt;&lt;span class=&quot;ws&quot;&gt;            &lt;/span&gt;if rv is None:&lt;/pre&gt;
+&lt;pre class=&quot;line before&quot;&gt;&lt;span class=&quot;ws&quot;&gt;                &lt;/span&gt;rv = self.dispatch_request()&lt;/pre&gt;
+&lt;pre class=&quot;line before&quot;&gt;&lt;span class=&quot;ws&quot;&gt;        &lt;/span&gt;except Exception as e:&lt;/pre&gt;
+&lt;pre class=&quot;line current&quot;&gt;&lt;span class=&quot;ws&quot;&gt;            &lt;/span&gt;rv = self.handle_user_exception(e)
+&lt;span class=&quot;ws&quot;&gt;            &lt;/span&gt;     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^&lt;/pre&gt;
+&lt;pre class=&quot;line after&quot;&gt;&lt;span class=&quot;ws&quot;&gt;        &lt;/span&gt;return self.finalize_request(rv)&lt;/pre&gt;
+&lt;pre class=&quot;line after&quot;&gt;&lt;span class=&quot;ws&quot;&gt;&lt;/span&gt; &lt;/pre&gt;
+&lt;pre class=&quot;line after&quot;&gt;&lt;span class=&quot;ws&quot;&gt;    &lt;/span&gt;def finalize_request(&lt;/pre&gt;
+&lt;pre class=&quot;line after&quot;&gt;&lt;span class=&quot;ws&quot;&gt;        &lt;/span&gt;self,&lt;/pre&gt;
+&lt;pre class=&quot;line after&quot;&gt;&lt;span class=&quot;ws&quot;&gt;        &lt;/span&gt;rv: ft.ResponseReturnValue | HTTPException,&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;li&gt;&lt;div class=&quot;frame&quot; id=&quot;frame-140324179178640&quot;&gt;
+  &lt;h4&gt;File &lt;cite class=&quot;filename&quot;&gt;&quot;/usr/local/lib/python3.12/site-packages/flask/app.py&quot;&lt;/cite&gt;,
+      line &lt;em class=&quot;line&quot;&gt;1484&lt;/em&gt;,
+      in &lt;code class=&quot;function&quot;&gt;full_dispatch_request&lt;/code&gt;&lt;/h4&gt;
+  &lt;div class=&quot;source library&quot;&gt;&lt;pre class=&quot;line before&quot;&gt;&lt;span class=&quot;ws&quot;&gt;&lt;/span&gt; &lt;/pre&gt;
+&lt;pre class=&quot;line before&quot;&gt;&lt;span class=&quot;ws&quot;&gt;        &lt;/span&gt;try:&lt;/pre&gt;
+&lt;pre class=&quot;line before&quot;&gt;&lt;span class=&quot;ws&quot;&gt;            &lt;/span&gt;request_started.send(self, _async_wrapper=self.ensure_sync)&lt;/pre&gt;
+&lt;pre class=&quot;line before&quot;&gt;&lt;span class=&quot;ws&quot;&gt;            &lt;/span&gt;rv = self.preprocess_request()&lt;/pre&gt;
+&lt;pre class=&quot;line before&quot;&gt;&lt;span class=&quot;ws&quot;&gt;            &lt;/span&gt;if rv is None:&lt;/pre&gt;
+&lt;pre class=&quot;line current&quot;&gt;&lt;span class=&quot;ws&quot;&gt;                &lt;/span&gt;rv = self.dispatch_request()
+&lt;span class=&quot;ws&quot;&gt;                &lt;/span&gt;     ^^^^^^^^^^^^^^^^^^^^^^^&lt;/pre&gt;
+&lt;pre class=&quot;line after&quot;&gt;&lt;span class=&quot;ws&quot;&gt;        &lt;/span&gt;except Exception as e:&lt;/pre&gt;
+&lt;pre class=&quot;line after&quot;&gt;&lt;span class=&quot;ws&quot;&gt;            &lt;/span&gt;rv = self.handle_user_exception(e)&lt;/pre&gt;
+&lt;pre class=&quot;line after&quot;&gt;&lt;span class=&quot;ws&quot;&gt;        &lt;/span&gt;return self.finalize_request(rv)&lt;/pre&gt;
+&lt;pre class=&quot;line after&quot;&gt;&lt;span class=&quot;ws&quot;&gt;&lt;/span&gt; &lt;/pre&gt;
+&lt;pre class=&quot;line after&quot;&gt;&lt;span class=&quot;ws&quot;&gt;    &lt;/span&gt;def finalize_request(&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;li&gt;&lt;div class=&quot;frame&quot; id=&quot;frame-140324179178208&quot;&gt;
+  &lt;h4&gt;File &lt;cite class=&quot;filename&quot;&gt;&quot;/usr/local/lib/python3.12/site-packages/flask/app.py&quot;&lt;/cite&gt;,
+      line &lt;em class=&quot;line&quot;&gt;1469&lt;/em&gt;,
+      in &lt;code class=&quot;function&quot;&gt;dispatch_request&lt;/code&gt;&lt;/h4&gt;
+  &lt;div class=&quot;source library&quot;&gt;&lt;pre class=&quot;line before&quot;&gt;&lt;span class=&quot;ws&quot;&gt;            &lt;/span&gt;and req.method == &amp;#34;OPTIONS&amp;#34;&lt;/pre&gt;
+&lt;pre class=&quot;line before&quot;&gt;&lt;span class=&quot;ws&quot;&gt;        &lt;/span&gt;):&lt;/pre&gt;
+&lt;pre class=&quot;line before&quot;&gt;&lt;span class=&quot;ws&quot;&gt;            &lt;/span&gt;return self.make_default_options_response()&lt;/pre&gt;
+&lt;pre class=&quot;line before&quot;&gt;&lt;span class=&quot;ws&quot;&gt;        &lt;/span&gt;# otherwise dispatch to the handler for that endpoint&lt;/pre&gt;
+&lt;pre class=&quot;line before&quot;&gt;&lt;span class=&quot;ws&quot;&gt;        &lt;/span&gt;view_args: dict[str, t.Any] = req.view_args  # type: ignore[assignment]&lt;/pre&gt;
+&lt;pre class=&quot;line current&quot;&gt;&lt;span class=&quot;ws&quot;&gt;        &lt;/span&gt;return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+&lt;span class=&quot;ws&quot;&gt;        &lt;/span&gt;       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^&lt;/pre&gt;
+&lt;pre class=&quot;line after&quot;&gt;&lt;span class=&quot;ws&quot;&gt;&lt;/span&gt; &lt;/pre&gt;
+&lt;pre class=&quot;line after&quot;&gt;&lt;span class=&quot;ws&quot;&gt;    &lt;/span&gt;def full_dispatch_request(self) -&amp;gt; Response:&lt;/pre&gt;
+&lt;pre class=&quot;line after&quot;&gt;&lt;span class=&quot;ws&quot;&gt;        &lt;/span&gt;&amp;#34;&amp;#34;&amp;#34;Dispatches the request and on top of that performs request&lt;/pre&gt;
+&lt;pre class=&quot;line after&quot;&gt;&lt;span class=&quot;ws&quot;&gt;        &lt;/span&gt;pre and postprocessing as well as HTTP exception catching and&lt;/pre&gt;
+&lt;pre class=&quot;line after&quot;&gt;&lt;span class=&quot;ws&quot;&gt;        &lt;/span&gt;error handling.&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;li&gt;&lt;div class=&quot;frame&quot; id=&quot;frame-140324179179360&quot;&gt;
+  &lt;h4&gt;File &lt;cite class=&quot;filename&quot;&gt;&quot;/app/auth.py&quot;&lt;/cite&gt;,
+      line &lt;em class=&quot;line&quot;&gt;15&lt;/em&gt;,
+      in &lt;code class=&quot;function&quot;&gt;decorated_function&lt;/code&gt;&lt;/h4&gt;
+  &lt;div class=&quot;source &quot;&gt;&lt;pre class=&quot;line before&quot;&gt;&lt;span class=&quot;ws&quot;&gt;    &lt;/span&gt;@wraps(f)&lt;/pre&gt;
+&lt;pre class=&quot;line before&quot;&gt;&lt;span class=&quot;ws&quot;&gt;    &lt;/span&gt;def decorated_function(*args, **kwargs):&lt;/pre&gt;
+&lt;pre class=&quot;line before&quot;&gt;&lt;span class=&quot;ws&quot;&gt;        &lt;/span&gt;if &amp;#39;user_id&amp;#39; not in session:&lt;/pre&gt;
+&lt;pre class=&quot;line before&quot;&gt;&lt;span class=&quot;ws&quot;&gt;            &lt;/span&gt;flash(&amp;#39;Please log in to access this page.&amp;#39;, &amp;#39;warning&amp;#39;)&lt;/pre&gt;
+&lt;pre class=&quot;line before&quot;&gt;&lt;span class=&quot;ws&quot;&gt;            &lt;/span&gt;return redirect(url_for(&amp;#39;login&amp;#39;))&lt;/pre&gt;
+&lt;pre class=&quot;line current&quot;&gt;&lt;span class=&quot;ws&quot;&gt;        &lt;/span&gt;return f(*args, **kwargs)
+&lt;span class=&quot;ws&quot;&gt;        &lt;/span&gt;       ^^^^^^^^^^^^^^^^^^&lt;/pre&gt;
+&lt;pre class=&quot;line after&quot;&gt;&lt;span class=&quot;ws&quot;&gt;    &lt;/span&gt;return decorated_function&lt;/pre&gt;
+&lt;pre class=&quot;line after&quot;&gt;&lt;span class=&quot;ws&quot;&gt;&lt;/span&gt; &lt;/pre&gt;
+&lt;pre class=&quot;line after&quot;&gt;&lt;span class=&quot;ws&quot;&gt;&lt;/span&gt;def admin_required(f):&lt;/pre&gt;
+&lt;pre class=&quot;line after&quot;&gt;&lt;span class=&quot;ws&quot;&gt;    &lt;/span&gt;&amp;#34;&amp;#34;&amp;#34;Decorator to require admin role for routes&amp;#34;&amp;#34;&amp;#34;&lt;/pre&gt;
+&lt;pre class=&quot;line after&quot;&gt;&lt;span class=&quot;ws&quot;&gt;    &lt;/span&gt;@wraps(f)&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;li&gt;&lt;div class=&quot;frame&quot; id=&quot;frame-140324179178352&quot;&gt;
+  &lt;h4&gt;File &lt;cite class=&quot;filename&quot;&gt;&quot;/app/app.py&quot;&lt;/cite&gt;,
+      line &lt;em class=&quot;line&quot;&gt;243&lt;/em&gt;,
+      in &lt;code class=&quot;function&quot;&gt;new_round&lt;/code&gt;&lt;/h4&gt;
+  &lt;div class=&quot;source &quot;&gt;&lt;pre class=&quot;line before&quot;&gt;&lt;span class=&quot;ws&quot;&gt;            &lt;/span&gt;courses_data.append(course_dict)&lt;/pre&gt;
+&lt;pre class=&quot;line before&quot;&gt;&lt;span class=&quot;ws&quot;&gt;        &lt;/span&gt;return render_template(&amp;#39;round_entry.html&amp;#39;, courses=courses_data)&lt;/pre&gt;
+&lt;pre class=&quot;line before&quot;&gt;&lt;span class=&quot;ws&quot;&gt;&lt;/span&gt; &lt;/pre&gt;
+&lt;pre class=&quot;line before&quot;&gt;&lt;span class=&quot;ws&quot;&gt;    &lt;/span&gt;# POST: Process the round entry&lt;/pre&gt;
+&lt;pre class=&quot;line before&quot;&gt;&lt;span class=&quot;ws&quot;&gt;    &lt;/span&gt;user = get_current_user()&lt;/pre&gt;
+&lt;pre class=&quot;line current&quot;&gt;&lt;span class=&quot;ws&quot;&gt;    &lt;/span&gt;course_id = int(request.form.get(&amp;#39;course_id&amp;#39;))
+&lt;span class=&quot;ws&quot;&gt;    &lt;/span&gt;            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^&lt;/pre&gt;
+&lt;pre class=&quot;line after&quot;&gt;&lt;span class=&quot;ws&quot;&gt;    &lt;/span&gt;date_played_str = request.form.get(&amp;#39;date_played&amp;#39;)&lt;/pre&gt;
+&lt;pre class=&quot;line after&quot;&gt;&lt;span class=&quot;ws&quot;&gt;    &lt;/span&gt;notes = request.form.get(&amp;#39;notes&amp;#39;, &amp;#39;&amp;#39;)&lt;/pre&gt;
+&lt;pre class=&quot;line after&quot;&gt;&lt;span class=&quot;ws&quot;&gt;&lt;/span&gt; &lt;/pre&gt;
+&lt;pre class=&quot;line after&quot;&gt;&lt;span class=&quot;ws&quot;&gt;    &lt;/span&gt;# SECURITY GAP: No CSRF protection&lt;/pre&gt;
+&lt;pre class=&quot;line after&quot;&gt;&lt;span class=&quot;ws&quot;&gt;    &lt;/span&gt;# SECURITY GAP: Date manipulation possible&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/ul&gt;
+  &lt;blockquote&gt;ValueError: invalid literal for int() with base 10: &amp;#39;xFEkKRIMbHUCAoIoCYDWMCQAVcmIkkbYnoMZjKYPYwjXubngLSemGVhNThCGpvwMddGYliQSKxQSqRmxuBImytJUZhiTibJDFPPXMomaGAqgvSCtUvDSGPUKJEgIRYmcAjplUDXYHDsTuqnDAeAjDnaeDoQbejcTyXIwsQKpFPWswOSGtgHLNJeUsVgTtqhKDSVMquw
+&lt;/blockquote&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;plain&quot;&gt;
+    &lt;p&gt;
+      This is the Copy/Paste friendly version of the traceback.
+    &lt;/p&gt;
+    &lt;textarea cols=&quot;50&quot; rows=&quot;10&quot; name=&quot;code&quot; readonly&gt;Traceback (most recent call last):
+  File &amp;#34;/usr/local/lib/python3.12/site-packages/flask/app.py&amp;#34;, line 2213, in __call__
+    return self.wsgi_app(environ, start_response)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File &amp;#34;/usr/local/lib/python3.12/site-packages/flask/app.py&amp;#34;, line 2193, in wsgi_app
+    response = self.handle_exception(e)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File &amp;#34;/usr/local/lib/python3.12/site-packages/flask/app.py&amp;#34;, line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File &amp;#34;/usr/local/lib/python3.12/site-packages/flask/app.py&amp;#34;, line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File &amp;#34;/usr/local/lib/python3.12/site-packages/flask/app.py&amp;#34;, line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File &amp;#34;/usr/local/lib/python3.12/site-packages/flask/app.py&amp;#34;, line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File &amp;#34;/app/auth.py&amp;#34;, line 15, in decorated_function
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File &amp;#34;/app/app.py&amp;#34;, line 243, in new_round
+    course_id = int(request.form.get(&amp;#39;course_id&amp;#39;))
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: invalid literal for int() with base 10: &amp;#39;xFEkKRIMbHUCAoIoCYDWMCQAVcmIkkbYnoMZjKYPYwjXubngLSemGVhNThCGpvwMddGYliQSKxQSqRmxuBImytJUZhiTibJDFPPXMomaGAqgvSCtUvDSGPUKJEgIRYmcAjplUDXYHDsTuqnDAeAjDnaeDoQbejcTyXIwsQKpFPWswOSGtgHLNJeUsVgTtqhKDSVMquw
+&lt;/textarea&gt;
+&lt;/div&gt;
+&lt;div class=&quot;explanation&quot;&gt;
+  The debugger caught an exception in your WSGI application.  You can now
+  look at the traceback which led to the error.  &lt;span class=&quot;nojavascript&quot;&gt;
+  If you enable JavaScript you can also use additional features such as code
+  execution (if the evalex feature is enabled), automatic pasting of the
+  exceptions and much more.&lt;/span&gt;
+&lt;/div&gt;
+      &lt;div class=&quot;footer&quot;&gt;
+        Brought to you by &lt;strong class=&quot;arthur&quot;&gt;DON&#39;T PANIC&lt;/strong&gt;, your
+        friendly Werkzeug powered traceback interpreter.
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;pin-prompt&quot;&gt;
+      &lt;div class=&quot;inner&quot;&gt;
+        &lt;h3&gt;Console Locked&lt;/h3&gt;
+        &lt;p&gt;
+          The console is locked and needs to be unlocked by entering the PIN.
+          You can find the PIN printed out on the standard output of your
+          shell that runs the server.
+        &lt;form&gt;
+          &lt;p&gt;PIN:
+            &lt;input type=text name=pin size=14&gt;
+            &lt;input type=submit name=btn value=&quot;Confirm Pin&quot;&gt;
+        &lt;/form&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+
+&lt;!--
+
+Traceback (most recent call last):
+  File &quot;/usr/local/lib/python3.12/site-packages/flask/app.py&quot;, line 2213, in __call__
+    return self.wsgi_app(environ, start_response)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File &quot;/usr/local/lib/python3.12/site-packages/flask/app.py&quot;, line 2193, in wsgi_app
+    response = self.handle_exception(e)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File &quot;/usr/local/lib/python3.12/site-packages/flask/app.py&quot;, line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File &quot;/usr/local/lib/python3.12/site-packages/flask/app.py&quot;, line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File &quot;/usr/local/lib/python3.12/site-packages/flask/app.py&quot;, line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File &quot;/usr/local/lib/python3.12/site-packages/flask/app.py&quot;, line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File &quot;/app/auth.py&quot;, line 15, in decorated_function
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File &quot;/app/app.py&quot;, line 243, in new_round
+    course_id = int(request.form.get(&#39;course_id&#39;))
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: invalid literal for int() with base 10: &#39;xFEkKRIMbHUCAoIoCYDWMCQAVcmIkkbYnoMZjKYPYwjXubngLSemGVhNThCGpvwMddGYliQSKxQSqRmxuBImytJUZhiTibJDFPPXMomaGAqgvSCtUvDSGPUKJEgIRYmcAjplUDXYHDsTuqnDAeAjDnaeDoQbejcTyXIwsQKpFPWswOSGtgHLNJeUsVgTtqhKDSVMquw
+
+
+--&gt;
+</code></pre>
+				
+				
+			</details></td>
+	</tr>
+	<tr>
+		<th scope="row">Parameter</th>
+		<td><pre><code>course_id</code></pre></td>
+	</tr>
+	<tr>
+		<th scope="row">Attack</th>
+		<td><pre><code>xFEkKRIMbHUCAoIoCYDWMCQAVcmIkkbYnoMZjKYPYwjXubngLSemGVhNThCGpvwMddGYliQSKxQSqRmxuBImytJUZhiTibJDFPPXMomaGAqgvSCtUvDSGPUKJEgIRYmcAjplUDXYHDsTuqnDAeAjDnaeDoQbejcTyXIwsQKpFPWswOSGtgHLNJeUsVgTtqhKDSVMquwKdgBEXiLBweUADYESyJYqHEKSodVGXvMPuqGATvZNGvINmNgmkaZKnTyQwhDAdTiJRcwqPZNRwwhQfIRhjdNtYfchTtPqHVrqakGqaAeAXjsMVFSWrXwEcJQXQfqEpHIUxDxHxmLOlaCdFeBtveeVpFBPZHkoXZVvAGqYyDTHFLwSovfxMysWrYPuBHtRdDtwcgKRvbfTmagmSOKYghFxqdheGufGuhCvxbYvcLwYwgeXnTuTNhkuOWothpbVAfwThpcEOPOSkvHMyPmpvXygLqqqXAKSnSlsyXGuPcstqiICZnCjvHUmYvaKBDPBdQcybpSjQcEYMACfMsVNsIUBARxkMOsyTtZevPWsfVxlWWxlsNodDvMKccAykKjxsbcfaloonUuUtyDPSeZjDaIiBlCZvehftxpnAvRcEcxQFFZQgmUsayJyITCGQMbtyqiniChBgSNRwQQLJcQjGVEncAQDuGkbgiGuiBWLBBuSKDWUjlJKxIEKKHLxTvvFRJJYoKusdXlqWKhOqHPuiAojZmMuGmpfXSelMVdZpYLVhvLGerSYQCCZYTRINSajNduvqpantPXAhXcXECmQryADBpKaPWePkChaOJfHflnVLsZOGKdQlbMDpvarcIIrbXXQXyaXEBgxwNiwBcxxhGHFqVKYiWUmaZOkgjOcvFUSWeEFgpjVtqKIZHRTklHqQUTfOuBLvCgvvNEhZCxkucbUghbVSehOjKlogaZHxKNAtXCJYJsuJuOwGEXtGrPAwWkyWAUtSWSqCNuaWUYUexFparZeBonZLbLhDbucXtyiBJJdUPHsJYDcmdivKacsLZEeOBuUyKnJxaxbadytcTlCdkmInsxmcpdCmpCKbdkSBBHuSKeRgVqrpNwjtmBHENmgSLfMSQxIgRcKWYVtZsIpTXUTPpwaPRiYUOnCnAWxLxmyZUGeNwVKyIZcfSIlhciOORuEbYbQcBuIgvJPFrQueOEfXXSQwxKwSKqLeWHrkPdiSvdceIAjNbbIlBFeQNAHKEXRRXPOOradRCIUNugJgMxSoZlsYEymlqclskhWmwvPBZbQOZanFewFTXNSXQmAiDNfDwVHJppoawUYjGTDSMQrJaydWNXiYOllKtFJekjZBxEeVPBlNidhtnalFiakkcIqKGKgXxuZrHSbcrHSmmpbYlDjoSAFsZeOCFJPuTMDmfYtKPvYMjVURhkIWRhuEwcWSdUclBiEDOQsZQkxCZtdYRKMUieuLnvlkhluHblUJiUOcTKTJHCoPxADKKmoLGtadTrisjmuZATSEMNdmxaUOZbjAoiGZLPaqPkCxFZOXwQGbvYjsKUYroXxeYWAIADDnDgtmiyIcHXYkTiklDwiojJtiDcWklHhTGKKfZBpBsbulEIPNSOUjLetEWpplcEeDeVuNogmMiRHIlsaAXDobKtNiKVdESTADhMaRPoaMxgdipoybTtFwJbXANEZmtHwgFsXGpTxvoeVhJREdVgdrMQqBaOiYMDFTMjecAagTXCSGXXRplYynrDZcCBZJwhUlcWQIeGGHBoqVpIIUGlfBXoVMUMrcZEOhBCHAJCGhQCQrRahpVmqjkFtBjZTQjBybuqpOpdtfbFNQjLVhQOFuNyVcmCyongSjNXYZuqgUDQqcZHNZdIFottEYLZngitpDihjagajWleMLRiUcVJJkOgAgmLuEIrYVbEWCZGyXbOTBlpmioeUcMdSdmolvjsbKVxCZVDdSBwNpXqxQshdjlIZYuwKrTjUitGWPIIhoqsLUxHALtBrseIaqAIZUnmZGTSFOAbIWeMhfTVsMOTICHEGCcguPADuhfwSUTTEboblbfHBwDmFYecnPZDqoVfhaChkfePrkSfrnlfHhciJiKEUHuilMjRKOGTDmPSM</code></pre></td>
+	</tr>
+	<tr>
+		<th scope="row">Evidence</th>
+		<td><pre><code>Connection: close</code></pre></td>
+	</tr>
+	<tr>
+		<th scope="row">Solution</th>
+		<td> 
+<p>Rewrite the background program using proper return length checking. This will require a recompile of the background executable.</p>
+ </td>
+	</tr>
+</table>
+
+											</details></li>
+									</ol>
+								</li>
+								
+								<li>
+									<h5>
+										<a
+											href="#alert-type-5">Missing Anti-clickjacking Header</a> <span>(1)</span>
+									</h5>
+									<ol>
+										<li><details>
+												<summary>
+													<span class="request-method-n-url">GET http://127.0.0.1:5001</span>
+												</summary>
+												
+<table class="alerts-table">
+	<tr>
+		<th scope="row">Alert tags</th>
+		<td>
+			<ul class="alert-tags-list">
+				<li>
+					<span><a href="https://owasp.org/Top10/A05_2021-Security_Misconfiguration/">OWASP_2021_A05</a></span> 
+				</li>
+				<li>
+					 <span>POLICY_QA_STD = </span>
+				</li>
+				<li>
+					 <span>POLICY_PENTEST = </span>
+				</li>
+				<li>
+					<span><a href="https://cwe.mitre.org/data/definitions/1021.html">CWE-1021</a></span> 
+				</li>
+				<li>
+					<span><a href="https://www.zaproxy.org/docs/desktop/addons/common-library/alerttags/#systemic">SYSTEMIC</a></span> 
+				</li>
+				<li>
+					<span><a href="https://owasp.org/www-project-web-security-testing-guide/v42/4-Web_Application_Security_Testing/11-Client-side_Testing/09-Testing_for_Clickjacking">WSTG-v42-CLNT-09</a></span> 
+				</li>
+				<li>
+					<span><a href="https://owasp.org/www-project-top-ten/2017/A6_2017-Security_Misconfiguration.html">OWASP_2017_A06</a></span> 
+				</li>
+			</ul>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">Alert description</th>
+		<td> 
+<p>The response does not protect against &#39;ClickJacking&#39; attacks. It should include either Content-Security-Policy with &#39;frame-ancestors&#39; directive or X-Frame-Options.</p>
+ </td>
+	</tr>
+	
+	<tr>
+		<th scope="row">Request</th>
+		<td><details open="open">
+				<summary>Request line and header section (228 bytes)</summary>
+				
+				<pre><code>GET http://127.0.0.1:5001 HTTP/1.1
+host: 127.0.0.1:5001
+user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36
+pragma: no-cache
+cache-control: no-cache
+
+</code></pre>
+				
+				
+			</details> <details class="request-body" open="open">
+				<summary>Request body (0 bytes)</summary>
+				
+				<pre><code></code></pre>
+				
+				
+			</details></td>
+	</tr>
+	<tr>
+		<th scope="row">Response</th>
+		<td><details open="open">
+				<summary>Status line and header section (190 bytes)</summary>
+				
+				<pre><code>HTTP/1.1 200 OK
+Server: Werkzeug/3.1.4 Python/3.12.12
+Date: Tue, 02 Dec 2025 20:05:01 GMT
+Content-Type: text/html; charset=utf-8
+Content-Length: 2079
+Vary: Cookie
+Connection: close
+
+</code></pre>
+				
+				
+			</details> <details class="response-body">
+				<summary>Response body (2079 bytes)</summary>
+				
+				<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;!-- SECURITY GAP: Missing security headers (CSP, X-Frame-Options, etc.) --&gt;
+    &lt;title&gt;Login - Golf Score Tracker&lt;/title&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;/static/style.css&quot;&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;nav class=&quot;navbar&quot;&gt;
+        &lt;div class=&quot;container&quot;&gt;
+            &lt;a href=&quot;/&quot; class=&quot;brand&quot;&gt;⛳ Golf Score Tracker&lt;/a&gt;
+            &lt;div class=&quot;nav-links&quot;&gt;
+                
+                    &lt;a href=&quot;/login&quot;&gt;Login&lt;/a&gt;
+                    &lt;a href=&quot;/register&quot;&gt;Register&lt;/a&gt;
+                
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/nav&gt;
+
+    &lt;div class=&quot;container main-content&quot;&gt;
+        
+            
+        
+
+        
+&lt;div class=&quot;auth-container&quot;&gt;
+    &lt;div class=&quot;auth-box&quot;&gt;
+        &lt;h2&gt;Login&lt;/h2&gt;
+        &lt;p class=&quot;subtitle&quot;&gt;Track your golf scores and handicap&lt;/p&gt;
+
+        &lt;!-- SECURITY GAP: No CSRF protection --&gt;
+        &lt;form method=&quot;POST&quot; action=&quot;/login&quot;&gt;
+            &lt;div class=&quot;form-group&quot;&gt;
+                &lt;label for=&quot;username&quot;&gt;Username&lt;/label&gt;
+                &lt;input type=&quot;text&quot; id=&quot;username&quot; name=&quot;username&quot; required autofocus&gt;
+            &lt;/div&gt;
+
+            &lt;div class=&quot;form-group&quot;&gt;
+                &lt;label for=&quot;password&quot;&gt;Password&lt;/label&gt;
+                &lt;input type=&quot;password&quot; id=&quot;password&quot; name=&quot;password&quot; required&gt;
+            &lt;/div&gt;
+
+            &lt;button type=&quot;submit&quot; class=&quot;btn btn-primary&quot;&gt;Login&lt;/button&gt;
+        &lt;/form&gt;
+
+        &lt;div class=&quot;auth-links&quot;&gt;
+            &lt;p&gt;Don&#39;t have an account? &lt;a href=&quot;/register&quot;&gt;Register here&lt;/a&gt;&lt;/p&gt;
+        &lt;/div&gt;
+
+        &lt;div class=&quot;demo-credentials&quot;&gt;
+            &lt;h4&gt;Demo Accounts:&lt;/h4&gt;
+            &lt;p&gt;&lt;strong&gt;Admin:&lt;/strong&gt; username: admin | password: admin123&lt;/p&gt;
+            &lt;p&gt;&lt;strong&gt;Golfer:&lt;/strong&gt; username: golfer | password: golfer123&lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+    &lt;/div&gt;
+
+    &lt;footer&gt;
+        &lt;div class=&quot;container&quot;&gt;
+            &lt;p&gt;&amp;copy; 2025 Golf Score Tracker | CSE763 Project | For Educational Purposes Only&lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/footer&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+				
+				
+			</details></td>
+	</tr>
+	<tr>
+		<th scope="row">Parameter</th>
+		<td><pre><code>x-frame-options</code></pre></td>
+	</tr>
+	
+	
+	<tr>
+		<th scope="row">Solution</th>
+		<td> 
+<p>Modern Web browsers support the Content-Security-Policy and X-Frame-Options HTTP headers. Ensure one of them is set on all web pages returned by your site/app.</p>
+
+<p>If you expect the page to be framed only by pages on your server (e.g. it&#39;s part of a FRAMESET) then you&#39;ll want to use SAMEORIGIN, otherwise if you never expect the page to be framed, you should use DENY. Alternatively consider implementing Content Security Policy&#39;s &quot;frame-ancestors&quot; directive.</p>
+ </td>
+	</tr>
+</table>
+
+											</details></li>
+									</ol>
+								</li>
+								
+							</ol>
+						</li>
+						
+					</ol>
+				</li>
+				
+				<li id="alerts--risk-2-confidence-1">
+					<h3>
+						<span>Risk</span>=<span
+							class="risk-level">Medium</span>, <span>Confidence</span>=<span
+							class="confidence-level">Low</span> <span>(1)</span>
+					</h3>
+					<ol>
+						
+						<li class="alerts--site-li">
+							<h4>
+								<span class="site">http://127.0.0.1:5001</span> <span>(1)</span>
+							</h4>
+							<ol>
+								
+								<li>
+									<h5>
+										<a
+											href="#alert-type-2">Absence of Anti-CSRF Tokens</a> <span>(1)</span>
+									</h5>
+									<ol>
+										<li><details>
+												<summary>
+													<span class="request-method-n-url">GET http://127.0.0.1:5001/login</span>
+												</summary>
+												
+<table class="alerts-table">
+	<tr>
+		<th scope="row">Alert tags</th>
+		<td>
+			<ul class="alert-tags-list">
+				<li>
+					<span><a href="https://owasp.org/Top10/A01_2021-Broken_Access_Control/">OWASP_2021_A01</a></span> 
+				</li>
+				<li>
+					 <span>POLICY_QA_STD = </span>
+				</li>
+				<li>
+					 <span>POLICY_PENTEST = </span>
+				</li>
+				<li>
+					<span><a href="https://www.zaproxy.org/docs/desktop/addons/common-library/alerttags/#systemic">SYSTEMIC</a></span> 
+				</li>
+				<li>
+					<span><a href="https://owasp.org/www-project-web-security-testing-guide/v42/4-Web_Application_Security_Testing/06-Session_Management_Testing/05-Testing_for_Cross_Site_Request_Forgery">WSTG-v42-SESS-05</a></span> 
+				</li>
+				<li>
+					<span><a href="https://owasp.org/www-project-top-ten/2017/A5_2017-Broken_Access_Control.html">OWASP_2017_A05</a></span> 
+				</li>
+				<li>
+					<span><a href="https://cwe.mitre.org/data/definitions/352.html">CWE-352</a></span> 
+				</li>
+				<li>
+					 <span>POLICY_DEV_STD = </span>
+				</li>
+			</ul>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">Alert description</th>
+		<td> 
+<p>No Anti-CSRF tokens were found in a HTML submission form.</p>
+
+<p>A cross-site request forgery is an attack that involves forcing a victim to send an HTTP request to a target destination without their knowledge or intent in order to perform an action as the victim. The underlying cause is application functionality using predictable URL/form actions in a repeatable way. The nature of the attack is that CSRF exploits the trust that a web site has for a user. By contrast, cross-site scripting (XSS) exploits the trust that a user has for a web site. Like XSS, CSRF attacks are not necessarily cross-site, but they can be. Cross-site request forgery is also known as CSRF, XSRF, one-click attack, session riding, confused deputy, and sea surf.</p>
+
+<p>CSRF attacks are effective in a number of situations, including:</p>
+
+<p>    * The victim has an active session on the target site.</p>
+
+<p>    * The victim is authenticated via HTTP auth on the target site.</p>
+
+<p>    * The victim is on the same local network as the target site.</p>
+
+<p>CSRF has primarily been used to perform an action against a target site using the victim&#39;s privileges, but recent techniques have been discovered to disclose information by gaining access to the response. The risk of information disclosure is dramatically increased when the target site is vulnerable to XSS, because XSS can be used as a platform for CSRF, allowing the attack to operate within the bounds of the same-origin policy.</p>
+ </td>
+	</tr>
+	<tr>
+		<th scope="row">Other info</th>
+		<td> 
+<p>No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token, _csrfToken] was found in the following HTML form: [Form 1: &quot;password&quot; &quot;username&quot; ].</p>
+ </td>
+	</tr>
+	<tr>
+		<th scope="row">Request</th>
+		<td><details open="open">
+				<summary>Request line and header section (266 bytes)</summary>
+				
+				<pre><code>GET http://127.0.0.1:5001/login HTTP/1.1
+host: 127.0.0.1:5001
+user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36
+pragma: no-cache
+cache-control: no-cache
+referer: http://127.0.0.1:5001
+
+</code></pre>
+				
+				
+			</details> <details class="request-body" open="open">
+				<summary>Request body (0 bytes)</summary>
+				
+				<pre><code></code></pre>
+				
+				
+			</details></td>
+	</tr>
+	<tr>
+		<th scope="row">Response</th>
+		<td><details open="open">
+				<summary>Status line and header section (190 bytes)</summary>
+				
+				<pre><code>HTTP/1.1 200 OK
+Server: Werkzeug/3.1.4 Python/3.12.12
+Date: Tue, 02 Dec 2025 20:05:01 GMT
+Content-Type: text/html; charset=utf-8
+Content-Length: 2079
+Vary: Cookie
+Connection: close
+
+</code></pre>
+				
+				
+			</details> <details class="response-body">
+				<summary>Response body (2079 bytes)</summary>
+				
+				<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;!-- SECURITY GAP: Missing security headers (CSP, X-Frame-Options, etc.) --&gt;
+    &lt;title&gt;Login - Golf Score Tracker&lt;/title&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;/static/style.css&quot;&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;nav class=&quot;navbar&quot;&gt;
+        &lt;div class=&quot;container&quot;&gt;
+            &lt;a href=&quot;/&quot; class=&quot;brand&quot;&gt;⛳ Golf Score Tracker&lt;/a&gt;
+            &lt;div class=&quot;nav-links&quot;&gt;
+                
+                    &lt;a href=&quot;/login&quot;&gt;Login&lt;/a&gt;
+                    &lt;a href=&quot;/register&quot;&gt;Register&lt;/a&gt;
+                
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/nav&gt;
+
+    &lt;div class=&quot;container main-content&quot;&gt;
+        
+            
+        
+
+        
+&lt;div class=&quot;auth-container&quot;&gt;
+    &lt;div class=&quot;auth-box&quot;&gt;
+        &lt;h2&gt;Login&lt;/h2&gt;
+        &lt;p class=&quot;subtitle&quot;&gt;Track your golf scores and handicap&lt;/p&gt;
+
+        &lt;!-- SECURITY GAP: No CSRF protection --&gt;
+        &lt;form method=&quot;POST&quot; action=&quot;/login&quot;&gt;
+            &lt;div class=&quot;form-group&quot;&gt;
+                &lt;label for=&quot;username&quot;&gt;Username&lt;/label&gt;
+                &lt;input type=&quot;text&quot; id=&quot;username&quot; name=&quot;username&quot; required autofocus&gt;
+            &lt;/div&gt;
+
+            &lt;div class=&quot;form-group&quot;&gt;
+                &lt;label for=&quot;password&quot;&gt;Password&lt;/label&gt;
+                &lt;input type=&quot;password&quot; id=&quot;password&quot; name=&quot;password&quot; required&gt;
+            &lt;/div&gt;
+
+            &lt;button type=&quot;submit&quot; class=&quot;btn btn-primary&quot;&gt;Login&lt;/button&gt;
+        &lt;/form&gt;
+
+        &lt;div class=&quot;auth-links&quot;&gt;
+            &lt;p&gt;Don&#39;t have an account? &lt;a href=&quot;/register&quot;&gt;Register here&lt;/a&gt;&lt;/p&gt;
+        &lt;/div&gt;
+
+        &lt;div class=&quot;demo-credentials&quot;&gt;
+            &lt;h4&gt;Demo Accounts:&lt;/h4&gt;
+            &lt;p&gt;&lt;strong&gt;Admin:&lt;/strong&gt; username: admin | password: admin123&lt;/p&gt;
+            &lt;p&gt;&lt;strong&gt;Golfer:&lt;/strong&gt; username: golfer | password: golfer123&lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+    &lt;/div&gt;
+
+    &lt;footer&gt;
+        &lt;div class=&quot;container&quot;&gt;
+            &lt;p&gt;&amp;copy; 2025 Golf Score Tracker | CSE763 Project | For Educational Purposes Only&lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/footer&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+				
+				
+			</details></td>
+	</tr>
+	
+	
+	<tr>
+		<th scope="row">Evidence</th>
+		<td><pre><code>&lt;form method=&quot;POST&quot; action=&quot;/login&quot;&gt;</code></pre></td>
+	</tr>
+	<tr>
+		<th scope="row">Solution</th>
+		<td> 
+<p>Phase: Architecture and Design</p>
+
+<p>Use a vetted library or framework that does not allow this weakness to occur or provides constructs that make this weakness easier to avoid.</p>
+
+<p>For example, use anti-CSRF packages such as the OWASP CSRFGuard.</p>
+
+<p>Phase: Implementation</p>
+
+<p>Ensure that your application is free of cross-site scripting issues, because most CSRF defenses can be bypassed using attacker-controlled script.</p>
+
+<p>Phase: Architecture and Design</p>
+
+<p>Generate a unique nonce for each form, place the nonce into the form, and verify the nonce upon receipt of the form. Be sure that the nonce is not predictable (CWE-330).</p>
+
+<p>Note that this can be bypassed using XSS.</p>
+
+<p>Identify especially dangerous operations. When the user performs a dangerous operation, send a separate confirmation request to ensure that the user intended to perform that operation.</p>
+
+<p>Note that this can be bypassed using XSS.</p>
+
+<p>Use the ESAPI Session Management control.</p>
+
+<p>This control includes a component for CSRF.</p>
+
+<p>Do not use the GET method for any request that triggers a state change.</p>
+
+<p>Phase: Implementation</p>
+
+<p>Check the HTTP Referer header to see if the request originated from an expected page. This could break legitimate functionality, because users or proxies may have disabled sending the Referer for privacy reasons.</p>
+ </td>
+	</tr>
+</table>
+
+											</details></li>
+									</ol>
+								</li>
+								
+							</ol>
+						</li>
+						
+					</ol>
+				</li>
+				  
+				 
+				
+				
+				<li id="alerts--risk-1-confidence-3">
+					<h3>
+						<span>Risk</span>=<span
+							class="risk-level">Low</span>, <span>Confidence</span>=<span
+							class="confidence-level">High</span> <span>(1)</span>
+					</h3>
+					<ol>
+						
+						<li class="alerts--site-li">
+							<h4>
+								<span class="site">http://127.0.0.1:5001</span> <span>(1)</span>
+							</h4>
+							<ol>
+								
+								<li>
+									<h5>
+										<a
+											href="#alert-type-6">Server Leaks Version Information via &quot;Server&quot; HTTP Response Header Field</a> <span>(1)</span>
+									</h5>
+									<ol>
+										<li><details>
+												<summary>
+													<span class="request-method-n-url">GET http://127.0.0.1:5001/static/style.css</span>
+												</summary>
+												
+<table class="alerts-table">
+	<tr>
+		<th scope="row">Alert tags</th>
+		<td>
+			<ul class="alert-tags-list">
+				<li>
+					<span><a href="https://owasp.org/Top10/A05_2021-Security_Misconfiguration/">OWASP_2021_A05</a></span> 
+				</li>
+				<li>
+					 <span>POLICY_QA_STD = </span>
+				</li>
+				<li>
+					 <span>POLICY_PENTEST = </span>
+				</li>
+				<li>
+					<span><a href="https://www.zaproxy.org/docs/desktop/addons/common-library/alerttags/#systemic">SYSTEMIC</a></span> 
+				</li>
+				<li>
+					<span><a href="https://owasp.org/www-project-top-ten/2017/A6_2017-Security_Misconfiguration.html">OWASP_2017_A06</a></span> 
+				</li>
+				<li>
+					<span><a href="https://owasp.org/www-project-web-security-testing-guide/v42/4-Web_Application_Security_Testing/01-Information_Gathering/02-Fingerprint_Web_Server">WSTG-v42-INFO-02</a></span> 
+				</li>
+				<li>
+					<span><a href="https://cwe.mitre.org/data/definitions/497.html">CWE-497</a></span> 
+				</li>
+			</ul>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">Alert description</th>
+		<td> 
+<p>The web/application server is leaking version information via the &quot;Server&quot; HTTP response header. Access to such information may facilitate attackers identifying other vulnerabilities your web/application server is subject to.</p>
+ </td>
+	</tr>
+	
+	<tr>
+		<th scope="row">Request</th>
+		<td><details open="open">
+				<summary>Request line and header section (289 bytes)</summary>
+				
+				<pre><code>GET http://127.0.0.1:5001/static/style.css HTTP/1.1
+host: 127.0.0.1:5001
+user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36
+pragma: no-cache
+cache-control: no-cache
+referer: http://127.0.0.1:5001/sitemap.xml
+
+</code></pre>
+				
+				
+			</details> <details class="request-body" open="open">
+				<summary>Request body (0 bytes)</summary>
+				
+				<pre><code></code></pre>
+				
+				
+			</details></td>
+	</tr>
+	<tr>
+		<th scope="row">Response</th>
+		<td><details open="open">
+				<summary>Status line and header section (378 bytes)</summary>
+				
+				<pre><code>HTTP/1.1 200 OK
+Server: Werkzeug/3.1.4 Python/3.12.12
+Date: Tue, 02 Dec 2025 20:05:01 GMT
+Content-Disposition: inline; filename=style.css
+Content-Type: text/css; charset=utf-8
+Content-Length: 11989
+Last-Modified: Fri, 31 Oct 2025 15:58:43 GMT
+Cache-Control: no-cache
+ETag: &quot;1761926323.6873822-11989-1438189567&quot;
+Date: Tue, 02 Dec 2025 20:05:01 GMT
+Connection: close
+
+</code></pre>
+				
+				
+			</details> <details class="response-body">
+				<summary>Response body (11989 bytes)</summary>
+				
+				<pre><code>/* Golf Score Tracker - Main Stylesheet */
+
+:root {
+    --primary-color: #16a34a;  /* Golf green */
+    --secondary-color: #64748b;
+    --success-color: #10b981;
+    --danger-color: #ef4444;
+    --warning-color: #f59e0b;
+    --info-color: #3b82f6;
+    --dark-bg: #1e293b;
+    --light-bg: #f1f5f9;
+    --border-color: #e2e8f0;
+    --text-color: #1e293b;
+    --text-muted: #64748b;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, &#39;Segoe UI&#39;, Roboto, &#39;Helvetica Neue&#39;, Arial, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--light-bg);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Navigation */
+.navbar {
+    background-color: var(--dark-bg);
+    color: white;
+    padding: 1rem 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+}
+
+.nav-links {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--primary-color);
+}
+
+.user-info {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.btn-logout {
+    background-color: var(--danger-color);
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+}
+
+.btn-logout:hover {
+    background-color: #dc2626;
+    color: white !important;
+}
+
+/* Main Content */
+.main-content {
+    min-height: calc(100vh - 200px);
+    padding: 2rem 0;
+}
+
+/* Flash Messages */
+.flash-messages {
+    margin-bottom: 1rem;
+}
+
+.alert {
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 4px;
+    border-left: 4px solid;
+}
+
+.alert-success {
+    background-color: #d1fae5;
+    border-color: var(--success-color);
+    color: #065f46;
+}
+
+.alert-danger {
+    background-color: #fee2e2;
+    border-color: var(--danger-color);
+    color: #991b1b;
+}
+
+.alert-warning {
+    background-color: #fef3c7;
+    border-color: var(--warning-color);
+    color: #92400e;
+}
+
+.alert-info {
+    background-color: #dbeafe;
+    border-color: var(--info-color);
+    color: #1e40af;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: all 0.3s;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #15803d;
+}
+
+.btn-secondary {
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+.btn-secondary:hover {
+    background-color: #475569;
+}
+
+/* Auth Pages */
+.auth-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 60vh;
+}
+
+.auth-box {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 400px;
+}
+
+.auth-box h2 {
+    margin-bottom: 0.5rem;
+}
+
+.subtitle {
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
+}
+
+.auth-links {
+    margin-top: 1.5rem;
+    text-align: center;
+}
+
+.demo-credentials {
+    margin-top: 2rem;
+    padding: 1rem;
+    background-color: var(--light-bg);
+    border-radius: 4px;
+    font-size: 0.9rem;
+}
+
+.demo-credentials h4 {
+    margin-bottom: 0.5rem;
+}
+
+/* Forms */
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.form-section {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin-bottom: 1.5rem;
+}
+
+.form-section h3 {
+    margin-bottom: 1rem;
+}
+
+.form-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+/* Dashboard */
+.dashboard h1 {
+    margin-bottom: 0.5rem;
+}
+
+.welcome-message {
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.stat-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.stat-card h3 {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.stat-card p {
+    color: var(--text-muted);
+}
+
+.recent-activity {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.no-data {
+    text-align: center;
+    padding: 2rem;
+    color: var(--text-muted);
+}
+
+.info-box {
+    background: #dbeafe;
+    border-left: 4px solid var(--info-color);
+    padding: 1rem;
+    border-radius: 4px;
+    margin-top: 2rem;
+}
+
+/* Tables */
+.rounds-table,
+.scores-table,
+.leaderboard-table,
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.rounds-table th,
+.rounds-table td,
+.scores-table th,
+.scores-table td,
+.leaderboard-table th,
+.leaderboard-table td,
+.admin-table th,
+.admin-table td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.rounds-table th,
+.scores-table th,
+.leaderboard-table th,
+.admin-table th {
+    background-color: var(--light-bg);
+    font-weight: 600;
+}
+
+.rounds-table tr:hover,
+.scores-table tr:hover,
+.leaderboard-table tr:hover,
+.admin-table tr:hover {
+    background-color: var(--light-bg);
+}
+
+.score-cell {
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.diff-cell {
+    font-weight: 600;
+}
+
+.score-even {
+    color: var(--text-color);
+}
+
+.score-over {
+    color: var(--danger-color);
+}
+
+.score-under {
+    color: var(--success-color);
+}
+
+/* Courses */
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.courses-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.course-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.course-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.course-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.course-location {
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+}
+
+.course-details {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+    margin: 1rem 0;
+    padding: 1rem;
+    background-color: var(--light-bg);
+    border-radius: 4px;
+}
+
+.detail-item {
+    display: flex;
+    justify-content: space-between;
+}
+
+.detail-item .label {
+    color: var(--text-muted);
+}
+
+.detail-item .value {
+    font-weight: 600;
+}
+
+.course-actions {
+    margin-top: 1rem;
+}
+
+/* Add Course */
+#holesContainer {
+    display: grid;
+    gap: 0.5rem;
+}
+
+.hole-input-row {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 1rem;
+    align-items: center;
+    padding: 0.75rem;
+    background-color: var(--light-bg);
+    border-radius: 4px;
+}
+
+.hole-number {
+    font-weight: 600;
+}
+
+.hole-inputs {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 0.5rem;
+}
+
+.hole-inputs input {
+    padding: 0.5rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+}
+
+/* Round Entry */
+#holesScorecard {
+    display: grid;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.score-input-row {
+    display: grid;
+    grid-template-columns: 1fr 100px;
+    gap: 1rem;
+    align-items: center;
+    padding: 0.75rem;
+    background-color: var(--light-bg);
+    border-radius: 4px;
+}
+
+.hole-info {
+    display: flex;
+    justify-content: space-between;
+}
+
+.hole-number {
+    font-weight: 600;
+}
+
+.hole-par {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.score-input input {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.score-summary {
+    background: linear-gradient(135deg, var(--primary-color), #15803d);
+    color: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.score-summary h4 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Leaderboard */
+.filter-section {
+    background: white;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin-bottom: 2rem;
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    padding: 0.5rem 1rem;
+    background-color: var(--light-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    text-decoration: none;
+    color: var(--text-color);
+    transition: all 0.3s;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+    background-color: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}
+
+.rank-cell {
+    font-weight: bold;
+    color: var(--primary-color);
+    font-size: 1.2rem;
+}
+
+.player-cell {
+    display: flex;
+    flex-direction: column;
+}
+
+.username-small {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.handicap-cell {
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+/* Admin Panel */
+.admin-panel h1 {
+    margin-bottom: 2rem;
+}
+
+.admin-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.admin-section {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin-bottom: 2rem;
+}
+
+.admin-section h2 {
+    margin-bottom: 1rem;
+}
+
+.role-badge {
+    padding: 0.25rem 0.75rem;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.role-admin {
+    background-color: var(--danger-color);
+    color: white;
+}
+
+.role-golfer {
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+.status-active {
+    color: var(--success-color);
+    font-weight: 600;
+}
+
+.status-inactive {
+    color: var(--danger-color);
+    font-weight: 600;
+}
+
+.action-badge {
+    background-color: var(--light-bg);
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.85rem;
+}
+
+.details-cell,
+.notes-cell {
+    max-width: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* Footer */
+footer {
+    background-color: var(--dark-bg);
+    color: white;
+    padding: 2rem 0;
+    text-align: center;
+    margin-top: 3rem;
+}
+
+footer p {
+    margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .nav-links {
+        flex-direction: column;
+        gap: 0.5rem;
+        width: 100%;
+    }
+
+    .page-header {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1rem;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .courses-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .course-details {
+        grid-template-columns: 1fr;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .filter-section {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .filter-btn {
+        text-align: center;
+    }
+
+    table {
+        font-size: 0.85rem;
+    }
+
+    th, td {
+        padding: 0.5rem !important;
+    }
+}
+</code></pre>
+				
+				
+			</details></td>
+	</tr>
+	
+	
+	<tr>
+		<th scope="row">Evidence</th>
+		<td><pre><code>Werkzeug/3.1.4 Python/3.12.12</code></pre></td>
+	</tr>
+	<tr>
+		<th scope="row">Solution</th>
+		<td> 
+<p>Ensure that your web server, application server, load balancer, etc. is configured to suppress the &quot;Server&quot; header or provide generic details.</p>
+ </td>
+	</tr>
+</table>
+
+											</details></li>
+									</ol>
+								</li>
+								
+							</ol>
+						</li>
+						
+					</ol>
+				</li>
+				
+				<li id="alerts--risk-1-confidence-2">
+					<h3>
+						<span>Risk</span>=<span
+							class="risk-level">Low</span>, <span>Confidence</span>=<span
+							class="confidence-level">Medium</span> <span>(1)</span>
+					</h3>
+					<ol>
+						
+						<li class="alerts--site-li">
+							<h4>
+								<span class="site">http://127.0.0.1:5001</span> <span>(1)</span>
+							</h4>
+							<ol>
+								
+								<li>
+									<h5>
+										<a
+											href="#alert-type-7">X-Content-Type-Options Header Missing</a> <span>(1)</span>
+									</h5>
+									<ol>
+										<li><details>
+												<summary>
+													<span class="request-method-n-url">GET http://127.0.0.1:5001/static/style.css</span>
+												</summary>
+												
+<table class="alerts-table">
+	<tr>
+		<th scope="row">Alert tags</th>
+		<td>
+			<ul class="alert-tags-list">
+				<li>
+					<span><a href="https://owasp.org/Top10/A05_2021-Security_Misconfiguration/">OWASP_2021_A05</a></span> 
+				</li>
+				<li>
+					 <span>POLICY_QA_STD = </span>
+				</li>
+				<li>
+					 <span>POLICY_PENTEST = </span>
+				</li>
+				<li>
+					<span><a href="https://www.zaproxy.org/docs/desktop/addons/common-library/alerttags/#systemic">SYSTEMIC</a></span> 
+				</li>
+				<li>
+					<span><a href="https://cwe.mitre.org/data/definitions/693.html">CWE-693</a></span> 
+				</li>
+				<li>
+					<span><a href="https://owasp.org/www-project-top-ten/2017/A6_2017-Security_Misconfiguration.html">OWASP_2017_A06</a></span> 
+				</li>
+			</ul>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">Alert description</th>
+		<td> 
+<p>The Anti-MIME-Sniffing header X-Content-Type-Options was not set to &#39;nosniff&#39;. This allows older versions of Internet Explorer and Chrome to perform MIME-sniffing on the response body, potentially causing the response body to be interpreted and displayed as a content type other than the declared content type. Current (early 2014) and legacy versions of Firefox will use the declared content type (if one is set), rather than performing MIME-sniffing.</p>
+ </td>
+	</tr>
+	<tr>
+		<th scope="row">Other info</th>
+		<td> 
+<p>This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.</p>
+
+<p>At &quot;High&quot; threshold this scan rule will not alert on client or server error responses.</p>
+ </td>
+	</tr>
+	<tr>
+		<th scope="row">Request</th>
+		<td><details open="open">
+				<summary>Request line and header section (289 bytes)</summary>
+				
+				<pre><code>GET http://127.0.0.1:5001/static/style.css HTTP/1.1
+host: 127.0.0.1:5001
+user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36
+pragma: no-cache
+cache-control: no-cache
+referer: http://127.0.0.1:5001/sitemap.xml
+
+</code></pre>
+				
+				
+			</details> <details class="request-body" open="open">
+				<summary>Request body (0 bytes)</summary>
+				
+				<pre><code></code></pre>
+				
+				
+			</details></td>
+	</tr>
+	<tr>
+		<th scope="row">Response</th>
+		<td><details open="open">
+				<summary>Status line and header section (378 bytes)</summary>
+				
+				<pre><code>HTTP/1.1 200 OK
+Server: Werkzeug/3.1.4 Python/3.12.12
+Date: Tue, 02 Dec 2025 20:05:01 GMT
+Content-Disposition: inline; filename=style.css
+Content-Type: text/css; charset=utf-8
+Content-Length: 11989
+Last-Modified: Fri, 31 Oct 2025 15:58:43 GMT
+Cache-Control: no-cache
+ETag: &quot;1761926323.6873822-11989-1438189567&quot;
+Date: Tue, 02 Dec 2025 20:05:01 GMT
+Connection: close
+
+</code></pre>
+				
+				
+			</details> <details class="response-body">
+				<summary>Response body (11989 bytes)</summary>
+				
+				<pre><code>/* Golf Score Tracker - Main Stylesheet */
+
+:root {
+    --primary-color: #16a34a;  /* Golf green */
+    --secondary-color: #64748b;
+    --success-color: #10b981;
+    --danger-color: #ef4444;
+    --warning-color: #f59e0b;
+    --info-color: #3b82f6;
+    --dark-bg: #1e293b;
+    --light-bg: #f1f5f9;
+    --border-color: #e2e8f0;
+    --text-color: #1e293b;
+    --text-muted: #64748b;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, &#39;Segoe UI&#39;, Roboto, &#39;Helvetica Neue&#39;, Arial, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--light-bg);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Navigation */
+.navbar {
+    background-color: var(--dark-bg);
+    color: white;
+    padding: 1rem 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+}
+
+.nav-links {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--primary-color);
+}
+
+.user-info {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.btn-logout {
+    background-color: var(--danger-color);
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+}
+
+.btn-logout:hover {
+    background-color: #dc2626;
+    color: white !important;
+}
+
+/* Main Content */
+.main-content {
+    min-height: calc(100vh - 200px);
+    padding: 2rem 0;
+}
+
+/* Flash Messages */
+.flash-messages {
+    margin-bottom: 1rem;
+}
+
+.alert {
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 4px;
+    border-left: 4px solid;
+}
+
+.alert-success {
+    background-color: #d1fae5;
+    border-color: var(--success-color);
+    color: #065f46;
+}
+
+.alert-danger {
+    background-color: #fee2e2;
+    border-color: var(--danger-color);
+    color: #991b1b;
+}
+
+.alert-warning {
+    background-color: #fef3c7;
+    border-color: var(--warning-color);
+    color: #92400e;
+}
+
+.alert-info {
+    background-color: #dbeafe;
+    border-color: var(--info-color);
+    color: #1e40af;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: all 0.3s;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #15803d;
+}
+
+.btn-secondary {
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+.btn-secondary:hover {
+    background-color: #475569;
+}
+
+/* Auth Pages */
+.auth-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 60vh;
+}
+
+.auth-box {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 400px;
+}
+
+.auth-box h2 {
+    margin-bottom: 0.5rem;
+}
+
+.subtitle {
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
+}
+
+.auth-links {
+    margin-top: 1.5rem;
+    text-align: center;
+}
+
+.demo-credentials {
+    margin-top: 2rem;
+    padding: 1rem;
+    background-color: var(--light-bg);
+    border-radius: 4px;
+    font-size: 0.9rem;
+}
+
+.demo-credentials h4 {
+    margin-bottom: 0.5rem;
+}
+
+/* Forms */
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.form-section {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin-bottom: 1.5rem;
+}
+
+.form-section h3 {
+    margin-bottom: 1rem;
+}
+
+.form-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+/* Dashboard */
+.dashboard h1 {
+    margin-bottom: 0.5rem;
+}
+
+.welcome-message {
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.stat-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.stat-card h3 {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.stat-card p {
+    color: var(--text-muted);
+}
+
+.recent-activity {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.no-data {
+    text-align: center;
+    padding: 2rem;
+    color: var(--text-muted);
+}
+
+.info-box {
+    background: #dbeafe;
+    border-left: 4px solid var(--info-color);
+    padding: 1rem;
+    border-radius: 4px;
+    margin-top: 2rem;
+}
+
+/* Tables */
+.rounds-table,
+.scores-table,
+.leaderboard-table,
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.rounds-table th,
+.rounds-table td,
+.scores-table th,
+.scores-table td,
+.leaderboard-table th,
+.leaderboard-table td,
+.admin-table th,
+.admin-table td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.rounds-table th,
+.scores-table th,
+.leaderboard-table th,
+.admin-table th {
+    background-color: var(--light-bg);
+    font-weight: 600;
+}
+
+.rounds-table tr:hover,
+.scores-table tr:hover,
+.leaderboard-table tr:hover,
+.admin-table tr:hover {
+    background-color: var(--light-bg);
+}
+
+.score-cell {
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.diff-cell {
+    font-weight: 600;
+}
+
+.score-even {
+    color: var(--text-color);
+}
+
+.score-over {
+    color: var(--danger-color);
+}
+
+.score-under {
+    color: var(--success-color);
+}
+
+/* Courses */
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.courses-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.course-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.course-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.course-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.course-location {
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+}
+
+.course-details {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+    margin: 1rem 0;
+    padding: 1rem;
+    background-color: var(--light-bg);
+    border-radius: 4px;
+}
+
+.detail-item {
+    display: flex;
+    justify-content: space-between;
+}
+
+.detail-item .label {
+    color: var(--text-muted);
+}
+
+.detail-item .value {
+    font-weight: 600;
+}
+
+.course-actions {
+    margin-top: 1rem;
+}
+
+/* Add Course */
+#holesContainer {
+    display: grid;
+    gap: 0.5rem;
+}
+
+.hole-input-row {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 1rem;
+    align-items: center;
+    padding: 0.75rem;
+    background-color: var(--light-bg);
+    border-radius: 4px;
+}
+
+.hole-number {
+    font-weight: 600;
+}
+
+.hole-inputs {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 0.5rem;
+}
+
+.hole-inputs input {
+    padding: 0.5rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+}
+
+/* Round Entry */
+#holesScorecard {
+    display: grid;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.score-input-row {
+    display: grid;
+    grid-template-columns: 1fr 100px;
+    gap: 1rem;
+    align-items: center;
+    padding: 0.75rem;
+    background-color: var(--light-bg);
+    border-radius: 4px;
+}
+
+.hole-info {
+    display: flex;
+    justify-content: space-between;
+}
+
+.hole-number {
+    font-weight: 600;
+}
+
+.hole-par {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.score-input input {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.score-summary {
+    background: linear-gradient(135deg, var(--primary-color), #15803d);
+    color: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.score-summary h4 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Leaderboard */
+.filter-section {
+    background: white;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin-bottom: 2rem;
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    padding: 0.5rem 1rem;
+    background-color: var(--light-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    text-decoration: none;
+    color: var(--text-color);
+    transition: all 0.3s;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+    background-color: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}
+
+.rank-cell {
+    font-weight: bold;
+    color: var(--primary-color);
+    font-size: 1.2rem;
+}
+
+.player-cell {
+    display: flex;
+    flex-direction: column;
+}
+
+.username-small {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.handicap-cell {
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+/* Admin Panel */
+.admin-panel h1 {
+    margin-bottom: 2rem;
+}
+
+.admin-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.admin-section {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin-bottom: 2rem;
+}
+
+.admin-section h2 {
+    margin-bottom: 1rem;
+}
+
+.role-badge {
+    padding: 0.25rem 0.75rem;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.role-admin {
+    background-color: var(--danger-color);
+    color: white;
+}
+
+.role-golfer {
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+.status-active {
+    color: var(--success-color);
+    font-weight: 600;
+}
+
+.status-inactive {
+    color: var(--danger-color);
+    font-weight: 600;
+}
+
+.action-badge {
+    background-color: var(--light-bg);
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.85rem;
+}
+
+.details-cell,
+.notes-cell {
+    max-width: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* Footer */
+footer {
+    background-color: var(--dark-bg);
+    color: white;
+    padding: 2rem 0;
+    text-align: center;
+    margin-top: 3rem;
+}
+
+footer p {
+    margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .nav-links {
+        flex-direction: column;
+        gap: 0.5rem;
+        width: 100%;
+    }
+
+    .page-header {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1rem;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .courses-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .course-details {
+        grid-template-columns: 1fr;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .filter-section {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .filter-btn {
+        text-align: center;
+    }
+
+    table {
+        font-size: 0.85rem;
+    }
+
+    th, td {
+        padding: 0.5rem !important;
+    }
+}
+</code></pre>
+				
+				
+			</details></td>
+	</tr>
+	<tr>
+		<th scope="row">Parameter</th>
+		<td><pre><code>x-content-type-options</code></pre></td>
+	</tr>
+	
+	
+	<tr>
+		<th scope="row">Solution</th>
+		<td> 
+<p>Ensure that the application/web server sets the Content-Type header appropriately, and that it sets the X-Content-Type-Options header to &#39;nosniff&#39; for all web pages.</p>
+
+<p>If possible, ensure that the end user uses a standards-compliant and modern web browser that does not perform MIME-sniffing at all, or that can be directed by the web application/web server to not perform MIME-sniffing.</p>
+ </td>
+	</tr>
+</table>
+
+											</details></li>
+									</ol>
+								</li>
+								
+							</ol>
+						</li>
+						
+					</ol>
+				</li>
+				
+				
+				  
+				 
+				
+				
+				<li id="alerts--risk-0-confidence-3">
+					<h3>
+						<span>Risk</span>=<span
+							class="risk-level">Informational</span>, <span>Confidence</span>=<span
+							class="confidence-level">High</span> <span>(2)</span>
+					</h3>
+					<ol>
+						
+						<li class="alerts--site-li">
+							<h4>
+								<span class="site">http://127.0.0.1:5001</span> <span>(2)</span>
+							</h4>
+							<ol>
+								
+								<li>
+									<h5>
+										<a
+											href="#alert-type-8">Authentication Request Identified</a> <span>(1)</span>
+									</h5>
+									<ol>
+										<li><details>
+												<summary>
+													<span class="request-method-n-url">POST http://127.0.0.1:5001/login</span>
+												</summary>
+												
+<table class="alerts-table">
+	<tr>
+		<th scope="row">Alert tags</th>
+		<td>
+			<ul class="alert-tags-list">
+				
+			</ul>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">Alert description</th>
+		<td> 
+<p>The given request has been identified as an authentication request. The &#39;Other Info&#39; field contains a set of key=value lines which identify any relevant fields. If the request is in a context which has an Authentication Method set to &quot;Auto-Detect&quot; then this rule will change the authentication to match the request identified.</p>
+ </td>
+	</tr>
+	<tr>
+		<th scope="row">Other info</th>
+		<td> 
+<p>userParam=username</p>
+
+<p>userValue=ZAP</p>
+
+<p>passwordParam=password</p>
+
+<p>referer=http://127.0.0.1:5001/login</p>
+ </td>
+	</tr>
+	<tr>
+		<th scope="row">Request</th>
+		<td><details open="open">
+				<summary>Request line and header section (342 bytes)</summary>
+				
+				<pre><code>POST http://127.0.0.1:5001/login HTTP/1.1
+host: 127.0.0.1:5001
+user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36
+pragma: no-cache
+cache-control: no-cache
+content-type: application/x-www-form-urlencoded
+referer: http://127.0.0.1:5001/login
+content-length: 25
+
+</code></pre>
+				
+				
+			</details> <details class="request-body" open="open">
+				<summary>Request body (25 bytes)</summary>
+				
+				<pre><code>username=ZAP&amp;password=ZAP</code></pre>
+				
+				
+			</details></td>
+	</tr>
+	<tr>
+		<th scope="row">Response</th>
+		<td><details open="open">
+				<summary>Status line and header section (294 bytes)</summary>
+				
+				<pre><code>HTTP/1.1 200 OK
+Server: Werkzeug/3.1.4 Python/3.12.12
+Date: Tue, 02 Dec 2025 20:05:01 GMT
+Content-Type: text/html; charset=utf-8
+Content-Length: 2348
+Vary: Cookie
+Set-Cookie: session=; Expires=Thu, 01 Jan 1970 00:00:00 GMT; Max-Age=0; HttpOnly; Path=/; SameSite=Lax
+Connection: close
+
+</code></pre>
+				
+				
+			</details> <details class="response-body">
+				<summary>Response body (2348 bytes)</summary>
+				
+				<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;!-- SECURITY GAP: Missing security headers (CSP, X-Frame-Options, etc.) --&gt;
+    &lt;title&gt;Login - Golf Score Tracker&lt;/title&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;/static/style.css&quot;&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;nav class=&quot;navbar&quot;&gt;
+        &lt;div class=&quot;container&quot;&gt;
+            &lt;a href=&quot;/&quot; class=&quot;brand&quot;&gt;⛳ Golf Score Tracker&lt;/a&gt;
+            &lt;div class=&quot;nav-links&quot;&gt;
+                
+                    &lt;a href=&quot;/login&quot;&gt;Login&lt;/a&gt;
+                    &lt;a href=&quot;/register&quot;&gt;Register&lt;/a&gt;
+                
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/nav&gt;
+
+    &lt;div class=&quot;container main-content&quot;&gt;
+        
+            
+                &lt;div class=&quot;flash-messages&quot;&gt;
+                    
+                        &lt;div class=&quot;alert alert-danger&quot;&gt;
+                            Invalid username or password.
+                        &lt;/div&gt;
+                    
+                &lt;/div&gt;
+            
+        
+
+        
+&lt;div class=&quot;auth-container&quot;&gt;
+    &lt;div class=&quot;auth-box&quot;&gt;
+        &lt;h2&gt;Login&lt;/h2&gt;
+        &lt;p class=&quot;subtitle&quot;&gt;Track your golf scores and handicap&lt;/p&gt;
+
+        &lt;!-- SECURITY GAP: No CSRF protection --&gt;
+        &lt;form method=&quot;POST&quot; action=&quot;/login&quot;&gt;
+            &lt;div class=&quot;form-group&quot;&gt;
+                &lt;label for=&quot;username&quot;&gt;Username&lt;/label&gt;
+                &lt;input type=&quot;text&quot; id=&quot;username&quot; name=&quot;username&quot; required autofocus&gt;
+            &lt;/div&gt;
+
+            &lt;div class=&quot;form-group&quot;&gt;
+                &lt;label for=&quot;password&quot;&gt;Password&lt;/label&gt;
+                &lt;input type=&quot;password&quot; id=&quot;password&quot; name=&quot;password&quot; required&gt;
+            &lt;/div&gt;
+
+            &lt;button type=&quot;submit&quot; class=&quot;btn btn-primary&quot;&gt;Login&lt;/button&gt;
+        &lt;/form&gt;
+
+        &lt;div class=&quot;auth-links&quot;&gt;
+            &lt;p&gt;Don&#39;t have an account? &lt;a href=&quot;/register&quot;&gt;Register here&lt;/a&gt;&lt;/p&gt;
+        &lt;/div&gt;
+
+        &lt;div class=&quot;demo-credentials&quot;&gt;
+            &lt;h4&gt;Demo Accounts:&lt;/h4&gt;
+            &lt;p&gt;&lt;strong&gt;Admin:&lt;/strong&gt; username: admin | password: admin123&lt;/p&gt;
+            &lt;p&gt;&lt;strong&gt;Golfer:&lt;/strong&gt; username: golfer | password: golfer123&lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+    &lt;/div&gt;
+
+    &lt;footer&gt;
+        &lt;div class=&quot;container&quot;&gt;
+            &lt;p&gt;&amp;copy; 2025 Golf Score Tracker | CSE763 Project | For Educational Purposes Only&lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/footer&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+				
+				
+			</details></td>
+	</tr>
+	<tr>
+		<th scope="row">Parameter</th>
+		<td><pre><code>username</code></pre></td>
+	</tr>
+	
+	<tr>
+		<th scope="row">Evidence</th>
+		<td><pre><code>password</code></pre></td>
+	</tr>
+	<tr>
+		<th scope="row">Solution</th>
+		<td> 
+<p>This is an informational alert rather than a vulnerability and so there is nothing to fix.</p>
+ </td>
+	</tr>
+</table>
+
+											</details></li>
+									</ol>
+								</li>
+								
+								<li>
+									<h5>
+										<a
+											href="#alert-type-9">GET for POST</a> <span>(1)</span>
+									</h5>
+									<ol>
+										<li><details>
+												<summary>
+													<span class="request-method-n-url">GET http://127.0.0.1:5001/login</span>
+												</summary>
+												
+<table class="alerts-table">
+	<tr>
+		<th scope="row">Alert tags</th>
+		<td>
+			<ul class="alert-tags-list">
+				<li>
+					<span><a href="https://owasp.org/Top10/A04_2021-Insecure_Design/">OWASP_2021_A04</a></span> 
+				</li>
+				<li>
+					 <span>POLICY_QA_STD = </span>
+				</li>
+				<li>
+					 <span>POLICY_QA_FULL = </span>
+				</li>
+				<li>
+					 <span>POLICY_PENTEST = </span>
+				</li>
+				<li>
+					<span><a href="https://owasp.org/www-project-web-security-testing-guide/v42/4-Web_Application_Security_Testing/02-Configuration_and_Deployment_Management_Testing/06-Test_HTTP_Methods">WSTG-v42-CONF-06</a></span> 
+				</li>
+				<li>
+					 <span>POLICY_QA_CICD = </span>
+				</li>
+				<li>
+					<span><a href="https://owasp.org/www-project-top-ten/2017/A6_2017-Security_Misconfiguration.html">OWASP_2017_A06</a></span> 
+				</li>
+				<li>
+					<span><a href="https://cwe.mitre.org/data/definitions/16.html">CWE-16</a></span> 
+				</li>
+			</ul>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">Alert description</th>
+		<td> 
+<p>A request that was originally observed as a POST was also accepted as a GET. This issue does not represent a security weakness unto itself, however, it may facilitate simplification of other attacks. For example if the original POST is subject to Cross-Site Scripting (XSS), then this finding may indicate that a simplified (GET based) XSS may also be possible.</p>
+ </td>
+	</tr>
+	
+	<tr>
+		<th scope="row">Request</th>
+		<td><details open="open">
+				<summary>Request line and header section (481 bytes)</summary>
+				
+				<pre><code>GET http://127.0.0.1:5001/login?password=ZAP&amp;username=ZAP HTTP/1.1
+host: 127.0.0.1:5001
+user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36
+pragma: no-cache
+cache-control: no-cache
+content-type: application/x-www-form-urlencoded
+referer: http://127.0.0.1:5001/login
+Cookie: session=.eJyrVoovSC3KTcxLzStRsiopKk3VUSrKz0lVslJKTMnNzFPSUSotTi2Kz0xRsjKEsPMScxHStQDpJBYm.aS9PcA.IAQ-X5LJzdf_15cwGP5HpbNqXKg
+
+</code></pre>
+				
+				
+			</details> <details class="request-body" open="open">
+				<summary>Request body (0 bytes)</summary>
+				
+				<pre><code></code></pre>
+				
+				
+			</details></td>
+	</tr>
+	<tr>
+		<th scope="row">Response</th>
+		<td><details open="open">
+				<summary>Status line and header section (399 bytes)</summary>
+				
+				<pre><code>HTTP/1.1 200 OK
+Server: Werkzeug/3.1.4 Python/3.12.12
+Date: Tue, 02 Dec 2025 20:43:28 GMT
+Content-Type: text/html; charset=utf-8
+Content-Length: 2469
+Vary: Cookie
+Set-Cookie: session=.eJyrVoovSC3KTcxLzStRsiopKk3VUSrKz0lVslJKTMnNzFPSUSotTi2Kz0xRsjKEsPMScxHStQDpJBYm.aS9PcA.IAQ-X5LJzdf_15cwGP5HpbNqXKg; Expires=Wed, 03 Dec 2025 20:43:28 GMT; HttpOnly; Path=/; SameSite=Lax
+Connection: close
+
+</code></pre>
+				
+				
+			</details> <details class="response-body">
+				<summary>Response body (2469 bytes)</summary>
+				
+				<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;!-- SECURITY GAP: Missing security headers (CSP, X-Frame-Options, etc.) --&gt;
+    &lt;title&gt;Login - Golf Score Tracker&lt;/title&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;/static/style.css&quot;&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;nav class=&quot;navbar&quot;&gt;
+        &lt;div class=&quot;container&quot;&gt;
+            &lt;a href=&quot;/&quot; class=&quot;brand&quot;&gt;⛳ Golf Score Tracker&lt;/a&gt;
+            &lt;div class=&quot;nav-links&quot;&gt;
+                
+                    &lt;a href=&quot;/dashboard&quot;&gt;Dashboard&lt;/a&gt;
+                    &lt;a href=&quot;/courses&quot;&gt;Courses&lt;/a&gt;
+                    &lt;a href=&quot;/round/new&quot;&gt;New Round&lt;/a&gt;
+                    &lt;a href=&quot;/scores&quot;&gt;My Scores&lt;/a&gt;
+                    &lt;a href=&quot;/leaderboard&quot;&gt;Leaderboard&lt;/a&gt;
+                    
+                        &lt;a href=&quot;/admin&quot;&gt;Admin&lt;/a&gt;
+                    
+                    &lt;span class=&quot;user-info&quot;&gt;admin&lt;/span&gt;
+                    &lt;a href=&quot;/logout&quot; class=&quot;btn-logout&quot;&gt;Logout&lt;/a&gt;
+                
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/nav&gt;
+
+    &lt;div class=&quot;container main-content&quot;&gt;
+        
+            
+        
+
+        
+&lt;div class=&quot;auth-container&quot;&gt;
+    &lt;div class=&quot;auth-box&quot;&gt;
+        &lt;h2&gt;Login&lt;/h2&gt;
+        &lt;p class=&quot;subtitle&quot;&gt;Track your golf scores and handicap&lt;/p&gt;
+
+        &lt;!-- SECURITY GAP: No CSRF protection --&gt;
+        &lt;form method=&quot;POST&quot; action=&quot;/login&quot;&gt;
+            &lt;div class=&quot;form-group&quot;&gt;
+                &lt;label for=&quot;username&quot;&gt;Username&lt;/label&gt;
+                &lt;input type=&quot;text&quot; id=&quot;username&quot; name=&quot;username&quot; required autofocus&gt;
+            &lt;/div&gt;
+
+            &lt;div class=&quot;form-group&quot;&gt;
+                &lt;label for=&quot;password&quot;&gt;Password&lt;/label&gt;
+                &lt;input type=&quot;password&quot; id=&quot;password&quot; name=&quot;password&quot; required&gt;
+            &lt;/div&gt;
+
+            &lt;button type=&quot;submit&quot; class=&quot;btn btn-primary&quot;&gt;Login&lt;/button&gt;
+        &lt;/form&gt;
+
+        &lt;div class=&quot;auth-links&quot;&gt;
+            &lt;p&gt;Don&#39;t have an account? &lt;a href=&quot;/register&quot;&gt;Register here&lt;/a&gt;&lt;/p&gt;
+        &lt;/div&gt;
+
+        &lt;div class=&quot;demo-credentials&quot;&gt;
+            &lt;h4&gt;Demo Accounts:&lt;/h4&gt;
+            &lt;p&gt;&lt;strong&gt;Admin:&lt;/strong&gt; username: admin | password: admin123&lt;/p&gt;
+            &lt;p&gt;&lt;strong&gt;Golfer:&lt;/strong&gt; username: golfer | password: golfer123&lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+    &lt;/div&gt;
+
+    &lt;footer&gt;
+        &lt;div class=&quot;container&quot;&gt;
+            &lt;p&gt;&amp;copy; 2025 Golf Score Tracker | CSE763 Project | For Educational Purposes Only&lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/footer&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+				
+				
+			</details></td>
+	</tr>
+	
+	
+	<tr>
+		<th scope="row">Evidence</th>
+		<td><pre><code>GET http://127.0.0.1:5001/login?password=ZAP&amp;username=ZAP HTTP/1.1</code></pre></td>
+	</tr>
+	<tr>
+		<th scope="row">Solution</th>
+		<td> 
+<p>Ensure that only POST is accepted where POST is expected.</p>
+ </td>
+	</tr>
+</table>
+
+											</details></li>
+									</ol>
+								</li>
+								
+							</ol>
+						</li>
+						
+					</ol>
+				</li>
+				
+				<li id="alerts--risk-0-confidence-2">
+					<h3>
+						<span>Risk</span>=<span
+							class="risk-level">Informational</span>, <span>Confidence</span>=<span
+							class="confidence-level">Medium</span> <span>(2)</span>
+					</h3>
+					<ol>
+						
+						<li class="alerts--site-li">
+							<h4>
+								<span class="site">http://127.0.0.1:5001</span> <span>(2)</span>
+							</h4>
+							<ol>
+								
+								<li>
+									<h5>
+										<a
+											href="#alert-type-10">Session Management Response Identified</a> <span>(1)</span>
+									</h5>
+									<ol>
+										<li><details>
+												<summary>
+													<span class="request-method-n-url">POST http://127.0.0.1:5001/register</span>
+												</summary>
+												
+<table class="alerts-table">
+	<tr>
+		<th scope="row">Alert tags</th>
+		<td>
+			<ul class="alert-tags-list">
+				
+			</ul>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">Alert description</th>
+		<td> 
+<p>The given response has been identified as containing a session management token. The &#39;Other Info&#39; field contains a set of header tokens that can be used in the Header Based Session Management Method. If the request is in a context which has a Session Management Method set to &quot;Auto-Detect&quot; then this rule will change the session management to use the tokens identified.</p>
+ </td>
+	</tr>
+	<tr>
+		<th scope="row">Other info</th>
+		<td> 
+<p>cookie:session</p>
+ </td>
+	</tr>
+	<tr>
+		<th scope="row">Request</th>
+		<td><details open="open">
+				<summary>Request line and header section (348 bytes)</summary>
+				
+				<pre><code>POST http://127.0.0.1:5001/register HTTP/1.1
+host: 127.0.0.1:5001
+user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36
+pragma: no-cache
+cache-control: no-cache
+content-type: application/x-www-form-urlencoded
+referer: http://127.0.0.1:5001/register
+content-length: 88
+
+</code></pre>
+				
+				
+			</details> <details class="request-body" open="open">
+				<summary>Request body (88 bytes)</summary>
+				
+				<pre><code>full_name=ZAP&amp;username=ZAP&amp;email=zaproxy%40example.com&amp;password=ZAP&amp;confirm_password=ZAP</code></pre>
+				
+				
+			</details></td>
+	</tr>
+	<tr>
+		<th scope="row">Response</th>
+		<td><details open="open">
+				<summary>Status line and header section (406 bytes)</summary>
+				
+				<pre><code>HTTP/1.1 302 FOUND
+Server: Werkzeug/3.1.4 Python/3.12.12
+Date: Tue, 02 Dec 2025 20:05:01 GMT
+Content-Type: text/html; charset=utf-8
+Content-Length: 205
+Location: /register
+Vary: Cookie
+Set-Cookie: session=eyJfZmxhc2hlcyI6W3siIHQiOlsiZGFuZ2VyIiwiUGFzc3dvcmQgbXVzdCBiZSBhdCBsZWFzdCA2IGNoYXJhY3RlcnMgbG9uZyJdfV19.aS9GbQ.yCi0wUNsEHQnIx9NBDzg65rdrDc; HttpOnly; Path=/; SameSite=Lax
+Connection: close
+
+</code></pre>
+				
+				
+			</details> <details class="response-body" open="open">
+				<summary>Response body (205 bytes)</summary>
+				
+				<pre><code>&lt;!doctype html&gt;
+&lt;html lang=en&gt;
+&lt;title&gt;Redirecting...&lt;/title&gt;
+&lt;h1&gt;Redirecting...&lt;/h1&gt;
+&lt;p&gt;You should be redirected automatically to the target URL: &lt;a href=&quot;/register&quot;&gt;/register&lt;/a&gt;. If not, click the link.
+</code></pre>
+				
+				
+			</details></td>
+	</tr>
+	<tr>
+		<th scope="row">Parameter</th>
+		<td><pre><code>session</code></pre></td>
+	</tr>
+	
+	<tr>
+		<th scope="row">Evidence</th>
+		<td><pre><code>session</code></pre></td>
+	</tr>
+	<tr>
+		<th scope="row">Solution</th>
+		<td> 
+<p>This is an informational alert rather than a vulnerability and so there is nothing to fix.</p>
+ </td>
+	</tr>
+</table>
+
+											</details></li>
+									</ol>
+								</li>
+								
+								<li>
+									<h5>
+										<a
+											href="#alert-type-11">User Agent Fuzzer</a> <span>(1)</span>
+									</h5>
+									<ol>
+										<li><details>
+												<summary>
+													<span class="request-method-n-url">POST http://127.0.0.1:5001/register</span>
+												</summary>
+												
+<table class="alerts-table">
+	<tr>
+		<th scope="row">Alert tags</th>
+		<td>
+			<ul class="alert-tags-list">
+				<li>
+					 <span>CUSTOM_PAYLOADS = </span>
+				</li>
+				<li>
+					 <span>POLICY_PENTEST = </span>
+				</li>
+				<li>
+					<span><a href="https://www.zaproxy.org/docs/desktop/addons/common-library/alerttags/#systemic">SYSTEMIC</a></span> 
+				</li>
+			</ul>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">Alert description</th>
+		<td> 
+<p>Check for differences in response based on fuzzed User Agent (eg. mobile sites, access as a Search Engine Crawler). Compares the response statuscode and the hashcode of the response body with the original response.</p>
+ </td>
+	</tr>
+	
+	<tr>
+		<th scope="row">Request</th>
+		<td><details open="open">
+				<summary>Request line and header section (287 bytes)</summary>
+				
+				<pre><code>POST http://127.0.0.1:5001/register HTTP/1.1
+host: 127.0.0.1:5001
+user-agent: Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1)
+pragma: no-cache
+cache-control: no-cache
+content-type: application/x-www-form-urlencoded
+referer: http://127.0.0.1:5001/register
+content-length: 88
+
+</code></pre>
+				
+				
+			</details> <details class="request-body" open="open">
+				<summary>Request body (88 bytes)</summary>
+				
+				<pre><code>full_name=ZAP&amp;username=ZAP&amp;email=zaproxy%40example.com&amp;password=ZAP&amp;confirm_password=ZAP</code></pre>
+				
+				
+			</details></td>
+	</tr>
+	<tr>
+		<th scope="row">Response</th>
+		<td><details open="open">
+				<summary>Status line and header section (190 bytes)</summary>
+				
+				<pre><code>HTTP/1.1 200 OK
+Server: Werkzeug/3.1.4 Python/3.12.12
+Date: Tue, 02 Dec 2025 20:15:45 GMT
+Content-Type: text/html; charset=utf-8
+Content-Length: 2475
+Vary: Cookie
+Connection: close
+
+</code></pre>
+				
+				
+			</details> <details class="response-body">
+				<summary>Response body (2475 bytes)</summary>
+				
+				<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;!-- SECURITY GAP: Missing security headers (CSP, X-Frame-Options, etc.) --&gt;
+    &lt;title&gt;Register - Golf Score Tracker&lt;/title&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;/static/style.css&quot;&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;nav class=&quot;navbar&quot;&gt;
+        &lt;div class=&quot;container&quot;&gt;
+            &lt;a href=&quot;/&quot; class=&quot;brand&quot;&gt;⛳ Golf Score Tracker&lt;/a&gt;
+            &lt;div class=&quot;nav-links&quot;&gt;
+                
+                    &lt;a href=&quot;/login&quot;&gt;Login&lt;/a&gt;
+                    &lt;a href=&quot;/register&quot;&gt;Register&lt;/a&gt;
+                
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/nav&gt;
+
+    &lt;div class=&quot;container main-content&quot;&gt;
+        
+            
+        
+
+        
+&lt;div class=&quot;auth-container&quot;&gt;
+    &lt;div class=&quot;auth-box&quot;&gt;
+        &lt;h2&gt;Register&lt;/h2&gt;
+        &lt;p class=&quot;subtitle&quot;&gt;Create your golfer account&lt;/p&gt;
+
+        &lt;!-- SECURITY GAP: No CSRF protection --&gt;
+        &lt;form method=&quot;POST&quot; action=&quot;/register&quot;&gt;
+            &lt;div class=&quot;form-group&quot;&gt;
+                &lt;label for=&quot;full_name&quot;&gt;Full Name&lt;/label&gt;
+                &lt;input type=&quot;text&quot; id=&quot;full_name&quot; name=&quot;full_name&quot; required autofocus&gt;
+            &lt;/div&gt;
+
+            &lt;div class=&quot;form-group&quot;&gt;
+                &lt;label for=&quot;username&quot;&gt;Username&lt;/label&gt;
+                &lt;input type=&quot;text&quot; id=&quot;username&quot; name=&quot;username&quot; required&gt;
+            &lt;/div&gt;
+
+            &lt;div class=&quot;form-group&quot;&gt;
+                &lt;label for=&quot;email&quot;&gt;Email&lt;/label&gt;
+                &lt;!-- SECURITY GAP: Weak email validation --&gt;
+                &lt;input type=&quot;email&quot; id=&quot;email&quot; name=&quot;email&quot; required&gt;
+            &lt;/div&gt;
+
+            &lt;div class=&quot;form-group&quot;&gt;
+                &lt;label for=&quot;password&quot;&gt;Password&lt;/label&gt;
+                &lt;input type=&quot;password&quot; id=&quot;password&quot; name=&quot;password&quot; required&gt;
+            &lt;/div&gt;
+
+            &lt;div class=&quot;form-group&quot;&gt;
+                &lt;label for=&quot;confirm_password&quot;&gt;Confirm Password&lt;/label&gt;
+                &lt;input type=&quot;password&quot; id=&quot;confirm_password&quot; name=&quot;confirm_password&quot; required&gt;
+            &lt;/div&gt;
+
+            &lt;button type=&quot;submit&quot; class=&quot;btn btn-primary&quot;&gt;Register&lt;/button&gt;
+        &lt;/form&gt;
+
+        &lt;div class=&quot;auth-links&quot;&gt;
+            &lt;p&gt;Already have an account? &lt;a href=&quot;/login&quot;&gt;Login here&lt;/a&gt;&lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+    &lt;/div&gt;
+
+    &lt;footer&gt;
+        &lt;div class=&quot;container&quot;&gt;
+            &lt;p&gt;&amp;copy; 2025 Golf Score Tracker | CSE763 Project | For Educational Purposes Only&lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/footer&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+				
+				
+			</details></td>
+	</tr>
+	<tr>
+		<th scope="row">Parameter</th>
+		<td><pre><code>Header User-Agent</code></pre></td>
+	</tr>
+	<tr>
+		<th scope="row">Attack</th>
+		<td><pre><code>Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1)</code></pre></td>
+	</tr>
+	
+	
+</table>
+
+											</details></li>
+									</ol>
+								</li>
+								
+							</ol>
+						</li>
+						
+					</ol>
+				</li>
+				
+				
+				  
+			</ol>
+		</section>
+
+		<section id="appendix" class="appendix">
+			<h2>Appendix</h2>
+
+			<section id="alert-types" class="alert-types">
+				<h3>Alert Types</h3>
+				<p class="alert-types-intro">This section contains additional information on the types of alerts in the report.</p>
+				<ol>
+					<li
+						id="alert-type-0">
+						<h4>SQL Injection</h4>
+						<table class="alert-types-table">
+							<tr>
+								<th scope="row">Source</th>
+								<td>
+									
+									   <span>raised by an active scanner</span> <span>(<a
+										href="https://www.zaproxy.org/docs/alerts/40018/">SQL Injection</a>)
+									</span>   
+								</td>
+							</tr>
+							<tr>
+								<th scope="row">CWE ID</th>
+								<td><a
+									href="https://cwe.mitre.org/data/definitions/89.html">89</a></td>
+							</tr>
+							<tr>
+								<th scope="row">WASC ID</th>
+								<td>19</td>
+							</tr>
+							<tr>
+								<th scope="row">Reference</th>
+								<td>
+									<ol>
+										<li><a
+											href="https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html">https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html</a></li>
+									</ol>
+								</td>
+							</tr>
+						</table>
+					</li>
+					<li
+						id="alert-type-1">
+						<h4>SQL Injection - Authentication Bypass</h4>
+						<table class="alert-types-table">
+							<tr>
+								<th scope="row">Source</th>
+								<td>
+									
+									   <span>raised by an active scanner</span> <span>(<a
+										href="https://www.zaproxy.org/docs/alerts/40018/">SQL Injection</a>)
+									</span>   
+								</td>
+							</tr>
+							<tr>
+								<th scope="row">CWE ID</th>
+								<td><a
+									href="https://cwe.mitre.org/data/definitions/89.html">89</a></td>
+							</tr>
+							<tr>
+								<th scope="row">WASC ID</th>
+								<td>19</td>
+							</tr>
+							<tr>
+								<th scope="row">Reference</th>
+								<td>
+									<ol>
+										<li><a
+											href="https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html">https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html</a></li>
+									</ol>
+								</td>
+							</tr>
+						</table>
+					</li>
+					<li
+						id="alert-type-2">
+						<h4>Absence of Anti-CSRF Tokens</h4>
+						<table class="alert-types-table">
+							<tr>
+								<th scope="row">Source</th>
+								<td>
+									
+									   <span>raised by a passive scanner</span> <span>(<a
+										href="https://www.zaproxy.org/docs/alerts/10202/">Absence of Anti-CSRF Tokens</a>)
+									</span>   
+								</td>
+							</tr>
+							<tr>
+								<th scope="row">CWE ID</th>
+								<td><a
+									href="https://cwe.mitre.org/data/definitions/352.html">352</a></td>
+							</tr>
+							<tr>
+								<th scope="row">WASC ID</th>
+								<td>9</td>
+							</tr>
+							<tr>
+								<th scope="row">Reference</th>
+								<td>
+									<ol>
+										<li><a
+											href="https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html">https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html</a></li>
+										<li><a
+											href="https://cwe.mitre.org/data/definitions/352.html">https://cwe.mitre.org/data/definitions/352.html</a></li>
+									</ol>
+								</td>
+							</tr>
+						</table>
+					</li>
+					<li
+						id="alert-type-3">
+						<h4>Buffer Overflow</h4>
+						<table class="alert-types-table">
+							<tr>
+								<th scope="row">Source</th>
+								<td>
+									
+									   <span>raised by an active scanner</span> <span>(<a
+										href="https://www.zaproxy.org/docs/alerts/30001/">Buffer Overflow</a>)
+									</span>   
+								</td>
+							</tr>
+							<tr>
+								<th scope="row">CWE ID</th>
+								<td><a
+									href="https://cwe.mitre.org/data/definitions/120.html">120</a></td>
+							</tr>
+							<tr>
+								<th scope="row">WASC ID</th>
+								<td>7</td>
+							</tr>
+							<tr>
+								<th scope="row">Reference</th>
+								<td>
+									<ol>
+										<li><a
+											href="https://owasp.org/www-community/attacks/Buffer_overflow_attack">https://owasp.org/www-community/attacks/Buffer_overflow_attack</a></li>
+									</ol>
+								</td>
+							</tr>
+						</table>
+					</li>
+					<li
+						id="alert-type-4">
+						<h4>Content Security Policy (CSP) Header Not Set</h4>
+						<table class="alert-types-table">
+							<tr>
+								<th scope="row">Source</th>
+								<td>
+									
+									   <span>raised by a passive scanner</span> <span>(<a
+										href="https://www.zaproxy.org/docs/alerts/10038/">Content Security Policy (CSP) Header Not Set</a>)
+									</span>   
+								</td>
+							</tr>
+							<tr>
+								<th scope="row">CWE ID</th>
+								<td><a
+									href="https://cwe.mitre.org/data/definitions/693.html">693</a></td>
+							</tr>
+							<tr>
+								<th scope="row">WASC ID</th>
+								<td>15</td>
+							</tr>
+							<tr>
+								<th scope="row">Reference</th>
+								<td>
+									<ol>
+										<li><a
+											href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CSP">https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CSP</a></li>
+										<li><a
+											href="https://cheatsheetseries.owasp.org/cheatsheets/Content_Security_Policy_Cheat_Sheet.html">https://cheatsheetseries.owasp.org/cheatsheets/Content_Security_Policy_Cheat_Sheet.html</a></li>
+										<li><a
+											href="https://www.w3.org/TR/CSP/">https://www.w3.org/TR/CSP/</a></li>
+										<li><a
+											href="https://w3c.github.io/webappsec-csp/">https://w3c.github.io/webappsec-csp/</a></li>
+										<li><a
+											href="https://web.dev/articles/csp">https://web.dev/articles/csp</a></li>
+										<li><a
+											href="https://caniuse.com/#feat=contentsecuritypolicy">https://caniuse.com/#feat=contentsecuritypolicy</a></li>
+										<li><a
+											href="https://content-security-policy.com/">https://content-security-policy.com/</a></li>
+									</ol>
+								</td>
+							</tr>
+						</table>
+					</li>
+					<li
+						id="alert-type-5">
+						<h4>Missing Anti-clickjacking Header</h4>
+						<table class="alert-types-table">
+							<tr>
+								<th scope="row">Source</th>
+								<td>
+									
+									   <span>raised by a passive scanner</span> <span>(<a
+										href="https://www.zaproxy.org/docs/alerts/10020/">Anti-clickjacking Header</a>)
+									</span>   
+								</td>
+							</tr>
+							<tr>
+								<th scope="row">CWE ID</th>
+								<td><a
+									href="https://cwe.mitre.org/data/definitions/1021.html">1021</a></td>
+							</tr>
+							<tr>
+								<th scope="row">WASC ID</th>
+								<td>15</td>
+							</tr>
+							<tr>
+								<th scope="row">Reference</th>
+								<td>
+									<ol>
+										<li><a
+											href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/X-Frame-Options">https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/X-Frame-Options</a></li>
+									</ol>
+								</td>
+							</tr>
+						</table>
+					</li>
+					<li
+						id="alert-type-6">
+						<h4>Server Leaks Version Information via &quot;Server&quot; HTTP Response Header Field</h4>
+						<table class="alert-types-table">
+							<tr>
+								<th scope="row">Source</th>
+								<td>
+									
+									   <span>raised by a passive scanner</span> <span>(<a
+										href="https://www.zaproxy.org/docs/alerts/10036/">HTTP Server Response Header</a>)
+									</span>   
+								</td>
+							</tr>
+							<tr>
+								<th scope="row">CWE ID</th>
+								<td><a
+									href="https://cwe.mitre.org/data/definitions/497.html">497</a></td>
+							</tr>
+							<tr>
+								<th scope="row">WASC ID</th>
+								<td>13</td>
+							</tr>
+							<tr>
+								<th scope="row">Reference</th>
+								<td>
+									<ol>
+										<li><a
+											href="https://httpd.apache.org/docs/current/mod/core.html#servertokens">https://httpd.apache.org/docs/current/mod/core.html#servertokens</a></li>
+										<li><a
+											href="https://learn.microsoft.com/en-us/previous-versions/msp-n-p/ff648552(v=pandp.10)">https://learn.microsoft.com/en-us/previous-versions/msp-n-p/ff648552(v=pandp.10)</a></li>
+										<li><a
+											href="https://www.troyhunt.com/shhh-dont-let-your-response-headers/">https://www.troyhunt.com/shhh-dont-let-your-response-headers/</a></li>
+									</ol>
+								</td>
+							</tr>
+						</table>
+					</li>
+					<li
+						id="alert-type-7">
+						<h4>X-Content-Type-Options Header Missing</h4>
+						<table class="alert-types-table">
+							<tr>
+								<th scope="row">Source</th>
+								<td>
+									
+									   <span>raised by a passive scanner</span> <span>(<a
+										href="https://www.zaproxy.org/docs/alerts/10021/">X-Content-Type-Options Header Missing</a>)
+									</span>   
+								</td>
+							</tr>
+							<tr>
+								<th scope="row">CWE ID</th>
+								<td><a
+									href="https://cwe.mitre.org/data/definitions/693.html">693</a></td>
+							</tr>
+							<tr>
+								<th scope="row">WASC ID</th>
+								<td>15</td>
+							</tr>
+							<tr>
+								<th scope="row">Reference</th>
+								<td>
+									<ol>
+										<li><a
+											href="https://learn.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/compatibility/gg622941(v=vs.85)">https://learn.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/compatibility/gg622941(v=vs.85)</a></li>
+										<li><a
+											href="https://owasp.org/www-community/Security_Headers">https://owasp.org/www-community/Security_Headers</a></li>
+									</ol>
+								</td>
+							</tr>
+						</table>
+					</li>
+					<li
+						id="alert-type-8">
+						<h4>Authentication Request Identified</h4>
+						<table class="alert-types-table">
+							<tr>
+								<th scope="row">Source</th>
+								<td>
+									
+									   <span>raised by a passive scanner</span> <span>(<a
+										href="https://www.zaproxy.org/docs/alerts/10111/">Authentication Request Identified</a>)
+									</span>   
+								</td>
+							</tr>
+							
+							
+							<tr>
+								<th scope="row">Reference</th>
+								<td>
+									<ol>
+										<li><a
+											href="https://www.zaproxy.org/docs/desktop/addons/authentication-helper/auth-req-id/">https://www.zaproxy.org/docs/desktop/addons/authentication-helper/auth-req-id/</a></li>
+									</ol>
+								</td>
+							</tr>
+						</table>
+					</li>
+					<li
+						id="alert-type-9">
+						<h4>GET for POST</h4>
+						<table class="alert-types-table">
+							<tr>
+								<th scope="row">Source</th>
+								<td>
+									
+									   <span>raised by an active scanner</span> <span>(<a
+										href="https://www.zaproxy.org/docs/alerts/10058/">GET for POST</a>)
+									</span>   
+								</td>
+							</tr>
+							<tr>
+								<th scope="row">CWE ID</th>
+								<td><a
+									href="https://cwe.mitre.org/data/definitions/16.html">16</a></td>
+							</tr>
+							<tr>
+								<th scope="row">WASC ID</th>
+								<td>20</td>
+							</tr>
+							
+						</table>
+					</li>
+					<li
+						id="alert-type-10">
+						<h4>Session Management Response Identified</h4>
+						<table class="alert-types-table">
+							<tr>
+								<th scope="row">Source</th>
+								<td>
+									
+									   <span>raised by a passive scanner</span> <span>(<a
+										href="https://www.zaproxy.org/docs/alerts/10112/">Session Management Response Identified</a>)
+									</span>   
+								</td>
+							</tr>
+							
+							
+							<tr>
+								<th scope="row">Reference</th>
+								<td>
+									<ol>
+										<li><a
+											href="https://www.zaproxy.org/docs/desktop/addons/authentication-helper/session-mgmt-id/">https://www.zaproxy.org/docs/desktop/addons/authentication-helper/session-mgmt-id/</a></li>
+									</ol>
+								</td>
+							</tr>
+						</table>
+					</li>
+					<li
+						id="alert-type-11">
+						<h4>User Agent Fuzzer</h4>
+						<table class="alert-types-table">
+							<tr>
+								<th scope="row">Source</th>
+								<td>
+									
+									   <span>raised by an active scanner</span> <span>(<a
+										href="https://www.zaproxy.org/docs/alerts/10104/">User Agent Fuzzer</a>)
+									</span>   
+								</td>
+							</tr>
+							
+							
+							<tr>
+								<th scope="row">Reference</th>
+								<td>
+									<ol>
+										<li><a
+											href="https://owasp.org/wstg">https://owasp.org/wstg</a></li>
+									</ol>
+								</td>
+							</tr>
+						</table>
+					</li>
+				</ol>
+			</section>
+		</section>
+		 
+	</main>
+</body>
+</html>
+
+
+

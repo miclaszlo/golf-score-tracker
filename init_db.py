@@ -143,13 +143,13 @@ def init_database():
         for i in range(1, 19):
             if i in [3, 7, 12, 15, 17]:  # Par 3s
                 par = 3
-                yardage = random.randint(150, 220)
+                yardage = random.randint(150, 220)  # nosec B311 - test data generation
             elif i in [2, 9, 14]:  # Par 5s
                 par = 5
-                yardage = random.randint(480, 550)
+                yardage = random.randint(480, 550)  # nosec B311 - test data generation
             else:  # Par 4s
                 par = 4
-                yardage = random.randint(340, 430)
+                yardage = random.randint(340, 430)  # nosec B311 - test data generation
 
             hole = Hole(
                 course_id=muni_course.id,
@@ -170,11 +170,11 @@ def init_database():
 
         for golfer in golfers:
             # Create 8-12 rounds for each golfer
-            num_rounds = random.randint(8, 12)
+            num_rounds = random.randint(8, 12)  # nosec B311 - test data generation
 
             for i in range(num_rounds):
-                course = random.choice(courses)
-                days_ago = random.randint(1, 180)
+                course = random.choice(courses)  # nosec B311 - test data generation
+                days_ago = random.randint(1, 180)  # nosec B311 - test data generation
                 date_played = (datetime.utcnow() - timedelta(days=days_ago)).date()
 
                 # Generate realistic scores
@@ -192,7 +192,7 @@ def init_database():
                 # Add hole scores
                 for hole in course.holes:
                     # Generate score relative to par (more realistic distribution)
-                    rand = random.random()
+                    rand = random.random()  # nosec B311 - test data generation
                     if rand < 0.05:  # 5% eagle
                         strokes = hole.par - 2
                     elif rand < 0.20:  # 15% birdie

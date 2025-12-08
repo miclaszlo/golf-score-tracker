@@ -1,0 +1,43 @@
+
+ ▐▛███▜▌   Claude Code v2.0.56
+▝▜█████▛▘  Opus 4.5 · Claude Max
+  ▘▘ ▝▝    ~/Desktop/BU Academics/CSE763/golf-score-tracker
+
+> Hide the server version header by adding a line to the existing 
+@app.after_request security headers handler that sets
+response.headers['Server'] to 'Golf-Tracker' instead of exposing
+Werkzeug/Python versions.
+  ⎿  ⧉ Selected 1 lines from Assignment-4-Report-WIP.md in Visual Studio Code
+
+⏺ I'll find the existing @app.after_request handler in app.py and add the
+  server header.
+
+⏺ Search(pattern: "@app.after_request", path: "app.py", output_mode: "content")
+  ⎿  Found 21 lines (ctrl+o to expand)
+
+⏺ Found it. I'll add the Server header to hide the Werkzeug/Python version
+  information.
+
+⏺ Update(app.py)
+  ⎿  File must be read first
+
+⏺ Read(app.py)
+  ⎿  Read 25 lines
+
+⏺ Update(app.py)
+  ⎿  Updated app.py with 1 addition                                    
+       69        response.headers['X-Content-Type-Options'] = 'nosniff'
+       70        response.headers['X-XSS-Protection'] = '1; mode=block'
+       71        response.headers['Referrer-Policy'] = 
+            'strict-origin-when-cross-origin'
+       72 +      response.headers['Server'] = 'Golf-Tracker'
+       73        return response
+       74    
+       75    
+
+⏺ Done. Added response.headers['Server'] = 'Golf-Tracker' at app.py:72. This
+   replaces the default Werkzeug/x.x.x Python/x.x.x server header with a
+  generic identifier, preventing server version disclosure.
+
+
+

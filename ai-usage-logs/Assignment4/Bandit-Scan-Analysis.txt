@@ -1,0 +1,103 @@
+
+ ▐▛███▜▌   Claude Code v2.0.56
+▝▜█████▛▘  Opus 4.5 · Claude Max
+  ▘▘ ▝▝    ~/Desktop/BU Academics/CSE763/golf-score-tracker
+
+> Analyze the Bandit scan results in bandit_report.json and summarize the 
+security issues found, including severity, location, and recommended fixes
+  ⎿  ⧉ Selected 2 lines from Assignment-4-Report-WIP.md in Visual Studio Code
+
+⏺ Read(bandit_report.json)
+  ⎿  Read 279 lines
+
+⏺ Bandit Scan Results Summary
+
+  Scan Date: 2025-12-02T17:39:15Z
+  Total Issues: 9 findings (1 MEDIUM severity, 8 LOW severity)
+  Files Scanned: 6 files (822 LOC)
+
+  ---
+  MEDIUM Severity Issues (1)
+
+  | ID   | Location     | Issue                               | CWE
+                                      |
+  |------|--------------|-------------------------------------|-------------
+  ------------------------------------|
+  | B104 | config.py:24 | Binding to all interfaces (0.0.0.0) |
+  https://cwe.mitre.org/data/definitions/605.html |
+
+  Details: The application binds to HOST = '0.0.0.0' which exposes the
+  service on all network interfaces, potentially allowing unauthorized
+  access from external networks.
+
+  Recommended Fix: Bind to 127.0.0.1 for local development, or use
+  environment variables to configure the host in production with proper
+  firewall rules.
+
+  ---
+  LOW Severity Issues (8)
+
+  1. Hardcoded Secret Key (B105)
+
+  | Location    | Issue                | CWE
+               |
+  |-------------|----------------------|------------------------------------
+  -------------|
+  | config.py:9 | Hardcoded secret key |
+  https://cwe.mitre.org/data/definitions/259.html |
+
+  Code:
+  SECRET_KEY = 'golf-dev-secret-key-change-in-production'
+
+  Recommended Fix: Use environment variables:
+  SECRET_KEY = os.environ.get('SECRET_KEY') or secrets.token_hex(32)
+
+  ---
+  2. Insecure Random Number Generation (B311) - 7 instances
+
+  | Location       | Usage                                     | CWE
+                                       |
+  |----------------|-------------------------------------------|------------
+  -------------------------------------|
+  | init_db.py:146 | random.randint(150, 220) - hole yardage   |
+  https://cwe.mitre.org/data/definitions/330.html |
+  | init_db.py:149 | random.randint(480, 550) - hole yardage   | CWE-330
+                                       |
+  | init_db.py:152 | random.randint(340, 430) - hole yardage   | CWE-330
+                                       |
+  | init_db.py:173 | random.randint(8, 12) - number of rounds  | CWE-330
+                                       |
+  | init_db.py:176 | random.choice(courses) - course selection | CWE-330
+                                       |
+  | init_db.py:177 | random.randint(1, 180) - days ago         | CWE-330
+                                       |
+  | init_db.py:195 | random.random() - score distribution      | CWE-330
+                                       |
+
+  Assessment: These are false positives for this context. The init_db.py
+  file generates test/seed data, not cryptographic material. Using random
+  module is acceptable here since these values don't require cryptographic
+  security.
+
+  Recommended Action: Add # nosec B311 comments to suppress these warnings,
+  or document that init_db.py is for development seeding only.
+
+  ---
+  Summary Table
+
+  | Severity | Count | Action Required                 |
+  |----------|-------|---------------------------------|
+  | HIGH     | 0     | -                               |
+  | MEDIUM   | 1     | Fix before production           |
+  | LOW      | 8     | 1 real issue, 7 false positives |
+
+  Priority Fixes
+
+  1. Hardcoded Secret Key (config.py:9) - Use environment variables
+  2. Bind All Interfaces (config.py:24) - Restrict to localhost or configure
+   via env var
+  3. Random Module Warnings (init_db.py) - Suppress with # nosec comments
+  (acceptable for test data)
+
+
+

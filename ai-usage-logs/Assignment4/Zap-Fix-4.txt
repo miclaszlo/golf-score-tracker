@@ -1,0 +1,73 @@
+
+ ▐▛███▜▌   Claude Code v2.0.56
+▝▜█████▛▘  Opus 4.5 · Claude Max
+  ▘▘ ▝▝    ~/Desktop/BU Academics/CSE763/golf-score-tracker
+
+> Fix the IDOR vulnerability in the /api/handicap/<user_id> endpoint in 
+app.py (around line 385). Add an authorization check so users can only view
+their own handicap unless they are an admin. Log unauthorized access
+attempts using log_action.
+  ⎿  ⧉ Selected 1 lines from Assignment-4-Report-WIP.md in Visual Studio Code
+
+⏺ Read(app.py)
+  ⎿  Read 30 lines
+
+⏺ Let me search for the API endpoint:
+
+⏺ Search(pattern: "/api/handicap", path: "app.py", output_mode: "content")
+  ⎿  Found 1 line (ctrl+o to expand)
+
+⏺ Read(app.py)
+  ⎿  Read 30 lines
+
+⏺ Now I can see the vulnerability. Let me also check how get_current_user()
+  works to follow the existing pattern:
+
+⏺ Search(pattern: "def get_current_user", path: "~/Desktop/BU
+        Academics/CSE763/golf-score-tracker", output_mode: "content")
+  ⎿  Found 1 line (ctrl+o to expand)
+
+⏺ Read(auth.py)
+  ⎿  Read 40 lines
+
+⏺ Now I'll fix the IDOR vulnerability by adding the authorization check:
+
+⏺ Update(app.py)
+  ⎿  Updated app.py with 8 additions and 1 removal                      
+       430    @login_required
+       431    def api_get_handicap(user_id):
+       432        """API endpoint to get user handicap"""
+       433 -      # SECURITY GAP: No authorization check (any user can 
+           - get any user's handicap)
+       433        # SECURITY GAP: No rate limiting
+       434 +      current_user = get_current_user()
+       435    
+       436 +      # Authorization check: users can only view their own 
+           + handicap unless admin
+       437 +      if current_user.id != user_id and not 
+           + current_user.is_admin():
+       438 +          log_action('UNAUTHORIZED_HANDICAP_ACCESS',
+       439 +                     resource=f'user:{user_id}',
+       440 +                     details=f'User {current_user.id} 
+           + attempted to access handicap of user {user_id}')
+       441 +          return jsonify({'error': 'Unauthorized access'}), 
+           + 403
+       442 +  
+       443        handicap = calculate_handicap_index(user_id)
+       444        stats = get_user_statistics(user_id)
+       445    
+
+⏺ Fixed the IDOR vulnerability in /api/handicap/<user_id> at app.py:429-450.
+   The changes:
+
+  1. Added authorization check - Users can only access their own handicap
+  (current_user.id != user_id) unless they're an admin
+  (current_user.is_admin())
+  2. Logs unauthorized access attempts - Uses
+  log_action('UNAUTHORIZED_HANDICAP_ACCESS', ...) with details about who
+  tried to access whose data
+  3. Returns 403 Forbidden - Unauthorized attempts get a proper error
+  response instead of the data
+
+
+

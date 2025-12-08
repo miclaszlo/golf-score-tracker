@@ -2,11 +2,12 @@
 Configuration file for Golf Score Tracker Application
 """
 import os
+import secrets
 
 class Config:
     """Base configuration"""
-    # SECURITY GAP: Hardcoded secret key
-    SECRET_KEY = 'golf-dev-secret-key-change-in-production'
+    # Load SECRET_KEY from environment variable with secure fallback
+    SECRET_KEY = os.environ.get('SECRET_KEY') or secrets.token_hex(32)
 
     # Database configuration
     # Use absolute path for database to avoid path resolution issues
@@ -21,8 +22,10 @@ class Config:
 
     # Application settings
     DEBUG = True  # SECURITY GAP: Debug mode in production
-    HOST = '0.0.0.0'
-    PORT = 5001  # Changed from 5000 (commonly used by macOS AirPlay Receiver)
+    # Load HOST from environment variable with secure default (B104 fix)
+    # Use '127.0.0.1' for local development, set HOST=0.0.0.0 in production if needed
+    HOST = os.environ.get('HOST', '127.0.0.1')
+    PORT = int(os.environ.get('PORT', 5001))  # Changed from 5000 (commonly used by macOS AirPlay Receiver)
 
     # Handicap calculation settings
     MIN_ROUNDS_FOR_HANDICAP = 5
@@ -36,7 +39,7 @@ class DevelopmentConfig(Config):
 class ProductionConfig(Config):
     """Production configuration"""
     DEBUG = False
-    SECRET_KEY = os.environ.get('SECRET_KEY', 'change-this-in-production')
+    # Inherits secure SECRET_KEY from Config base class
     SESSION_COOKIE_SECURE = True
 
 # Default configuration

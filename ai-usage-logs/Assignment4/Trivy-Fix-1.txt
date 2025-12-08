@@ -1,0 +1,33 @@
+
+ ▐▛███▜▌   Claude Code v2.0.56
+▝▜█████▛▘  Opus 4.5 · Claude Max
+  ▘▘ ▝▝    ~/Desktop/BU Academics/CSE763/golf-score-tracker
+
+> Update gunicorn in requirements.txt from version 21.2.0 to 22.0.0 to fix 
+CVE-2024-1135 and CVE-2024-6827 (HTTP Request Smuggling)
+  ⎿  ⧉ Selected 2 lines from Assignment-4-Report-WIP.md in Visual Studio Code
+
+⏺ Read(requirements.txt)
+  ⎿  Read 19 lines
+
+⏺ Update(requirements.txt)
+  ⎿  Updated requirements.txt with 1 addition and 1 removal          
+        8    SQLAlchemy==2.0.20
+        9    
+       10    # WSGI server for production
+       11 -  gunicorn==21.2.0
+       11 +  gunicorn==22.0.0
+       12    
+       13    # Security (to be enhanced in Assignment 3)
+       14    # bcrypt==4.0.1  # Uncomment when implementing password 
+            improvements
+
+⏺ Updated gunicorn from 21.2.0 to 22.0.0 in requirements.txt:11. This fixes:
+  - CVE-2024-1135 - HTTP Request Smuggling
+  - CVE-2024-6827 - HTTP Request Smuggling
+
+  If you're using Docker, remember to rebuild:
+  docker-compose down && docker-compose up --build
+
+
+

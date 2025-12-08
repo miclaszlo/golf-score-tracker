@@ -1,0 +1,50 @@
+
+ ▐▛███▜▌   Claude Code v2.0.56
+▝▜█████▛▘  Opus 4.5 · Claude Max
+  ▘▘ ▝▝    ~/Desktop/BU Academics/CSE763/golf-score-tracker
+
+> Fix the network binding issue (B104) in config.py by changing HOST from 
+'0.0.0.0' to '127.0.0.1' for local development, or load from environment
+variable for production deployments
+  ⎿  ⧉ Selected 3 lines from Assignment-4-Report-WIP.md in Visual Studio Code
+
+⏺ Read(config.py)
+  ⎿  Read 45 lines
+
+⏺ I'll fix the B104 network binding issue by changing the HOST to load from
+  an environment variable with a secure default of 127.0.0.1.
+
+⏺ Update(config.py)
+  ⎿  Updated config.py with 4 additions and 2 removals                   
+       22    
+       23        # Application settings
+       24        DEBUG = True  # SECURITY GAP: Debug mode in production
+       25 -      HOST = '0.0.0.0'
+       26 -      PORT = 5001  # Changed from 5000 (commonly used by macOS
+          -  AirPlay Receiver)
+       25 +      # Load HOST from environment variable with secure 
+          + default (B104 fix)
+       26 +      # Use '127.0.0.1' for local development, set 
+          + HOST=0.0.0.0 in production if needed
+       27 +      HOST = os.environ.get('HOST', '127.0.0.1')
+       28 +      PORT = int(os.environ.get('PORT', 5001))  # Changed from
+          +  5000 (commonly used by macOS AirPlay Receiver)
+       29    
+       30        # Handicap calculation settings
+       31        MIN_ROUNDS_FOR_HANDICAP = 5
+
+⏺ Fixed the B104 network binding issue in config.py:25-28. Changes made:
+
+  1. HOST: Changed from hardcoded '0.0.0.0' to os.environ.get('HOST', 
+  '127.0.0.1')
+    - Defaults to 127.0.0.1 (localhost only) for secure local development
+    - Can be overridden via HOST environment variable for production/Docker
+  deployments
+  2. PORT: Also made configurable via environment variable for consistency
+
+  For Docker/production use, you can set HOST=0.0.0.0 in your environment or
+   docker-compose.yml when you need the app to be accessible from outside
+  the container.
+
+
+

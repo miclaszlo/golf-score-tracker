@@ -17,29 +17,27 @@ This application allows golfers to track their rounds, calculate handicaps, view
 - Score history and trends
 - SQLite database for data persistence
 
-## Security Features (Initial - Intentionally Weak)
+## Security Features
 
-- Basic password hashing (SHA256 - weak)
+**Implemented:**
+- CSRF protection (Flask-WTF)
+- Security headers (CSP, X-Frame-Options, X-Content-Type-Options)
 - Session-based authentication
 - Role-based authorization
-- User data isolation
+- Authorization checks on API endpoints
+- Input validation with safe type conversion
 
-## Known Security Gaps (For Course Assignments)
+**Intentionally Weak (for course assignments):**
+- Password hashing uses SHA256 (should use bcrypt)
 
-This application intentionally has security vulnerabilities that will be addressed throughout the course:
+## Remaining Security Gaps (For Future Assignments)
 
 1. **Weak password hashing** - Uses SHA256 instead of bcrypt/scrypt
-2. **No input validation** - Vulnerable to injection attacks
-3. **Missing CSRF protection** - Forms not protected against CSRF
-4. **No rate limiting** - Vulnerable to brute force attacks
-5. **Sensitive data exposure** - Scores and handicaps visible without proper authorization
-6. **SQL injection vulnerabilities** - Some queries not properly parameterized
-7. **Session management issues** - No timeout, session fixation vulnerability
-8. **No security headers** - Missing CSP, HSTS, X-Frame-Options
-9. **IDOR vulnerabilities** - Direct object reference without proper checks
-10. **Information disclosure** - Error messages reveal system information
-11. **No audit logging** - Limited tracking of security events
-12. **Score manipulation** - No integrity checks on submitted scores
+2. **No rate limiting** - Vulnerable to brute force attacks
+3. **Sensitive data exposure** - All users can view all scores
+4. **Session management issues** - Session fixation, long timeout
+5. **Limited audit logging** - Basic tracking only
+6. **Score manipulation** - No cryptographic integrity checks
 
 ## Tech Stack
 
@@ -114,27 +112,16 @@ golf-score-tracker/
 ├── auth.py             # Authentication logic
 ├── config.py           # Configuration settings
 ├── handicap.py         # Handicap calculation logic
-├── init_db.py          # Database initialization script
+├── init_db.py          # Database initialization
 ├── requirements.txt    # Python dependencies
-├── Dockerfile          # Docker configuration
-├── docker-compose.yml  # Docker Compose configuration
-├── .gitignore
-├── README.md
+├── Dockerfile
+├── docker-compose.yml
+├── CLAUDE.md           # Claude Code project context
 ├── templates/          # HTML templates
-│   ├── base.html
-│   ├── login.html
-│   ├── register.html
-│   ├── dashboard.html
-│   ├── courses.html
-│   ├── add_course.html
-│   ├── round_entry.html
-│   ├── scores.html
-│   ├── leaderboard.html
-│   └── admin.html
-├── static/            # Static files
-│   └── style.css
-└── instance/          # SQLite database (gitignored)
-    └── golf.db
+├── static/             # CSS files
+├── screenshots/        # Documentation screenshots
+├── .github/workflows/  # CI/CD pipelines
+└── instance/           # SQLite database (gitignored)
 ```
 
 ## Key Functionalities
@@ -180,51 +167,14 @@ The system calculates handicap index using a simplified version of the USGA Hand
 - Calculates differential: (Score - Course Rating) * 113 / Slope Rating
 - Handicap Index = Average of best differentials * 0.96
 
-## Course Assignment Plan
+## Course Assignments
 
-### Assignment 1: DevSecOps Pipeline Setup
-- Set up GitHub repository
-- Configure GitHub Actions for SAST (Bandit, SonarQube)
-- Add dependency scanning (Safety, Snyk)
-- Document existing functionalities and security features
-- Integrate security scanning tools
-
-### Assignment 2: Security Requirements and Threat Modeling
-- Create abuse cases (score manipulation, unauthorized access, data theft)
-- Build attack trees
-- Perform STRIDE threat modeling
-- Create Data Flow Diagrams (DFD)
-- Identify attack vectors (score tampering, session hijacking)
-
-### Assignment 3: Implementing Crypto APIs
-- Implement bcrypt for password hashing
-- Add encryption for sensitive data (handicap calculations, personal info)
-- Implement secure session management
-- Add HMAC for score integrity verification
-- Implement secure password reset tokens
-- Digital signatures for score submission
-
-### Assignment 4: DAST Testing
-- Run OWASP ZAP scans
-- Fix identified vulnerabilities
-- Add security headers
-- Implement input validation
-- Add CSRF protection
-- Rate limiting
-
-## Potential Security Improvements
-
-Throughout the course, you will implement:
-- Strong password policies
-- Multi-factor authentication
-- Score integrity checks (digital signatures)
-- Audit logging for all score submissions
-- Input validation and sanitization
-- CSRF tokens
-- Rate limiting on login attempts
-- Secure session management
-- Security headers (CSP, HSTS, etc.)
-- Encrypted storage of sensitive data
+| Assignment | Focus | Status |
+|------------|-------|--------|
+| 1 | DevSecOps Pipeline (SAST, dependency scanning) | Complete |
+| 2 | Threat Modeling (STRIDE, DFDs, attack trees) | Complete |
+| 3 | Crypto APIs (bcrypt, encryption, HMAC) | Complete (assignment3 branch) |
+| 4 | DAST Testing (ZAP scans, vulnerability fixes) | Complete |
 
 ## License
 

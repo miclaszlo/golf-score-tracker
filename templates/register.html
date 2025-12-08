@@ -8,8 +8,8 @@
         <h2>Register</h2>
         <p class="subtitle">Create your golfer account</p>
 
-        <!-- SECURITY GAP: No CSRF protection -->
         <form method="POST" action="{{ url_for('register') }}">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
             <div class="form-group">
                 <label for="full_name">Full Name</label>
                 <input type="text" id="full_name" name="full_name" required autofocus>

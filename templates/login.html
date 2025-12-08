@@ -8,8 +8,8 @@
         <h2>Login</h2>
         <p class="subtitle">Track your golf scores and handicap</p>
 
-        <!-- SECURITY GAP: No CSRF protection -->
         <form method="POST" action="{{ url_for('login') }}">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
             <div class="form-group">
                 <label for="username">Username</label>
                 <input type="text" id="username" name="username" required autofocus>

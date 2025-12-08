@@ -6,8 +6,8 @@
 <div class="add-course-page">
     <h1>Add New Golf Course</h1>
 
-    <!-- SECURITY GAP: No CSRF protection -->
     <form method="POST" action="{{ url_for('add_course') }}" id="courseForm">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
         <div class="form-section">
             <h3>Course Information</h3>
 
